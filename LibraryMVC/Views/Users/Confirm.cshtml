@@ -1,0 +1,43 @@
+﻿@model LibraryMVC.Models.User
+@{
+    ViewBag.Title = "Confirm";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+    @using (Html.BeginForm())
+    {
+        <tr>
+            <th>
+                @Html.DisplayFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.Surname)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.UserName)
+            </th>
+            <th>
+                <input type="submit" value="confirm" name="confirm" class="btn btn-success"/>
+                <input type="submit" value="delete" name="confirm" class="btn btn-danger"/>
+            </th>
+        </tr>
+    }
+</table>

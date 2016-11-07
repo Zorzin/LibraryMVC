@@ -52,6 +52,7 @@ namespace LibraryMVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                book.AddDate = DateTime.Today;
                 db.Books.Add(book);
                 db.SaveChanges();
                 return RedirectToAction("Index");

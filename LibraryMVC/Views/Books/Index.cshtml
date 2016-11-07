@@ -5,10 +5,12 @@
 }
 
 <h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -64,11 +66,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.Contents)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BookID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BookID })
-        </td>
+        @if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.BookID}) |
+                @Html.ActionLink("Details", "Details", new {id = item.BookID}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.BookID})
+            </td>
+        }
     </tr>
 }
 

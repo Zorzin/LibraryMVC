@@ -14,6 +14,34 @@ namespace LibraryMVC.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult Confirm(string id)
+        {
+            var user = db.Users.FirstOrDefault(x => x.Id == id);
+            return View(user);
+        }
+        [HttpPost]
+        public ActionResult Confirm(User user, string confirm)
+        {
+            var dbuser = db.Users.FirstOrDefault(x => x.Id == user.Id);
+            if (confirm == "delete")
+            {
+                db.Users.Remove(dbuser);
+                db.SaveChanges();
+            }
+            else if(confirm == "confirm")
+            {
+                dbuser.EmailConfirmed = true;
+                db.SaveChanges();
+            }
+            return RedirectToAction("PendingRegistration");
+        }
+
+        public ActionResult PendingRegistration()
+        {
+            ICollection<User> users = db.Users.Where(x => x.EmailConfirmed == false).ToList();
+            return View(users);
+        }
+
         // GET: Users
         public ActionResult Index()
         {
