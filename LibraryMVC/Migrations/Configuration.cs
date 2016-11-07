@@ -32,6 +32,7 @@ namespace LibraryMVC.Migrations
             //
             SeedRoles(context);
             SeedAdmin(context);
+            SeedWorker(context);
         }
 
         private void SeedRoles(LibraryMVC.Models.ApplicationDbContext context)
@@ -39,12 +40,17 @@ namespace LibraryMVC.Migrations
             var roleStore = new RoleStore<IdentityRole>(context);
             var roleManager = new RoleManager<IdentityRole>(roleStore);
 
-            var role = roleManager.FindByName("Admin");
-            if (role == null)
+            var adminrole = roleManager.FindByName("Admin");
+            if (adminrole == null)
             {
-                role = new IdentityRole("Admin");
-                roleManager.Create(role);
-
+                adminrole = new IdentityRole("Admin");
+                roleManager.Create(adminrole);
+            }
+            var workerrole = roleManager.FindByName("Worker");
+            if (workerrole == null)
+            {
+                workerrole = new IdentityRole("Worker");
+                roleManager.Create(workerrole);
             }
         }
 
@@ -72,10 +78,34 @@ namespace LibraryMVC.Migrations
                 if (adminResult.Succeeded)
                 {
                     userManager.AddToRole(admin.Id, "Admin");
-
+                    userManager.AddToRole(admin.Id, "Worker");
                 }
             }
+        }
 
+        private void SeedWorker(LibraryMVC.Models.ApplicationDbContext context)
+        {
+            var userStore = new UserStore<User>(context);
+            var userManager = new UserManager<User>(userStore);
+
+            var workerUser = userManager.FindByName("worker");
+            if (workerUser == null)
+            {
+                var worker = new User()
+                {
+                    UserName = "worker",
+                    Name = "worker",
+                    Surname = "worker",
+                    Email = "worker@aa.aa",
+                    EmailConfirmed = true,
+                    PasswordHash = new PasswordHasher().HashPassword("worker")
+                };
+                var adminResult = userManager.Create(worker);
+                if (adminResult.Succeeded)
+                {
+                    userManager.AddToRole(worker.Id, "Worker");
+                }
+            }
         }
     }
 }
