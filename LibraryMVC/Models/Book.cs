@@ -11,7 +11,7 @@ namespace LibraryMVC.Models
         public int BookID { get; set; }
         public string Title { get; set; }
         public int ISBN { get; set; }
-        public DateTime Year { get; set; }
+        public int Year { get; set; }
         public int Amount { get; set; }
         public DateTime AddDate { get; set; }
         public string Description { get; set; }

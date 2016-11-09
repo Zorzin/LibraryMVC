@@ -15,13 +15,13 @@ namespace LibraryMVC.Models
             Writers = new List<Writer>();
             Labels = new List<Label>();
         }
-
+        public int BookID { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
         public int ISBN { get; set; }
         [Required]
-        public DateTime Year { get; set; }
+        public int Year { get; set; }
         [Required]
         public int Amount { get; set; }
         [Required]

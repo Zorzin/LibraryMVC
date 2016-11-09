@@ -227,6 +227,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\WorkerPanelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LabelsController.cs" />
@@ -236,13 +237,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611061620189_init.cs" />
-    <Compile Include="Migrations\201611061620189_init.Designer.cs">
-      <DependentUpon>201611061620189_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611081202511_Update book.cs" />
-    <Compile Include="Migrations\201611081202511_Update book.Designer.cs">
-      <DependentUpon>201611081202511_Update book.cs</DependentUpon>
+    <Compile Include="Migrations\201611081751586_create.cs" />
+    <Compile Include="Migrations\201611081751586_create.Designer.cs">
+      <DependentUpon>201611081751586_create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -254,6 +251,7 @@
     <Compile Include="Models\BookWriter.cs" />
     <Compile Include="Models\Borrow.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\MySelectList.cs" />
     <Compile Include="Models\User.cs" />
@@ -365,6 +363,11 @@
     <Content Include="Views\Books\Details.cshtml" />
     <Content Include="Views\Books\Edit.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -377,11 +380,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611061620189_init.resx">
-      <DependentUpon>201611061620189_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611081202511_Update book.resx">
-      <DependentUpon>201611081202511_Update book.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611081751586_create.resx">
+      <DependentUpon>201611081751586_create.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
