@@ -19,11 +19,12 @@ namespace LibraryMVC.Models
         public int CategoryID { get; set; }
 
         public virtual Category Category { get; set; }
-        public virtual ICollection<BookLabel> BookLabels { get; set; }
-        public virtual ICollection<BookWriter> BookWriters { get; set; }
+        public virtual ICollection<BookLabel> Labels { get; set; }
+        public virtual ICollection<BookWriter> Writers { get; set; }
         public virtual ICollection<File> Files { get; set; }
         public virtual ICollection<Basket> Baskets { get; set; }
         public virtual ICollection<Borrow> Borrows { get; set; }
         public virtual ICollection<SearchHistory> SearchHistories { get; set; }
     }
+    
 }
