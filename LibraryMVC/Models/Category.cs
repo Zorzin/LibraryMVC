@@ -11,6 +11,7 @@ namespace Library.Models
     {
         public int CategoryID { get; set; }
         public string Name { get; set; }
+        [Display(Name = "Over Category")]
         public int OverCategoryID { get; set; }
 
         public virtual ICollection<Book> Books { get; set; }
