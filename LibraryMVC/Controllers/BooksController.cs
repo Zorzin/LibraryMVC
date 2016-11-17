@@ -16,7 +16,7 @@ namespace LibraryMVC.Controllers
         // GET: Books
         public ActionResult Index()
         {
-            var books = db.Books.Include(b => b.Category);
+            var books = db.Books;
             return View(books.ToList());
         }
 

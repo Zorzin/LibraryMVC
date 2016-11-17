@@ -19,7 +19,6 @@ namespace LibraryMVC.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Borrow> Borrows { get; set; }
         public DbSet<Book> Books { get; set; }
-        public DbSet<Basket> Baskets { get; set; }
         public DbSet<BookLabel> BookLabels { get; set; }
         public DbSet<BookWriter> BookWriters { get; set; }
         public DbSet<SearchHistory> SearchHistories { get; set; }

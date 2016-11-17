@@ -4,7 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using Library.Models;
+using Label = Library.Models.Label;
 
 namespace LibraryMVC.Models
 {
@@ -17,16 +19,20 @@ namespace LibraryMVC.Models
         }
         public int BookID { get; set; }
         [Required]
+        [MinLength(1)]
         public string Title { get; set; }
         [Required]
+        [MaxLength(13)]
+        [MinLength(13)]
         public int ISBN { get; set; }
         [Required]
+        [Range(0,3000)]
         public int Year { get; set; }
         [Required]
+        [Range(0,Int32.MaxValue)]
         public int Amount { get; set; }
         [Required]
         public string Description { get; set; }
-        [Required]
         public string Contents { get; set; }
         [Required]
         public int CategoryID { get; set; }

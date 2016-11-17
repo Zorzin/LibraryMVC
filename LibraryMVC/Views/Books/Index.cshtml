@@ -17,22 +17,16 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ISBN)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Year)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Amount)
+            @Html.DisplayNameFor(model=>model.Labels)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AddDate)
+            @Html.DisplayNameFor(model => model.Category)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contents)
+            @Html.DisplayNameFor(model => model.Writers)
         </th>
         <th></th>
     </tr>
@@ -43,22 +37,32 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ISBN)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Year)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Amount)
+            @{
+                string labels="";
+                foreach (var itemLabel in item.Labels)
+                {
+                    labels += itemLabel.Label.Name + Environment.NewLine;
+                }
+                var labelssize = labels.Length;
+            }
+            <span style="white-space: pre-line"> @Html.Raw(labels)</span>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AddDate)
+            @Html.DisplayFor(modelItem => item.Category.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contents)
+            @{
+                string writers="";
+                foreach (var itemWriter in item.Writers)
+                {
+                    writers += itemWriter.Writer.Name.Substring(0,1) + ". "+ itemWriter.Writer.Surname + Environment.NewLine;
+                }
+                var writerssize = writers.Length;
+            }
+            <span style="white-space: pre-line">@Html.Raw(writers)</span>
         </td>
         @if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
         {

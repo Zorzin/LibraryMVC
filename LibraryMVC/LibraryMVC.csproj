@@ -241,10 +241,13 @@
     <Compile Include="Migrations\201611081751586_create.Designer.cs">
       <DependentUpon>201611081751586_create.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611151806293_Remove basket.cs" />
+    <Compile Include="Migrations\201611151806293_Remove basket.Designer.cs">
+      <DependentUpon>201611151806293_Remove basket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
-    <Compile Include="Models\Basket.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookLabel.cs" />
     <Compile Include="Models\BookViewModel.cs" />
@@ -254,6 +257,7 @@
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\MySelectList.cs" />
+    <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Label.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -382,6 +386,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611081751586_create.resx">
       <DependentUpon>201611081751586_create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611151806293_Remove basket.resx">
+      <DependentUpon>201611151806293_Remove basket.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
