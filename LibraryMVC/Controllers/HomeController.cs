@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LibraryMVC.Models;
 
 namespace LibraryMVC.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+            var books = db.Books.ToList().OrderByDescending(b => b.AddDate).Take(3);
+            books = books.OrderBy(b => b.AddDate);
+            return View(books);
         }
 
         public ActionResult About()

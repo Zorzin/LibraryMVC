@@ -24,7 +24,7 @@ namespace LibraryMVC.Models
         [Required]
         [MaxLength(13)]
         [MinLength(13)]
-        public int ISBN { get; set; }
+        public string ISBN { get; set; }
         [Required]
         [Range(0,3000)]
         public int Year { get; set; }

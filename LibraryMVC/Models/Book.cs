@@ -11,7 +11,7 @@ namespace LibraryMVC.Models
     {
         public int BookID { get; set; }
         public string Title { get; set; }
-        public int ISBN { get; set; }
+        public string ISBN { get; set; }
         public int Year { get; set; }
         public int Amount { get; set; }
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
