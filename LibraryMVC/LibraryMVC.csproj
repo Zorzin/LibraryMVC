@@ -262,6 +262,7 @@
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\MySelectList.cs" />
     <Compile Include="Models\Reservation.cs" />
+    <Compile Include="Models\SearchVieModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Label.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

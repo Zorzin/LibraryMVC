@@ -16,8 +16,88 @@ namespace LibraryMVC.Controllers
         // GET: Books
         public ActionResult Index()
         {
-            var books = db.Books;
-            return View(books.ToList());
+            SearchVieModel svm = new SearchVieModel();
+            var books = db.Books.ToList();
+            svm.Books = books;
+            ViewBag.Labels = new SelectList(db.Labels,"LabelID","Name");
+            ViewBag.Categories = new SelectList(db.Categories,"CategoryID","Name");
+            IEnumerable<SelectListItem> writers = from w in db.Writers
+                                                  select new SelectListItem
+                                                  {
+                                                      Value = w.WriterID.ToString(),
+                                                      Text = w.Name + " " + w.Surname
+                                                  };
+            ViewBag.Writers = new SelectList(writers, "Value", "Text");
+            return View(svm);
+        }
+
+        // Post: Books
+        [HttpPost]
+        public ActionResult Index(SearchVieModel svm)
+        {
+            ViewBag.Labels = new SelectList(db.Labels, "LabelID", "Name");
+            ViewBag.Categories = new SelectList(db.Categories, "CategoryID", "Name");
+            IEnumerable<SelectListItem> writers = from w in db.Writers
+                                                  select new SelectListItem
+                                                  {
+                                                      Value = w.WriterID.ToString(),
+                                                      Text = w.Name + " " + w.Surname
+                                                  };
+            ViewBag.Writers = new SelectList(writers, "Value", "Text");
+            IEnumerable<Book> books = db.Books.ToList();
+
+            if (!string.IsNullOrEmpty(svm.SelectedTitle))
+            {
+                books = books.Where(b => b.Title.Contains(svm.SelectedTitle)).ToList();
+            }
+            if (svm.SelectedCategory!=0)
+            {
+                books = books.Where(b => b.CategoryID == svm.SelectedCategory).ToList();
+            }
+            if (svm.SelectedLabels!=null)
+            {
+                ICollection<Book> selectedlabels = new List<Book>();
+                foreach (var searchlabel in svm.SelectedLabels)
+                {
+                    int labelitem = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel).LabelID;
+                    var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
+                    foreach (var correctbook in correctbooks)
+                    {
+                        if (!selectedlabels.Contains(correctbook))
+                        {
+                            selectedlabels.Add(correctbook);
+                        }
+                    }
+                }
+                books = books.Intersect(selectedlabels);
+            }
+            if (svm.SelectedWriters!=null)
+            {
+                ICollection<Book> selectedwriters = new List<Book>();
+                foreach (var searchwriter in svm.SelectedWriters)
+                {
+                    int writeritem = db.Writers.FirstOrDefault(w => w.WriterID == searchwriter).WriterID;
+                    var correctbooks = db.Books.Where(b => b.Writers.Any(bw => bw.WriterID == writeritem));
+                    foreach (var correctbook in correctbooks)
+                    {
+                        if (!selectedwriters.Contains(correctbook))
+                        {
+                            selectedwriters.Add(correctbook);
+                        }
+                    }
+                }
+                books = books.Intersect(selectedwriters);
+            }
+            if (!string.IsNullOrEmpty(svm.SelectedISBN))
+            {
+                books = books.Where(b => b.ISBN == svm.SelectedISBN).ToList();
+            }
+            if (svm.SelectedYear!=0)
+            {
+                books = books.Where(b => b.Year == svm.SelectedYear).ToList();
+            }
+            svm.Books = books;
+            return View(svm);
         }
 
         // GET: Books/Details/5
@@ -57,7 +137,7 @@ namespace LibraryMVC.Controllers
             {
                 Book book = new Book()
                 {
-                    AddDate = DateTime.Today,
+                    AddDate = DateTime.Now,
                     Amount = bvm.Amount,
                     CategoryID = bvm.CategoryID,
                     Year = bvm.Year,

@@ -13,7 +13,6 @@ namespace LibraryMVC.Controllers
         public ActionResult Index()
         {
             var books = db.Books.ToList().OrderByDescending(b => b.AddDate).Take(3);
-            books = books.OrderBy(b => b.AddDate);
             return View(books);
         }
 

@@ -1,10 +1,24 @@
-﻿@model IEnumerable<LibraryMVC.Models.Book>
+﻿@model LibraryMVC.Models.SearchVieModel
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Title: @Html.TextBoxFor(m=>m.SelectedTitle)
+        Category: @Html.DropDownListFor(m=>m.SelectedCategory,ViewBag.Categories as SelectList, htmlAttributes: new { @class = "chosen-single-select", style = "width:100px" })
+        Labels: @Html.ListBoxFor(m=>m.SelectedLabels,ViewBag.Labels as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:100px;" })
+        Writers: @Html.ListBoxFor(m=>m.SelectedWriters,ViewBag.Writers as SelectList,new { @class = "chosen-group-select", multiple = "multiple", style = "width:100px;" })
+        Year: @Html.TextBoxFor(m=>m.SelectedYear)
+        ISBN: @Html.TextBoxFor(m=>m.SelectedISBN)
+        <input type="submit" value="Filter" />
+    </p>
+}
+
 @if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
 {
     <p>
@@ -14,24 +28,24 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Book.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Year)
+            @Html.DisplayNameFor(model => model.Book.Year)
         </th>
         <th>
-            @Html.DisplayNameFor(model=>model.Labels)
+            @Html.DisplayNameFor(model=>model.Book.Labels)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Category)
+            @Html.DisplayNameFor(model => model.Book.Category)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Writers)
+            @Html.DisplayNameFor(model => model.Book.Writers)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Books) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
@@ -76,3 +90,16 @@
 }
 
 </table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/Bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/chosen.css" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/chosen.jquery.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/chosen.min.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.chosen-group-select').chosen();
+            $('.chosen-single-select').chosen();
+        });
+    </script>
+}
