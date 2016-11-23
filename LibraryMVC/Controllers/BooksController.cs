@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Library.Models;
 using LibraryMVC.Models;
+using File = Library.Models.File;
 
 namespace LibraryMVC.Controllers
 {
@@ -133,8 +135,11 @@ namespace LibraryMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(BookViewModel bvm)
         {
+            
             if (ModelState.IsValid)
             {
+                var filename = bvm.Title + "_contents";
+                
                 Book book = new Book()
                 {
                     AddDate = DateTime.Now,
@@ -142,7 +147,7 @@ namespace LibraryMVC.Controllers
                     CategoryID = bvm.CategoryID,
                     Year = bvm.Year,
                     Title = bvm.Title,
-                    Contents = bvm.Contents,
+                    Contents = filename,
                     ISBN = bvm.ISBN,
                     Description = bvm.Description,
                     Writers = new List<BookWriter>(),
@@ -150,6 +155,8 @@ namespace LibraryMVC.Controllers
                     
                 };
                 db.Books.Add(book);
+                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), filename);
+                bvm.Contents.SaveAs(path);
                 db.SaveChanges();
                 for (int i = 0; i < bvm.SelectedWriters.Length; i++)
                 {
@@ -184,6 +191,18 @@ namespace LibraryMVC.Controllers
                 db.Entry(book).State = EntityState.Modified;
                 db.SaveChanges();
 
+                //foreach (var fileitem in bvm.Files)
+                //{
+                //    File file = new File();
+                //    file.BookID = book.BookID;
+                //    file.Book = book;
+                //    file.Name = fileitem.FileName;
+                //    file.Source = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileitem.FileName);
+                //    //db.Files.add(file);
+                //    //db.SaveChanges();
+                //}
+
+
                 return RedirectToAction("Index");
             }
 
@@ -216,7 +235,7 @@ namespace LibraryMVC.Controllers
                 Amount = book.Amount,
                 BookID = book.BookID,
                 CategoryID = book.CategoryID,
-                Contents = book.Contents,
+               // Contents = book.Contents,
                 Description = book.Description,
                 ISBN = book.ISBN,
                 Title = book.Title,
@@ -265,12 +284,11 @@ namespace LibraryMVC.Controllers
                     .Include(b => b.Category)
                     .Single(b => b.BookID == bvm.BookID);
                 book.Amount = bvm.Amount;
-                book.Contents = bvm.Contents;
+                //book.Contents = bvm.Contents;
                 book.Title = bvm.Title;
                 book.ISBN = bvm.ISBN;
                 book.Year = bvm.Year;
                 book.Description = bvm.Description;
-                book.Contents = bvm.Contents;
                 book.CategoryID = bvm.CategoryID;
                 book.Category = db.Categories.FirstOrDefault(x => x.CategoryID == bvm.CategoryID);
                 var selectedwriterslist = new List<Writer>();

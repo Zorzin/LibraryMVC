@@ -22,6 +22,7 @@ namespace LibraryMVC.Models
         public DbSet<BookLabel> BookLabels { get; set; }
         public DbSet<BookWriter> BookWriters { get; set; }
         public DbSet<SearchHistory> SearchHistories { get; set; }
+        public DbSet<File> Files { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

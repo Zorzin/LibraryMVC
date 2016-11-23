@@ -12,7 +12,11 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create","Books", FormMethod.Post,
+    new
+    {
+        @enctype = "multipart/form-data"
+    }))
 {
     @Html.AntiForgeryToken()
     
@@ -63,7 +67,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Contents, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Contents, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(m=>m.Contents, new {type="file"} )
                 @Html.ValidationMessageFor(model => model.Contents, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -79,7 +83,6 @@
             @Html.LabelFor(model => model.SelectedWriters, "Writers", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(model => model.SelectedWriters,ViewBag.Writers as SelectList,new { @class="chosen-group-select", multiple="multiple",style="width:350px;"})
-                
             </div>
         </div>
         <div class="form-group">
@@ -88,6 +91,20 @@
                 @Html.ListBoxFor(model => model.SelectedLabels,ViewBag.Labels as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:350px;" })
             </div>
         </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Files, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Files[0], new { type = "file" })
+                @Html.ValidationMessageFor(model => model.Contents, "", new { @class = "text-danger" })
+                <div id="filesdiv">
+                    
+                </div>
+                <button type="button" id="addfilebutton">Add</button>
+            </div>
+            
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -113,4 +130,17 @@
             $('.chosen-single-select').chosen();
         });
     </script> 
+    
+    <script>
+        var i = 1;
+
+        $("#addfilebutton")
+            .click(function() {
+                $("#filesdiv")
+                    .append(
+                        "<input name=\"Files[" + i + "]\" type=\"file\">");
+                i = i + 1;
+            });
+        //script for adding more files
+    </script>
 }

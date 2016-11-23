@@ -33,7 +33,8 @@ namespace LibraryMVC.Models
         public int Amount { get; set; }
         [Required]
         public string Description { get; set; }
-        public string Contents { get; set; }
+        [Required]
+        public HttpPostedFileBase Contents { get; set; }
         [Required]
         public int CategoryID { get; set; }
         [Required]
@@ -42,5 +43,6 @@ namespace LibraryMVC.Models
         public int[] SelectedLabels { get; set; }
         public List<Writer> Writers { get; set; }
         public List<Label> Labels { get; set; }
+        public List<HttpPostedFileBase> Files { get; set; }
     }
 }
