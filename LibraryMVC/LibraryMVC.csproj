@@ -249,6 +249,14 @@
     <Compile Include="Migrations\201611172301406_Change ISBN.Designer.cs">
       <DependentUpon>201611172301406_Change ISBN.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611241527026_Files, id, searchhistory.cs" />
+    <Compile Include="Migrations\201611241527026_Files, id, searchhistory.Designer.cs">
+      <DependentUpon>201611241527026_Files, id, searchhistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611241529352_searchhistory remove book.cs" />
+    <Compile Include="Migrations\201611241529352_searchhistory remove book.Designer.cs">
+      <DependentUpon>201611241529352_searchhistory remove book.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -397,6 +405,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611172301406_Change ISBN.resx">
       <DependentUpon>201611172301406_Change ISBN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611241527026_Files, id, searchhistory.resx">
+      <DependentUpon>201611241527026_Files, id, searchhistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611241529352_searchhistory remove book.resx">
+      <DependentUpon>201611241529352_searchhistory remove book.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

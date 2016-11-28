@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,6 +15,8 @@ namespace LibraryMVC.Models
     {
         public BookViewModel()
         {
+            Files = new List<HttpPostedFileBase>();
+            FilesNames = new List<string>();
             Writers = new List<Writer>();
             Labels = new List<Label>();
         }
@@ -44,5 +47,20 @@ namespace LibraryMVC.Models
         public List<Writer> Writers { get; set; }
         public List<Label> Labels { get; set; }
         public List<HttpPostedFileBase> Files { get; set; }
+        public List<string> FilesNames { get; set; }
+    }
+
+    public class BookEditViewModel
+    {
+        public BookEditViewModel()
+        {
+            BookViewModel =new BookViewModel();
+            OldFiles = new List<string>();
+            OldFilesText = new List<string>();
+        }
+        public BookViewModel BookViewModel { get; set; }
+        public List<string> OldFiles { get; set; }
+        public List<string> OldFilesText { get; set; }
+        public string OldContent { get; set; }
     }
 }

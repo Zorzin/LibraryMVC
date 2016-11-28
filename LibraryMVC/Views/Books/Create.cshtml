@@ -96,6 +96,7 @@
             @Html.LabelFor(model => model.Files, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(m => m.Files[0], new { type = "file" })
+                @Html.TextBoxFor(m=>m.FilesNames[0])
                 @Html.ValidationMessageFor(model => model.Contents, "", new { @class = "text-danger" })
                 <div id="filesdiv">
                     
@@ -122,7 +123,6 @@
     <link href="~/Content/Bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/chosen.css" rel="stylesheet" />
     <script src="@Url.Content("~/Scripts/chosen.jquery.js")" type="text/javascript"></script>
-    <link href="@Url.Content("~/Content/chosen.min.css")" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -130,7 +130,9 @@
             $('.chosen-single-select').chosen();
         });
     </script> 
-    
+    <script>
+        
+    </script>
     <script>
         var i = 1;
 
@@ -138,8 +140,8 @@
             .click(function() {
                 $("#filesdiv")
                     .append(
-                        "<input name=\"Files[" + i + "]\" type=\"file\">");
-                i = i + 1;
+                        "<input name=\"Files[" + i + "]\" type=\"file\">" + "<input name=\"FilesNames[" + i + "]\" type=\"text\">");
+                i = i + 1; 
             });
         //script for adding more files
     </script>

@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using Library.Models;
 using LibraryMVC.Models;
@@ -138,8 +139,8 @@ namespace LibraryMVC.Controllers
             
             if (ModelState.IsValid)
             {
-                var filename = bvm.Title + "_contents";
-                
+                var extension = Path.GetExtension(bvm.Contents.FileName);
+                var filename = bvm.BookID + "_contents" + extension;
                 Book book = new Book()
                 {
                     AddDate = DateTime.Now,
@@ -155,7 +156,10 @@ namespace LibraryMVC.Controllers
                     
                 };
                 db.Books.Add(book);
-                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), filename);
+                db.SaveChanges();
+                var directory =Path.Combine(Server.MapPath("~/App_Data/uploads"),book.BookID.ToString());
+                Directory.CreateDirectory(directory);
+                var path = Path.Combine(directory, filename);
                 bvm.Contents.SaveAs(path);
                 db.SaveChanges();
                 for (int i = 0; i < bvm.SelectedWriters.Length; i++)
@@ -191,16 +195,20 @@ namespace LibraryMVC.Controllers
                 db.Entry(book).State = EntityState.Modified;
                 db.SaveChanges();
 
-                //foreach (var fileitem in bvm.Files)
-                //{
-                //    File file = new File();
-                //    file.BookID = book.BookID;
-                //    file.Book = book;
-                //    file.Name = fileitem.FileName;
-                //    file.Source = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileitem.FileName);
-                //    //db.Files.add(file);
-                //    //db.SaveChanges();
-                //}
+                for (var i=0;i<bvm.Files.Count;i++) 
+                {
+                    if (bvm.Files[i] != null)
+                    {
+                        File file = new File();
+                        file.BookID = book.BookID;
+                        file.Book = book;
+                        file.Name = bvm.FilesNames[i];
+                        file.Source =bvm.Files[i].FileName;
+                        bvm.Files[i].SaveAs(Path.Combine(directory, bvm.Files [i].FileName));
+                        db.Files.Add(file);
+                        db.SaveChanges();
+                    }
+                }
 
 
                 return RedirectToAction("Index");
@@ -230,29 +238,37 @@ namespace LibraryMVC.Controllers
                     .Include(b => b.Category)
                     .Single(b => b.BookID == id);
 
-            var bvm = new BookViewModel
+            var fileslist = db.Files.Where(f => f.BookID == book.BookID);
+            var filessourcelist = fileslist.Select(f => f.Source).ToList();
+            var filestextlist = fileslist.Select(f => f.Name).ToList();
+
+            var bvm = new BookEditViewModel
             {
-                Amount = book.Amount,
-                BookID = book.BookID,
-                CategoryID = book.CategoryID,
-               // Contents = book.Contents,
-                Description = book.Description,
-                ISBN = book.ISBN,
-                Title = book.Title,
-                Year = book.Year
+                BookViewModel=new BookViewModel()
+                {
+                    Amount = book.Amount,
+                    BookID = book.BookID,
+                    CategoryID = book.CategoryID,
+                    Description = book.Description,
+                    ISBN = book.ISBN,
+                    Title = book.Title,
+                    Year = book.Year,
+                    Files = new List<HttpPostedFileBase>(),
+                    
+                },
+                OldContent = book.Contents,
+                OldFiles = filessourcelist,
+                OldFilesText = filestextlist
             };
-            var label = db.Labels
-                .Include(l => l.BookLabels)
-                .Single(l=>l.LabelID==1);
-            bvm.SelectedLabels = new int[db.Labels.Count()];
-            bvm.SelectedWriters = new int[db.Writers.Count()];
+            bvm.BookViewModel.SelectedLabels = new int[db.Labels.Count()];
+            bvm.BookViewModel.SelectedWriters = new int[db.Writers.Count()];
             for (int i = 0; i < book.Writers.Count; i++)
             {
-                bvm.SelectedWriters[i] = book.Writers.ElementAt(i).WriterID;
+                bvm.BookViewModel.SelectedWriters[i] = book.Writers.ElementAt(i).WriterID;
             }
             for (int i = 0; i < book.Labels.Count; i++)
             {
-                bvm.SelectedLabels[i] = book.Labels.ElementAt(i).LabelID;
+                bvm.BookViewModel.SelectedLabels[i] = book.Labels.ElementAt(i).LabelID;
             }
             
             if (book == null)
@@ -263,9 +279,9 @@ namespace LibraryMVC.Controllers
                     Value = w.WriterID.ToString(),
                     Text = w.Name + " " + w.Surname
                 };
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name",bvm.CategoryID);
-            ViewBag.Writers = new SelectList(writers, "Value", "Text",bvm.SelectedWriters);
-            ViewBag.Labels = new SelectList(db.Labels, "LabelID", "Name",bvm.SelectedLabels);
+            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name",bvm.BookViewModel.CategoryID);
+            ViewBag.Writers = new SelectList(writers, "Value", "Text",bvm.BookViewModel.SelectedWriters);
+            ViewBag.Labels = new SelectList(db.Labels, "LabelID", "Name",bvm.BookViewModel.SelectedLabels);
             return View(bvm);
         }
         
@@ -274,29 +290,53 @@ namespace LibraryMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(BookViewModel bvm)
+        public ActionResult Edit(BookEditViewModel bevm)
         {
+            if (bevm.BookViewModel.Contents==null && !string.IsNullOrEmpty(bevm.OldContent))
+            {
+                ModelState["BookViewModel.Contents"].Errors.Clear();
+            }
             if (ModelState.IsValid)
             {
+                
                 var book = db.Books
                     .Include(b => b.Writers)
                     .Include(b => b.Labels)
                     .Include(b => b.Category)
-                    .Single(b => b.BookID == bvm.BookID);
-                book.Amount = bvm.Amount;
-                //book.Contents = bvm.Contents;
-                book.Title = bvm.Title;
-                book.ISBN = bvm.ISBN;
-                book.Year = bvm.Year;
-                book.Description = bvm.Description;
-                book.CategoryID = bvm.CategoryID;
-                book.Category = db.Categories.FirstOrDefault(x => x.CategoryID == bvm.CategoryID);
+                    .Single(b => b.BookID == bevm.BookViewModel.BookID);
+
+                var directory =Path.Combine(Server.MapPath("~/App_Data/uploads"),book.BookID.ToString());
+                string filename;
+                if (bevm.BookViewModel.Contents!=null)
+                {
+                    var oldfilepath = Path.Combine(directory, book.Contents);
+                    if (System.IO.File.Exists(oldfilepath))
+                    {
+                        System.IO.File.Delete(oldfilepath);
+                    }
+                    var extension = Path.GetExtension(bevm.BookViewModel.Contents.FileName);
+                    filename = bevm.BookViewModel.BookID + "_contents" + extension;
+                    bevm.BookViewModel.Contents.SaveAs(Path.Combine(directory, filename));
+                }
+                else
+                {
+                    filename = bevm.OldContent;
+                }
+                
+                book.Amount = bevm.BookViewModel.Amount;
+                book.Contents = filename;
+                book.Title = bevm.BookViewModel.Title;
+                book.ISBN = bevm.BookViewModel.ISBN;
+                book.Year = bevm.BookViewModel.Year;
+                book.Description = bevm.BookViewModel.Description;
+                book.CategoryID = bevm.BookViewModel.CategoryID;
+                book.Category = db.Categories.FirstOrDefault(x => x.CategoryID == bevm.BookViewModel.CategoryID);
                 var selectedwriterslist = new List<Writer>();
                 var selectedlabelslist = new List<Label>();
 
-                for (int i = 0; i < bvm.SelectedWriters.Length; i++)
+                for (int i = 0; i < bevm.BookViewModel.SelectedWriters.Length; i++)
                 {
-                    var id = bvm.SelectedWriters[i];
+                    var id = bevm.BookViewModel.SelectedWriters[i];
                     var writer = db.Writers.FirstOrDefault(x => x.WriterID == id);
                     if (writer!=null)
                     {
@@ -304,16 +344,18 @@ namespace LibraryMVC.Controllers
                     }
                 }
                 db.SaveChanges();
-                for (int i = 0; i < bvm.SelectedLabels.Length; i++)
+                for (int i = 0; i < bevm.BookViewModel.SelectedLabels.Length; i++)
                 {
-                    var id = bvm.SelectedLabels[i];
+                    var id = bevm.BookViewModel.SelectedLabels[i];
                     var label = db.Labels.FirstOrDefault(x => x.LabelID == id);
                     if (label!=null)
                     {
                         selectedlabelslist.Add(label);
                     }
                 }
-                var actualwriters = db.Writers.Where(w => w.BookWriters.Any(b => b.BookID == bvm.BookID)).ToList();
+
+                //Check Writers
+                var actualwriters = db.Writers.Where(w => w.BookWriters.Any(b => b.BookID == bevm.BookViewModel.BookID)).ToList();
                 db.SaveChanges();
                 foreach (var dbWriter in db.Writers.ToList())
                 {
@@ -321,11 +363,10 @@ namespace LibraryMVC.Controllers
                     {
                         if (!actualwriters.Contains(dbWriter))
                         {
-                            //book.Writers.Add(dbWriter);
                             var bw = new BookWriter()
                             {
                                 WriterID = dbWriter.WriterID,
-                                BookID = bvm.BookID
+                                BookID = bevm.BookViewModel.BookID
                             };
                             db.BookWriters.Add(bw);
                         }
@@ -336,14 +377,15 @@ namespace LibraryMVC.Controllers
                         {
                             var bw =
                                 db.BookWriters.FirstOrDefault(
-                                    x => x.WriterID == dbWriter.WriterID && x.BookID == bvm.BookID);
+                                    x => x.WriterID == dbWriter.WriterID && x.BookID == bevm.BookViewModel.BookID);
                             db.BookWriters.Remove(bw);
-                            //book.Writers.Remove(dbWriter);
                         }
                     }
                     db.SaveChanges();
                 }
-                var actuallabels = db.Labels.Where(w => w.BookLabels.Any(b => b.BookID == bvm.BookID)).ToList();
+
+                //Check Labels
+                var actuallabels = db.Labels.Where(w => w.BookLabels.Any(b => b.BookID == bevm.BookViewModel.BookID)).ToList();
                 db.SaveChanges();
                 foreach (var dbLabel in db.Labels.ToList())
                 {
@@ -353,11 +395,10 @@ namespace LibraryMVC.Controllers
                         {
                             var bl = new BookLabel()
                             {
-                                BookID = bvm.BookID,
+                                BookID = bevm.BookViewModel.BookID,
                                 LabelID = dbLabel.LabelID
                             };
                             db.BookLabels.Add(bl);
-                            //book.Labels.Add(dbLabel);
                         }
 
                     }
@@ -366,18 +407,112 @@ namespace LibraryMVC.Controllers
                         if (actuallabels.Contains(dbLabel))
                         {
                             var bl =
-                                db.BookLabels.FirstOrDefault(x => x.LabelID == dbLabel.LabelID && x.BookID == bvm.BookID);
+                                db.BookLabels.FirstOrDefault(x => x.LabelID == dbLabel.LabelID && x.BookID == bevm.BookViewModel.BookID);
                             db.BookLabels.Remove(bl);
-                            //book.Labels.Remove(dbLabel);
                         }
                     }
                     db.SaveChanges();
                 }
 
+                //Check Files
+                List<string> editedfilessource;
+                List<string> editedfilestext;
+                if (bevm.OldFiles!=null)
+                {
+                    editedfilessource = bevm.OldFiles;
+                }
+                else
+                {
+                    editedfilessource = new List<string>();
+                }
+                if (bevm.OldFilesText!=null)
+                {
+                     editedfilestext = bevm.OldFilesText;
+                }
+                else
+                {
+                    editedfilestext = new List<string>();
+                }
+                var allfiles = db.Files.Where(f => f.BookID == bevm.BookViewModel.BookID).ToList();
+                var allfilessource = allfiles.Select(f => f.Source).ToList();
+
+                //Add new files to list of sources and disc
+                if (bevm.BookViewModel.Files!=null)
+                {
+                    for (var i = 0; i < bevm.BookViewModel.Files.Count; i++)
+                    {
+                        if (bevm.BookViewModel.Files[i]!=null)
+                        {
+                            var source = bevm.BookViewModel.Files[i].FileName;
+                            var path = Path.Combine(directory, source);
+                            bevm.BookViewModel.Files [i].SaveAs(path);
+                            editedfilessource.Add(source);
+                            editedfilestext.Add(bevm.BookViewModel.FilesNames [i]);
+                        }
+                    }
+                }
+
+                foreach (var dbfile in allfiles)
+                {
+                    //if in base exist file that we remove while editing, then remove it from db and from disc
+                    if (!editedfilessource.Contains(dbfile.Source))
+                    {
+                        if (System.IO.File.Exists(Path.Combine(directory,dbfile.Source)))
+                        {
+                            System.IO.File.Delete(Path.Combine(directory, dbfile.Source));
+                        }
+                        
+                        db.Files.Remove(dbfile);
+                    }
+                }
+
+                if (editedfilessource.Count>0)
+                {
+                    for (var i = 0; i < editedfilessource.Count; i++)
+                    {
+                        //if file that we edited is not in db, which means it's new file, add it to db
+                        if (!allfilessource.Contains(editedfilessource [i]))
+                        {
+                            File file = new File()
+                            {
+                                BookID = bevm.BookViewModel.BookID,
+                                Name = editedfilestext[i],
+                                Source = editedfilessource[i]
+                            };
+                            db.Files.Add(file);
+                            db.SaveChanges();
+                        }
+                        else
+                        {
+                            //find file text in db
+                            var source = editedfilessource[i];
+                            var filetext =
+                            db.Files.FirstOrDefault(
+                                f => f.BookID == bevm.BookViewModel.BookID && f.Source == source);
+
+                            //if it is in db, check if text is still the same
+                            //if it's not, change it
+                            if (editedfilestext != null)
+                            {
+                                if (editedfilestext [i] != filetext.Name)
+                                {
+                                    filetext.Name = editedfilestext [i];
+                                    db.SaveChanges();
+                                }
+                            }
+                        }
+                        //if its already in db and text still the same, nothing to do
+                        db.SaveChanges();
+                    }
+                }
+                
+
                 db.Entry(book).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            //Not valid
             IEnumerable<SelectListItem> writers = from w in db.Writers
                 select new SelectListItem
                 {
@@ -387,7 +522,7 @@ namespace LibraryMVC.Controllers
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name");
             ViewBag.Writers = new SelectList(writers, "Value", "Text");
             ViewBag.Labels = new SelectList(db.Labels, "LabelID", "Name");
-            return View(bvm);
+            return View(bevm);
         }
 
         // GET: Books/Delete/5

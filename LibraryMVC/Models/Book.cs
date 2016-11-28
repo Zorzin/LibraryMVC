@@ -25,7 +25,6 @@ namespace LibraryMVC.Models
         public virtual ICollection<BookWriter> Writers { get; set; }
         public virtual ICollection<File> Files { get; set; }
         public virtual ICollection<Borrow> Borrows { get; set; }
-        public virtual ICollection<SearchHistory> SearchHistories { get; set; }
     }
     
 }
