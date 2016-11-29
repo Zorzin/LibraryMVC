@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Library.Models;
@@ -109,6 +110,8 @@ namespace LibraryMVC.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             var book = db.Books.Find(id);
+            var directory = Path.Combine(Server.MapPath("~/App_Data/uploads"), book.BookID.ToString());
+            ViewBag.Content = System.IO.File.ReadAllText(Path.Combine(directory,book.Contents), Encoding.Default);
             if (book == null)
                 return HttpNotFound();
             return View(book);
@@ -553,6 +556,18 @@ namespace LibraryMVC.Controllers
             if (disposing)
                 db.Dispose();
             base.Dispose(disposing);
+        }
+        [ActionName("Download")]
+        public void Download(string filename,string bookid)
+        {
+            var directory = Path.Combine(Path.Combine("/App_Data/uploads", bookid));
+            var filepath = Path.Combine(directory, filename);
+            System.Web.HttpContext.Current.Response.ContentType = "APPLICATION/OCTET-STREAM";
+            var header = "Attachment; Filename=" + filename;
+            System.Web.HttpContext.Current.Response.AppendHeader("Content-Disposition", header);
+            var dfile = new FileInfo(System.Web.HttpContext.Current.Server.MapPath(filepath));
+            System.Web.HttpContext.Current.Response.WriteFile(dfile.FullName);
+            System.Web.HttpContext.Current.Response.End();
         }
     }
 }
