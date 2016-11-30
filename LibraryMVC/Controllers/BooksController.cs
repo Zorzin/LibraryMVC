@@ -569,5 +569,27 @@ namespace LibraryMVC.Controllers
             System.Web.HttpContext.Current.Response.WriteFile(dfile.FullName);
             System.Web.HttpContext.Current.Response.End();
         }
+        [ActionName("AddToBasket")]
+        public ActionResult AddToBasket(string bookid)
+        {
+            int id = Int32.Parse(bookid);
+            var book = db.Books.FirstOrDefault(b => b.BookID == id);
+            Basket basket;
+            if (Session["basket"]==null)
+            {
+                basket= new Basket();
+                Session["basket"] = basket;
+            }
+            else
+            {
+                basket = (Basket)Session["basket"];
+            }
+            bool contains = basket.Books.Any(b => b.BookID == book.BookID);
+            if (!contains)
+            {
+                basket.Books.Add(book);
+            }
+            return RedirectToAction("Index", "Basket");
+        }
     }
 }

@@ -84,7 +84,7 @@
     </div>
 
     <div class="col-md-4 form-horizontal">
-        @Html.ActionLink("Add to basket// not working yet", "Edit", "Books", new { id = Model.BookID }, new { @class = "btn btn-info" })
+        @Html.ActionLink("Add to basket", "AddToBasket", "Books", new { bookid = Model.BookID }, new { @class = "btn btn-info" })
         <br/>
         <br />
         @Html.ActionLink("Edit","Edit","Books",new {id=Model.BookID},new {@class = "btn btn-info"})
