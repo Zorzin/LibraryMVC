@@ -228,6 +228,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\BorrowLogic.cs" />
+    <Compile Include="Controllers\BorrowsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\WorkerPanelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -388,6 +390,12 @@
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Basket\Index.cshtml" />
+    <Content Include="Views\Borrows\Create.cshtml" />
+    <Content Include="Views\Borrows\Delete.cshtml" />
+    <Content Include="Views\Borrows\Details.cshtml" />
+    <Content Include="Views\Borrows\Edit.cshtml" />
+    <Content Include="Views\Borrows\Index.cshtml" />
+    <Content Include="Views\Borrows\UserIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

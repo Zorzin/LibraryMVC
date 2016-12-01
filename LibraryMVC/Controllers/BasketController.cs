@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Library.Models;
 using LibraryMVC.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LibraryMVC.Controllers
 {
@@ -25,6 +28,43 @@ namespace LibraryMVC.Controllers
             }
             return View(basket);
         }
+        
+        public ActionResult Borrow()
+        {
+            var basket = (Basket) Session["basket"];
+            foreach (var book in basket.Books)
+            {
+                var userid = IdentityManager.GetUserById(User.Identity.GetUserId()).Id;
+
+                //Checking if possible to borrow
+                //is there any book left to borrow
+                if (!BorrowLogic.CanBookBeBorrow(book.BookID))
+                {
+                    continue;
+                }
+                //is user currently borrow this book
+                if (!BorrowLogic.IsCurrentlyBorrow(book.BookID,userid))
+                {
+                    continue;
+                }
+                //Adding borrows to table
+                
+                var borrow = new Borrow()
+                {
+                    BookID = book.BookID,
+                    ReaderID = userid,
+                    BorrowDate = DateTime.Today,
+                    Deadline = DateTime.Today.AddDays(30),
+                    ReturnDate = DateTime.Today.AddDays(-1)
+                };
+                db.Borrows.Add(borrow);
+                db.SaveChanges();
+            }
+            
+            Session["basket"] = null;
+            return RedirectToAction("Index", "Home");
+        }
+
 
 
         public ActionResult DeleteFromBasket(string bookid)
@@ -36,20 +76,7 @@ namespace LibraryMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public ActionResult Index(Basket basket)
-        {
-            foreach (var book in basket.Books)
-            {
 
-                //Checking if possible to borrow
-                
-                //Adding borrows to table
-                var name = User.Identity.Name;
-            }
-
-            return RedirectToAction("Index","Home");
-        }
 
         // GET: Basket/Details/5
         public ActionResult Details(int id)

@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using Library.Models;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LibraryMVC.Models
@@ -26,6 +27,36 @@ namespace LibraryMVC.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+    }
+
+    public static class IdentityManager
+    {
+        public static RoleManager<IdentityRole> LocalRoleManager
+        {
+            get
+            {
+                return new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+            }
+        }
+
+
+        public static UserManager<User> LocalUserManager
+        {
+            get
+            {
+                return new UserManager<User>(new UserStore<User>(new ApplicationDbContext()));
+            }
+        }
+
+        public static User GetUserById(string id)
+        {
+            User user = null;
+
+            var usermanager = LocalUserManager;
+            user = usermanager.FindById(id);
+
+            return user;
         }
     }
 }

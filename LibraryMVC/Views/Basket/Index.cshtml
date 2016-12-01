@@ -5,28 +5,23 @@
 }
 
 <h2>Index</h2>
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th></th>
+    </tr>
 
-    @using (Html.BeginForm())
+    @foreach (var item in Model.Books)
     {
-        <table class="table">
-            <tr>
-                <th>Title</th>
-                <th>ISBN</th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model.Books)
-            {
-                <tr>
-                    <td>@Html.DisplayName(item.Title)</td>
-                    <td>@Html.DisplayName(item.ISBN)</td>
-                    <td>@Html.ActionLink("Remove", "DeleteFromBasket", "Basket", new { bookid = item.BookID }, new { @class = "btn btn-danger" })</td> @*remove*@
-                </tr>
-            }
-        </table>
-        if (Model.Books.Count > 0)
-        {
-            <input type="submit" class="btn btn-info" value="Borrow" style="float: right" />
-        }
-
+        <tr>
+            <td>@Html.DisplayName(item.Title)</td>
+            <td>@Html.DisplayName(item.ISBN)</td>
+            <td>@Html.ActionLink("Remove", "DeleteFromBasket", "Basket", new { bookid = item.BookID }, new { @class = "btn btn-danger" })</td> @*remove*@
+        </tr>
     }
+</table>
+@if (Model.Books.Count > 0)
+{
+    @Html.ActionLink("Borrow","Borrow","Basket",null,new {@class="btn btn-info"})
+}
