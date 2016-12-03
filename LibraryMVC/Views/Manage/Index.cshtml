@@ -26,5 +26,7 @@
         </dd>
         <dt>Borrows:</dt>
         <dd> @Html.ActionLink("Your Borrows","UserIndex","Borrows",new {userid=User.Identity.GetUserId()},null)</dd>
+        <dt>Saved Searches:</dt>
+        <dd> @Html.ActionLink("Your Searches", "UserIndex", "SearchHistories", new { userid = User.Identity.GetUserId() }, null)</dd>
     </dl>
 </div>

@@ -27,5 +27,6 @@ namespace LibraryMVC.Models
         public string WritersOption { get; set; }
         public string LabelsOption { get; set; }
         public string AllOption { get; set; }
+        public string SaveName { get; set; }
     }
 }

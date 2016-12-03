@@ -7,8 +7,10 @@ using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using Library.Models;
 using LibraryMVC.Models;
+using Microsoft.AspNet.Identity;
 using File = Library.Models.File;
 
 namespace LibraryMVC.Controllers
@@ -341,20 +343,50 @@ namespace LibraryMVC.Controllers
                         break;
                 }
                 return View("Index", svm);
-                //searcheverything
             }
             if (Request.Form ["Save"] != null)
             {
-                //save
+                Save(svm);
+                svm.Books = db.Books.ToList();
             }
-            
             return View(svm);
         }
-
-        [HttpPost]
-        public ActionResult Save(SearchViewModel svm)
+        
+        public void Save(SearchViewModel svm)
         {
-            return View();
+            //json
+            var serializer = new JavaScriptSerializer();
+            var serializerobject = serializer.Serialize(svm);
+            var sh = new SearchHistory();
+            sh.Name = svm.SaveName;
+            sh.ReaderID = User.Identity.GetUserId();
+            sh.URL = serializerobject;
+            db.SearchHistories.Add(sh);
+            db.SaveChanges();
+        }
+
+        public ActionResult Load(int id)
+        {
+            var searchHistory = db.SearchHistories.FirstOrDefault(s => s.SearchHistoryID == id);
+            var serializer = new JavaScriptSerializer();
+            var svm = serializer.Deserialize<SearchViewModel>(searchHistory.URL);
+            svm.Books = db.Books.ToList();
+
+            var listofbooks = SearchAll(svm);
+            switch (svm.AllOption)
+            {
+                case "or":
+                    svm.Books = AllOr(listofbooks);
+                    break;
+                case "and":
+                    svm.Books = AllAnd(listofbooks);
+                    break;
+                default:
+                    svm.Books = AllNot(listofbooks);
+                    break;
+            }
+            SetViewBag();
+            return View("Index", svm);
         }
         // GET: Books/Details/5
         public ActionResult Details(int? id)

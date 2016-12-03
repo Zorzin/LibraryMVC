@@ -231,6 +231,7 @@
     <Compile Include="Controllers\BorrowLogic.cs" />
     <Compile Include="Controllers\BorrowsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\SearchHistoriesController.cs" />
     <Compile Include="Controllers\WorkerPanelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LabelsController.cs" />
@@ -398,6 +399,11 @@
     <Content Include="Views\Borrows\Edit.cshtml" />
     <Content Include="Views\Borrows\Index.cshtml" />
     <Content Include="Views\Borrows\UserIndex.cshtml" />
+    <Content Include="Views\SearchHistories\Create.cshtml" />
+    <Content Include="Views\SearchHistories\Delete.cshtml" />
+    <Content Include="Views\SearchHistories\Details.cshtml" />
+    <Content Include="Views\SearchHistories\Edit.cshtml" />
+    <Content Include="Views\SearchHistories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
