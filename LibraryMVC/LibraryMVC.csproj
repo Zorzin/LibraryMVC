@@ -274,7 +274,7 @@
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\MySelectList.cs" />
     <Compile Include="Models\Reservation.cs" />
-    <Compile Include="Models\SearchVieModel.cs" />
+    <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Label.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -291,6 +291,7 @@
     <Content Include="Content\chosen-sprite%402x.png" />
     <Content Include="Content\chosen-sprite.png" />
     <Content Include="Content\chosen.css" />
+    <Content Include="Content\simple-sidebar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -318,6 +319,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

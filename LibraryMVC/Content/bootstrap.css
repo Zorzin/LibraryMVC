@@ -6755,3 +6755,12 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+.search-options {
+    display: flex;
+}
+
+.search-checkbox {
+    color: #999999;
+    margin-left: 10px;
+    margin: auto;
+}
