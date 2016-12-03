@@ -46,7 +46,7 @@
                     <br/>
                     <div class="search-options">
                         <input type="submit" class="btn btn-default form-control" style="width: 100px; margin-left: 10px;" value="Filter" name="Labels" />
-                         @Html.DropDownListFor(m => m.LabelsOption, ViewBag.ListOptions as SelectList,
+                         @Html.DropDownListFor(m => m.LabelsOption, ViewBag.Options as SelectList,
                             htmlAttributes: new {@class = " form-control", style = "width:100px; margin:5px;"})
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                     <br/>
                     <div class="search-options">
                         <input type="submit" class="btn btn-default form-control" style="width: 100px; margin-left: 10px;" value="Filter" name="Writers" />
-                        @Html.DropDownListFor(m => m.WritersOption, ViewBag.ListOptions as SelectList,
+                        @Html.DropDownListFor(m => m.WritersOption, ViewBag.Options as SelectList,
                             htmlAttributes: new {@class = " form-control", style = "width:100px;margin:5px;"})
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                     <a></a>
                     <div class="search-options">
                         <input type="submit" class="btn btn-default form-control" style="width: 100px; margin-left: 10px;" value="Filter All" name="All" />
-                        @Html.DropDownListFor(m => m.AllOption, ViewBag.AllOptions as SelectList,
+                        @Html.DropDownListFor(m => m.AllOption, ViewBag.Options as SelectList,
                             htmlAttributes: new {@class = " form-control", style = "width:100px;margin:5px;"})
                     </div>
                 </div>

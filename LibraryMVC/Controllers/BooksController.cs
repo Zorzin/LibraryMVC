@@ -21,10 +21,8 @@ namespace LibraryMVC.Controllers
         private void SetViewBag()
         {
             var listoptions = new List<string>() {"or", "and", "not"};
-            var alloptions = new List<string>() {"and", "or"};
             
-            ViewBag.ListOptions = new SelectList(listoptions);
-            ViewBag.AllOptions = new SelectList(alloptions);
+            ViewBag.Options = new SelectList(listoptions);
             ViewBag.Labels = new SelectList(db.Labels, "LabelID", "Name");
             ViewBag.Categories = new SelectList(db.Categories, "CategoryID", "Name");
             IEnumerable<SelectListItem> writers = from w in db.Writers
@@ -44,108 +42,32 @@ namespace LibraryMVC.Controllers
             SetViewBag();
             return View(svm);
         }
-        
-        public ActionResult TitleSearch(string title, bool not)
+       
+        public IEnumerable<Book> SearchTitle(string title, bool not)
         {
             IEnumerable<Book> books = db.Books.Where(b => b.Title == title).ToList();
             if (not)
             {
-                books = db.Books.ToList().Except(books);
+                books = db.Books.ToList().Except(books).ToList();
             }
-            var svm = new SearchViewModel();
-            svm.Books = books;
-            svm.SelectedTitle = title;
-            svm.TitleOption = not;
-            SetViewBag();
-            return View("Index",svm);
+            return books;
         }
-        public ActionResult CategorySearch(int category, bool not)
+
+        public IEnumerable<Book> SearchCategory(int category, bool not)
         {
             IEnumerable<Book> books = db.Books.Where(b => b.CategoryID == category).ToList();
             if (not)
             {
-                books = db.Books.ToList().Except(books);
+                books = db.Books.ToList().Except(books).ToList();
             }
-            var svm = new SearchViewModel();
-            svm.Books = books;
-            svm.SelectedCategory = category;
-            svm.CategoryOption = not;
-            SetViewBag();
-            return View("Index", svm);
+            return books;
         }
-        public ActionResult LabelsSearch(int[] labels, string option )
+
+        public IEnumerable<Book> SearchWriters(int[] writers, string option)
         {
             IEnumerable<Book> books = new List<Book>();
             List<List<Book>> listofbooks = new List<List<Book>>();
-            if (option=="or")
-            {
-                ICollection<Book> orBooks = new List<Book>();
-                foreach (var searchlabel in labels)
-                {
-                    int labelitem = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel).LabelID;
-                    var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
-                    foreach (var correctbook in correctbooks)
-                    {
-                        if (!books.Contains(correctbook))
-                        {
-                            orBooks.Add(correctbook);
-                        }
-                    }
-                }
-                books = orBooks;
-            }
-            else if (option=="and")
-            {
-                foreach (var searchlabel in labels)
-                {
-                    List<Book> localbooks = new List<Book>();
-                    int labelitem = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel).LabelID;
-                    var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
-                    foreach (var correctbook in correctbooks)
-                    {
-                        if (!localbooks.Contains(correctbook))
-                        {
-                            localbooks.Add(correctbook);
-                        }
-                    }
-                    listofbooks.Add(localbooks);
-                }
-                books = listofbooks[0];
-                for (int i = 1; i < listofbooks.Count; i++)
-                {
-                    books = books.Intersect(listofbooks[i]);
-                }
-            }
-            else //not
-            {
-                ICollection<Book> notBooks = new List<Book>();
-                foreach (var searchlabel in labels)
-                {
-                    int labelitem = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel).LabelID;
-                    var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
-                    foreach (var correctbook in correctbooks)
-                    {
-                        if (!books.Contains(correctbook))
-                        {
-                            notBooks.Add(correctbook);
-                        }
-                    }
-                }
-                books = db.Books.ToList().Except(notBooks);
-            }
-            
-            var svm = new SearchViewModel();
-            svm.Books = books;
-            svm.SelectedLabels = labels;
-            svm.LabelsOption = option;
-            SetViewBag();
-            return View("Index", svm);
-        }
-        public ActionResult WritersSearch(int[] writers, string option)
-        {
-            IEnumerable<Book> books = new List<Book>();
-            List<List<Book>> listofbooks = new List<List<Book>>();
-            if (option=="or")
+            if (option == "or")
             {
                 ICollection<Book> orBooks = new List<Book>();
                 foreach (var searchwriter in writers)
@@ -162,7 +84,7 @@ namespace LibraryMVC.Controllers
                 }
                 books = orBooks;
             }
-            else if (option=="and")
+            else if (option == "and")
             {
                 foreach (var searchwriter in writers)
                 {
@@ -181,7 +103,7 @@ namespace LibraryMVC.Controllers
                 books = listofbooks [0];
                 for (int i = 1; i < listofbooks.Count; i++)
                 {
-                    books = books.Intersect(listofbooks [i]);
+                        books = books.Intersect(listofbooks [i]).ToList();
                 }
 
             }
@@ -200,136 +122,225 @@ namespace LibraryMVC.Controllers
                         }
                     }
                 }
-                books = db.Books.ToList().Except(notBooks);
+                books = db.Books.ToList().Except(notBooks).ToList();
             }
-
-            
-
-            var svm = new SearchViewModel();
-            svm.Books = books;
-            svm.SelectedWriters = writers;
-            svm.WritersOption = option;
-            SetViewBag();
-            return View("Index", svm);
+            return books;
         }
-        public ActionResult ISBNSearch(string isbn, bool not)
-        {
-            IEnumerable<Book> books = db.Books.Where(b => b.ISBN == isbn).ToList();
-            if (not)
-            {
-                books = db.Books.ToList().Except(books);
-            }
-            var svm = new SearchViewModel();
-            svm.SelectedISBN = isbn;
-            svm.ISBNOption = not;
-            svm.Books = books;
-            SetViewBag();
-            return View("Index", svm);
-        }
-        public ActionResult YearSearch(int year, bool not)
-        {
-            IEnumerable<Book> books = db.Books.Where(b => b.Year == year).ToList();
-            if (not)
-            {
-                books = db.Books.ToList().Except(books);
-            }
-            var svm = new SearchViewModel();
-            svm.Books = books;
-            svm.SelectedYear = year;
-            svm.YearOption = not;
-            SetViewBag();
-            return View("Index", svm);
-        }
-        
-        public ActionResult SearchEverything(SearchViewModel svm)
-        {
-            SetViewBag();
-            IEnumerable<Book> books = db.Books.ToList();
 
-            if (!string.IsNullOrEmpty(svm.SelectedTitle))
+        public IEnumerable<Book> SearchLabels(int [] labels, string option)
+        {
+            IEnumerable<Book> books = new List<Book>();
+            List<List<Book>> listofbooks = new List<List<Book>>();
+            if (option == "or")
             {
-                books = books.Where(b => b.Title.Contains(svm.SelectedTitle)).ToList();
-            }
-            if (svm.SelectedCategory != 0)
-            {
-                books = books.Where(b => b.CategoryID == svm.SelectedCategory).ToList();
-            }
-            if (svm.SelectedLabels != null)
-            {
-                ICollection<Book> selectedlabels = new List<Book>();
-                foreach (var searchlabel in svm.SelectedLabels)
+                ICollection<Book> orBooks = new List<Book>();
+                foreach (var searchlabel in labels)
                 {
                     int labelitem = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel).LabelID;
                     var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
                     foreach (var correctbook in correctbooks)
                     {
-                        if (!selectedlabels.Contains(correctbook))
+                        if (!books.Contains(correctbook))
                         {
-                            selectedlabels.Add(correctbook);
+                            orBooks.Add(correctbook);
                         }
                     }
                 }
-                books = books.Intersect(selectedlabels);
+                books = orBooks;
+            }
+            else if (option == "and")
+            {
+                foreach (var searchlabel in labels)
+                {
+                    List<Book> localbooks = new List<Book>();
+                    int labelitem = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel).LabelID;
+                    var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
+                    foreach (var correctbook in correctbooks)
+                    {
+                        if (!localbooks.Contains(correctbook))
+                        {
+                            localbooks.Add(correctbook);
+                        }
+                    }
+                    listofbooks.Add(localbooks);
+                }
+                books = listofbooks [0];
+                for (int i = 1; i < listofbooks.Count; i++)
+                {
+                        books = books.Intersect(listofbooks [i]).ToList();
+                }
+            }
+            else //not
+            {
+                ICollection<Book> notBooks = new List<Book>();
+                foreach (var searchlabel in labels)
+                {
+                    int labelitem = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel).LabelID;
+                    var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
+                    foreach (var correctbook in correctbooks)
+                    {
+                        if (!books.Contains(correctbook))
+                        {
+                            notBooks.Add(correctbook);
+                        }
+                    }
+                }
+                books = db.Books.ToList().Except(notBooks).ToList();
+            }
+
+            return books;
+        }
+
+        public IEnumerable<Book> SearchIsbn(string isbn, bool not)
+        {
+            IEnumerable<Book> books = db.Books.Where(b => b.ISBN == isbn).ToList();
+            if (not)
+            {
+                books = db.Books.ToList().Except(books).ToList();
+            }
+            return books;
+        }
+
+        public IEnumerable<Book> SearchYear(int year, bool not)
+        {
+            IEnumerable<Book> books = db.Books.Where(b => b.Year == year).ToList();
+            if (not)
+            {
+                books = db.Books.ToList().Except(books).ToList();
+            }
+            var svm = new SearchViewModel();
+            return books;
+        }
+
+        public List<IEnumerable<Book>> SearchAll(SearchViewModel svm)
+        {
+            IEnumerable<Book> titleBooks=null;
+            IEnumerable<Book> categoryBooks=null;
+            IEnumerable<Book> writersBooks=null;
+            IEnumerable<Book> labelsBooks=null;
+            IEnumerable<Book> yearBooks=null;
+            IEnumerable<Book> isbnBooks=null;
+            if (!string.IsNullOrEmpty(svm.SelectedTitle))
+            {
+                titleBooks = SearchTitle(svm.SelectedTitle, svm.TitleOption);
+            }
+            if (svm.SelectedCategory != 0)
+            {
+                categoryBooks = SearchCategory(svm.SelectedCategory, svm.CategoryOption);
+            }
+            if (svm.SelectedLabels != null)
+            {
+                labelsBooks = SearchLabels(svm.SelectedLabels, svm.LabelsOption);
             }
             if (svm.SelectedWriters != null)
             {
-                ICollection<Book> selectedwriters = new List<Book>();
-                foreach (var searchwriter in svm.SelectedWriters)
-                {
-                    int writeritem = db.Writers.FirstOrDefault(w => w.WriterID == searchwriter).WriterID;
-                    var correctbooks = db.Books.Where(b => b.Writers.Any(bw => bw.WriterID == writeritem));
-                    foreach (var correctbook in correctbooks)
-                    {
-                        if (!selectedwriters.Contains(correctbook))
-                        {
-                            selectedwriters.Add(correctbook);
-                        }
-                    }
-                }
-                books = books.Intersect(selectedwriters);
-            }
-            if (!string.IsNullOrEmpty(svm.SelectedISBN))
-            {
-                books = books.Where(b => b.ISBN == svm.SelectedISBN).ToList();
+                writersBooks = SearchWriters(svm.SelectedWriters, svm.WritersOption);
             }
             if (svm.SelectedYear != 0)
             {
-                books = books.Where(b => b.Year == svm.SelectedYear).ToList();
+                yearBooks = SearchYear(svm.SelectedYear, svm.YearOption);
             }
-            svm.Books = books;
-            return View("Index", svm);
+            if (!string.IsNullOrEmpty(svm.SelectedISBN))
+            {
+                isbnBooks = SearchIsbn(svm.SelectedISBN, svm.ISBNOption);
+            }
+            return new List<IEnumerable<Book>>() {titleBooks,categoryBooks,writersBooks,labelsBooks,yearBooks,isbnBooks};
+            
+        }
+
+        private IEnumerable<Book> AllOr(List<IEnumerable<Book>> listofbooks)
+        {
+            var books = listofbooks[0];
+            for (int i = 1; i < listofbooks.Count; i++)
+            {
+                books = books.Union(listofbooks [i]).ToList();
+            }
+            return books;
+        }
+        private IEnumerable<Book> AllAnd(List<IEnumerable<Book>> listofbooks)
+        {
+            IEnumerable<Book> books=null;
+            foreach (var listofbook in listofbooks)
+            {
+                if (listofbook!=null)
+                {
+                    books= listofbook;
+                    break;
+                }
+            }
+            if (books!=null)
+            {
+                foreach (IEnumerable<Book> listofbook in listofbooks)
+                {
+                    if (listofbook != null)
+                    {
+                        books = books.Intersect(listofbook).ToList();
+                    }
+                }
+            }
+            return books;
+        }
+        private IEnumerable<Book> AllNot(List<IEnumerable<Book>> listofbooks)
+        {
+            IEnumerable<Book> books = db.Books.ToList();
+            for (int i = 0; i < listofbooks.Count; i++)
+            {
+                books = books.Except(listofbooks [i]).ToList();
+            }
+            return books;
         }
         //Post: Books
-       [HttpPost]
+        [HttpPost]
         public ActionResult Index(SearchViewModel svm)
         {
             SetViewBag();
             if (Request.Form ["Title"]!=null)
             {
-                return TitleSearch(svm.SelectedTitle, svm.TitleOption);
+                svm.Books = SearchTitle(svm.SelectedTitle, svm.TitleOption);
+                return View("Index", svm);
             }
             if (Request.Form ["Category"] != null)
             {
-                return CategorySearch(svm.SelectedCategory, svm.CategoryOption);
+                svm.Books = SearchCategory(svm.SelectedCategory, svm.CategoryOption);
+                return View("Index", svm);
             }
             if (Request.Form ["Writers"] != null)
             {
-                return WritersSearch(svm.SelectedWriters, svm.WritersOption);
+                svm.Books = SearchWriters(svm.SelectedWriters, svm.WritersOption);
+                return View("Index", svm);
             }
             if (Request.Form ["Labels"] != null)
             {
-                return LabelsSearch(svm.SelectedLabels, svm.LabelsOption);
+                svm.Books = SearchLabels(svm.SelectedLabels, svm.LabelsOption);
+                return View("Index", svm);
             }
             if (Request.Form ["Year"] != null)
             {
-                return YearSearch(svm.SelectedYear,svm.YearOption);
+                svm.Books = SearchYear(svm.SelectedYear,svm.YearOption);
+                return View("Index", svm);
             }
             if (Request.Form ["ISBN"] != null)
             {
-                return ISBNSearch(svm.SelectedISBN, svm.ISBNOption);
+                svm.Books =  SearchIsbn(svm.SelectedISBN, svm.ISBNOption);
+                return View("Index", svm);
             }
             if(Request.Form ["All"] != null)
             {
+                var listofbooks = SearchAll(svm);
+                switch (svm.AllOption)
+                {
+                    case "or":
+                        svm.Books = AllOr(listofbooks); 
+                        break;
+                    case "and":
+                        svm.Books = AllAnd(listofbooks);
+                        break;
+                    default:
+                    case "not":
+                        svm.Books = AllNot(listofbooks);
+                        break;
+                }
+                return View("Index", svm);
                 //searcheverything
             }
             if (Request.Form ["Save"] != null)
