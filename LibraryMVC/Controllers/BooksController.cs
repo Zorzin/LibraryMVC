@@ -427,7 +427,7 @@ namespace LibraryMVC.Controllers
             if (ModelState.IsValid)
             {
                 var extension = Path.GetExtension(bvm.Contents.FileName);
-                var filename = bvm.BookID + "_contents" + extension;
+                
                 Book book = new Book()
                 {
                     AddDate = DateTime.Now,
@@ -435,7 +435,6 @@ namespace LibraryMVC.Controllers
                     CategoryID = bvm.CategoryID,
                     Year = bvm.Year,
                     Title = bvm.Title,
-                    Contents = filename,
                     ISBN = bvm.ISBN,
                     Description = bvm.Description,
                     Writers = new List<BookWriter>(),
@@ -444,6 +443,8 @@ namespace LibraryMVC.Controllers
                 };
                 db.Books.Add(book);
                 db.SaveChanges();
+                var filename = book.BookID + "_contents" + extension;
+                book.Contents = filename;
                 var directory =Path.Combine(Server.MapPath("~/App_Data/uploads"),book.BookID.ToString());
                 Directory.CreateDirectory(directory);
                 var path = Path.Combine(directory, filename);
