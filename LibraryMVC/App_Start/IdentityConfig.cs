@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Net;
 using System.Net.Mail;
 using System.Security.Claims;
@@ -24,31 +25,32 @@ namespace LibraryMVC
                 var pwd = "MVCProject123";
 
                 // Configure the client:
-                var client =
-                    new SmtpClient("smtp.gmail.com");
+                System.Net.Mail.SmtpClient client =
+            new System.Net.Mail.SmtpClient("smtp.gmail.com");
 
-                client.Port = 25;
-                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.Port = 587;
+                client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
 
                 // Create the credentials:
-                var credentials =
-                    new NetworkCredential(credentialUserName, pwd);
+                System.Net.NetworkCredential credentials =
+            new System.Net.NetworkCredential(credentialUserName, pwd);
 
                 client.EnableSsl = true;
                 client.Credentials = credentials;
 
                 // Create the message:
                 var mail =
-                    new MailMessage(sentFrom, message.Destination);
+            new System.Net.Mail.MailMessage(sentFrom,message.Destination);
 
                 mail.Subject = message.Subject;
                 mail.Body = message.Body;
 
                 // Send:
                 return client.SendMailAsync(mail);
+
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 throw;
             }
@@ -71,6 +73,8 @@ namespace LibraryMVC
         public ApplicationUserManager(IUserStore<User> store)
             : base(store)
         {
+            this.UserTokenProvider = new TotpSecurityStampBasedTokenProvider<User, string>();
+            this.EmailService = new EmailService();
         }
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options,
