@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LibraryMVC.Controllers
 {
+    [Authorize]
     public class BasketController : Controller
     {
         private readonly ApplicationDbContext db = new ApplicationDbContext();
@@ -40,12 +41,12 @@ namespace LibraryMVC.Controllers
                 //is there any book left to borrow
                 if (!BorrowLogic.CanBookBeBorrow(book.BookID))
                 {
-                    continue;
+                    return View("Error");
                 }
                 //is user currently borrow this book
                 if (!BorrowLogic.IsCurrentlyBorrow(book.BookID,userid))
                 {
-                    continue;
+                    return View("Error");
                 }
                 //Adding borrows to table
                 
@@ -62,7 +63,7 @@ namespace LibraryMVC.Controllers
             }
             
             Session["basket"] = null;
-            return RedirectToAction("Index", "Home");
+            return View();
         }
 
 
@@ -75,79 +76,6 @@ namespace LibraryMVC.Controllers
             basket.Books.Remove(book);
             return RedirectToAction("Index");
         }
-
-
-
-        // GET: Basket/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Basket/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Basket/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Basket/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Basket/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Basket/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Basket/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       
     }
 }

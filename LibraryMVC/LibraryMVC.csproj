@@ -404,6 +404,9 @@
     <Content Include="Views\SearchHistories\Details.cshtml" />
     <Content Include="Views\SearchHistories\Edit.cshtml" />
     <Content Include="Views\SearchHistories\Index.cshtml" />
+    <Content Include="Views\Basket\Borrow.cshtml" />
+    <Content Include="Views\Basket\Error.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

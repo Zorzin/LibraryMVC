@@ -4,59 +4,65 @@
     ViewBag.Title = "UserIndex";
 }
 
-<h2>UserIndex</h2>
+<h2>Your Borrows</h2>
 
 <div>
-    <h4>Borrow</h4>
     <hr />
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Book.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BorrowDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Deadline)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReturnDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            @if (User.IsInRole("Worker"))
-            {
-                <th></th>
-            }
-        </tr>
-        @foreach (var item in Model)
-        {
+    @if (Model.Any())
+    {
+        <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Book.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BorrowDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Deadline)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReturnDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Book.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BorrowDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Deadline)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReturnDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
                 @if (User.IsInRole("Worker"))
                 {
-                    <td>@Html.ActionLink("Edit", "Edit", "Borrows", new { @id = item.BorrowID }, new { @class = "btn btn-info" })</td>
-                    <td>@Html.ActionLink("Delete", "Delete", "Borrows", new { @id = item.BorrowID }, new { @class = "btn btn-danger" })</td>
+                    <th></th>
                 }
             </tr>
-        }
-     </table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Book.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BorrowDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Deadline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReturnDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    @if (User.IsInRole("Worker"))
+                    {
+                        <td>@Html.ActionLink("Edit", "Edit", "Borrows", new {@id = item.BorrowID}, new {@class = "btn btn-info"})</td>
+                        <td>@Html.ActionLink("Delete", "Delete", "Borrows", new {@id = item.BorrowID}, new {@class = "btn btn-danger"})</td>
+                    }
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>No Borrow history</p>
+    }
 </div>
 <p>
     @Html.ActionLink("Back to List", "Index")

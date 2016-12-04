@@ -7,10 +7,9 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Model.Title</h2>
 
 <div class="col-md-12">
-    <h4>Book</h4>
     <hr />
     <div class="col-md-8 form-horizontal">
         <div class="form-group">
@@ -101,7 +100,10 @@
         }
         <br />
         <br />
-        @Html.ActionLink("Edit", "Edit", "Books", new { id = Model.BookID }, new { @class = "btn btn-info" })
+        @if (User.IsInRole("Worker"))
+        {
+            @Html.ActionLink("Edit", "Edit", "Books", new { id = Model.BookID }, new { @class = "btn btn-info" })
+        }
 </div>
     <div class="col-md-12">
         <hr />

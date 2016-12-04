@@ -12,11 +12,13 @@ using LibraryMVC.Models;
 
 namespace LibraryMVC.Controllers
 {
+    [Authorize]
     public class SearchHistoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: SearchHistories
+        [Authorize(Roles = "Worker")]
         public ActionResult Index()
         {
             var searchHistories = db.SearchHistories.Include(s => s.Reader);
@@ -30,6 +32,7 @@ namespace LibraryMVC.Controllers
 
 
         // GET: SearchHistories/Details/5
+        [Authorize(Roles = "Worker")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -45,6 +48,7 @@ namespace LibraryMVC.Controllers
         }
 
         // GET: SearchHistories/Create
+        [Authorize(Roles = "Worker")]
         public ActionResult Create()
         {
             ViewBag.ReaderID = new SelectList(db.Users, "Id", "Name");
@@ -56,6 +60,7 @@ namespace LibraryMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Worker")]
         public ActionResult Create([Bind(Include = "SearchHistoryID,ReaderID,Name,URL")] SearchHistory searchHistory)
         {
             if (ModelState.IsValid)
@@ -70,6 +75,7 @@ namespace LibraryMVC.Controllers
         }
 
         // GET: SearchHistories/Edit/5
+        [Authorize(Roles = "Worker")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +96,7 @@ namespace LibraryMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Worker")]
         public ActionResult Edit([Bind(Include = "SearchHistoryID,ReaderID,Name,URL")] SearchHistory searchHistory)
         {
             if (ModelState.IsValid)
@@ -103,6 +110,7 @@ namespace LibraryMVC.Controllers
         }
 
         // GET: SearchHistories/Delete/5
+        [Authorize(Roles = "Worker")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -120,6 +128,7 @@ namespace LibraryMVC.Controllers
         // POST: SearchHistories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Worker")]
         public ActionResult DeleteConfirmed(int id)
         {
             SearchHistory searchHistory = db.SearchHistories.Find(id);

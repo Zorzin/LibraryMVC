@@ -8,6 +8,7 @@ namespace LibraryMVC.Controllers
 {
     public class WorkerPanelController : Controller
     {
+        [Authorize(Roles = "Worker")]
         // GET: AdminPanel
         public ActionResult Index()
         {

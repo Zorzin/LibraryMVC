@@ -18,8 +18,7 @@ namespace LibraryMVC.Controllers
     public class BooksController : Controller
     {
         private readonly ApplicationDbContext db = new ApplicationDbContext();
-
-
+        
         private void SetViewBag()
         {
             var listoptions = new List<string>() {"or", "and", "not"};
@@ -351,7 +350,7 @@ namespace LibraryMVC.Controllers
             }
             return View(svm);
         }
-        
+        [Authorize]
         public void Save(SearchViewModel svm)
         {
             //json
@@ -364,7 +363,7 @@ namespace LibraryMVC.Controllers
             db.SearchHistories.Add(sh);
             db.SaveChanges();
         }
-
+        [Authorize]
         public ActionResult Load(int id)
         {
             var searchHistory = db.SearchHistories.FirstOrDefault(s => s.SearchHistoryID == id);
@@ -400,7 +399,7 @@ namespace LibraryMVC.Controllers
                 return HttpNotFound();
             return View(book);
         }
-
+        [Authorize(Roles = "Worker")]
         // GET: Books/Create
         public ActionResult Create()
         {
@@ -419,6 +418,7 @@ namespace LibraryMVC.Controllers
         // POST: Books/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Worker")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(BookViewModel bvm)
@@ -516,6 +516,7 @@ namespace LibraryMVC.Controllers
         }
 
         // GET: Books/Edit/5
+        [Authorize(Roles = "Worker")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -572,10 +573,11 @@ namespace LibraryMVC.Controllers
             ViewBag.Labels = new SelectList(db.Labels, "LabelID", "Name",bvm.BookViewModel.SelectedLabels);
             return View(bvm);
         }
-        
+
         // POST: Books/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Worker")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(BookEditViewModel bevm)
@@ -814,6 +816,8 @@ namespace LibraryMVC.Controllers
         }
 
         // GET: Books/Delete/5
+
+        [Authorize(Roles = "Worker")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -825,6 +829,7 @@ namespace LibraryMVC.Controllers
         }
 
         // POST: Books/Delete/5
+        [Authorize(Roles = "Worker")]
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -842,6 +847,7 @@ namespace LibraryMVC.Controllers
                 db.Dispose();
             base.Dispose(disposing);
         }
+        [Authorize]
         [ActionName("Download")]
         public void Download(string filename,string bookid)
         {
@@ -854,6 +860,7 @@ namespace LibraryMVC.Controllers
             System.Web.HttpContext.Current.Response.WriteFile(dfile.FullName);
             System.Web.HttpContext.Current.Response.End();
         }
+        [Authorize]
         [ActionName("AddToBasket")]
         public ActionResult AddToBasket(string bookid)
         {

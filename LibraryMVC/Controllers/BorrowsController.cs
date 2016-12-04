@@ -11,6 +11,7 @@ using LibraryMVC.Models;
 
 namespace LibraryMVC.Controllers
 {
+    [Authorize]
     public class BorrowsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -47,6 +48,7 @@ namespace LibraryMVC.Controllers
         }
 
         // GET: Borrows/Create
+        [Authorize(Roles = "Worker")]
         public ActionResult Create()
         {
             ViewBag.BookID = new SelectList(db.Books, "BookID", "Title");
@@ -59,6 +61,7 @@ namespace LibraryMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Worker")]
         public ActionResult Create([Bind(Include = "BorrowID,BookID,ReaderID,BorrowDate,ReturnDate,Deadline,Status")] Borrow borrow)
         {
             if (ModelState.IsValid)
@@ -74,6 +77,7 @@ namespace LibraryMVC.Controllers
         }
 
         // GET: Borrows/Edit/5
+        [Authorize(Roles = "Worker")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,6 +99,7 @@ namespace LibraryMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Worker")]
         public ActionResult Edit([Bind(Include = "BorrowID,BookID,ReaderID,BorrowDate,ReturnDate,Deadline,Status")] Borrow borrow)
         {
             if (ModelState.IsValid)
@@ -109,6 +114,7 @@ namespace LibraryMVC.Controllers
         }
 
         // GET: Borrows/Delete/5
+        [Authorize(Roles = "Worker")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -126,6 +132,7 @@ namespace LibraryMVC.Controllers
         // POST: Borrows/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Worker")]
         public ActionResult DeleteConfirmed(int id)
         {
             Borrow borrow = db.Borrows.Find(id);

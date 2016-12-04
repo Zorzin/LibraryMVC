@@ -4,24 +4,32 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-<table class="table">
-    <tr>
-        <th>Title</th>
-        <th>ISBN</th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.Books)
-    {
+<h2>Basket</h2>
+@if (Model.Books.Any())
+{
+    <table class="table">
         <tr>
-            <td>@Html.DisplayName(item.Title)</td>
-            <td>@Html.DisplayName(item.ISBN)</td>
-            <td>@Html.ActionLink("Remove", "DeleteFromBasket", "Basket", new { bookid = item.BookID }, new { @class = "btn btn-danger" })</td> @*remove*@
+            <th>Title</th>
+            <th>ISBN</th>
+            <th></th>
         </tr>
-    }
-</table>
-@if (Model.Books.Count > 0)
+
+        @foreach (var item in Model.Books)
+        {
+            <tr>
+                <td>@Html.DisplayName(item.Title)</td>
+                <td>@Html.DisplayName(item.ISBN)</td>
+                <td>@Html.ActionLink("Remove", "DeleteFromBasket", "Basket", new { bookid = item.BookID }, new { @class = "btn btn-danger" })</td> @*remove*@
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>Basket is empty</p>
+}
+
+@if (Model.Books.Any())
 {
     @Html.ActionLink("Borrow","Borrow","Basket",null,new {@class="btn btn-info"})
 }
