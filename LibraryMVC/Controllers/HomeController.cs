@@ -34,5 +34,9 @@ namespace LibraryMVC.Controllers
         {
             return View();
         }
+        public ActionResult News()
+        {
+            return View();
+        }
     }
 }

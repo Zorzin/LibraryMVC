@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<LibraryMVC.Models.User>
 @{
     ViewBag.Title = "Index";
 }
@@ -10,7 +10,9 @@
     }
     @if (Roles.IsUserInRole(User.Identity.Name,"Worker"))
     {
-        <a href="@Url.Action("PendingRegistration","Users")" class="list-group-item">Pending registrations</a>
+        <a href="@Url.Action("PendingRegistration", "Users")" class="list-group-item">
+            Pending registrations <span class="badge alert-danger" style="float: none">@Model.Count()</span>
+</a>
     }
     <a href="@Url.Action("Index","Writers")" class="list-group-item">Writers</a>
     <a href="@Url.Action("Index","Labels")" class="list-group-item">Labels</a>

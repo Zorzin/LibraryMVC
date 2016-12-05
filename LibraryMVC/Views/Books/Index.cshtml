@@ -1,4 +1,6 @@
-﻿@model LibraryMVC.Models.SearchViewModel
+﻿@using LibraryMVC.Controllers
+@using Microsoft.AspNet.Identity
+@model LibraryMVC.Models.SearchViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -18,7 +20,7 @@
                         @Html.TextBoxFor(m => m.SelectedTitle, new {@class = "form-control", id = "title"})
                         <div class="search-options">
                             <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter" name="Title"/>
-                            <p class="search-checkbox">NOT</p>@Html.CheckBoxFor(m => m.TitleOption, new {@class = "search-checkbox", id = "titlecheckbox", style = "margin: auto; margin-left:15px;"})
+                            <p class="search-checkbox">NOT</p>@Html.CheckBoxFor(m => m.TitleOption, new {@class = "search-checkbox", id = "titlecheckbox", style = "margin-top:30px; margin-left:5px;" })
                         </div>
 
                     </div>
@@ -32,7 +34,7 @@
                         <br/>
                         <div class="search-options">
                             <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter" name="Category"/>
-                            <p class="search-checkbox">NOT</p>@Html.CheckBoxFor(m => m.CategoryOption, new {@class = "search-checkbox", id = "categorycheckbox", style = "margin: auto; margin-left:15px;"})
+                            <p class="search-checkbox">NOT</p>@Html.CheckBoxFor(m => m.CategoryOption, new {@class = "search-checkbox", id = "categorycheckbox", style = "margin-top:30px; margin-left:5px;" })
                         </div>
                     </div>
                 </li>
@@ -46,7 +48,7 @@
                         <div class="search-options">
                             <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter" name="Labels"/>
                             @Html.DropDownListFor(m => m.LabelsOption, ViewBag.Options as SelectList,
-                                new {@class = " form-control", style = "width:100px; margin:5px;"})
+                                new {@class = " form-control", style = "width:100px; margin:15px;"})
                         </div>
                     </div>
                 </li>
@@ -60,7 +62,7 @@
                         <div class="search-options">
                             <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter" name="Writers"/>
                             @Html.DropDownListFor(m => m.WritersOption, ViewBag.Options as SelectList,
-                                new {@class = " form-control", style = "width:100px;margin:5px;"})
+                                new {@class = " form-control", style = "width:100px;margin:15px;"})
                         </div>
                     </div>
                 </li>
@@ -71,7 +73,7 @@
                         @Html.TextBoxFor(m => m.SelectedYear, new {@class = "form-control"})
                         <div class="search-options">
                             <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter" name="Year"/>
-                            <p class="search-checkbox">NOT</p>@Html.CheckBoxFor(m => m.YearOption, new {@class = "search-checkbox", style = "margin: auto; margin-left:15px;"})
+                            <p class="search-checkbox">NOT</p>@Html.CheckBoxFor(m => m.YearOption, new {@class = "search-checkbox", style = "margin-top:30px; margin-left:5px;" })
                         </div>
                     </div>
                 </li>
@@ -82,7 +84,7 @@
                         @Html.TextBoxFor(m => m.SelectedISBN, new {@class = "form-control"})
                         <div class="search-options">
                             <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter" name="ISBN"/>
-                            <p class="search-checkbox">NOT</p>@Html.CheckBoxFor(m => m.ISBNOption, new {@class = "search-checkbox", style = "margin: auto; margin-left:15px;"})
+                            <p class="search-checkbox">NOT</p>@Html.CheckBoxFor(m => m.ISBNOption, new {@class = "search-checkbox", style = "margin-top:30px; margin-left:5px;" })
                         </div>
                     </div>
                     <br/>
@@ -94,7 +96,7 @@
                         <div class="search-options">
                             <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter All" name="All"/>
                             @Html.DropDownListFor(m => m.AllOption, ViewBag.Options as SelectList,
-                                new {@class = " form-control", style = "width:100px;margin:5px;"})
+                                new {@class = " form-control", style = "width:100px;margin:15px;"})
                         </div>
                     </div>
                     <br/>
@@ -112,13 +114,13 @@
         </div>
     }
     <div id="page-content-wrapper">
-        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Search</a>
-        @if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
-        {
-            <p>
-                @Html.ActionLink("Create New", "Create")
-            </p>
-        }
+        <div style="margin-bottom: 10px;">
+            <a href="#menu-toggle" class="btn btn-info" id="menu-toggle">Search</a>
+            @if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
+            {
+                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+            }
+        </div>
         @if (Model.Books.Any())
         {
             <table class="table">
@@ -144,7 +146,7 @@
                 @foreach (var item in Model.Books)
                 {
                     <tr>
-                        <td>
+                        <td style="word-wrap:break-word; max-width: 200px;">
                             @Html.ActionLink(item.Title, "Details", "Books", new {id = item.BookID}, null)
                         </td>
                         <td>
@@ -177,9 +179,25 @@
                         <td>
                             @if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
                             {
-                                @Html.ActionLink("Edit", "Edit", new {id = item.BookID})
-                                @Html.ActionLink("Delete", "Delete", new {id = item.BookID})
+                                @Html.ActionLink("Edit", "Edit", new {id = item.BookID}, new {@class="btn btn-info"}) 
+                                @Html.ActionLink("Delete", "Delete", new {id = item.BookID}, new { @class = "btn btn-danger", style="margin-left: 5px;" })
                             }
+                            @if (Request.IsAuthenticated)
+                            {
+                                  if (!BorrowLogic.IsCurrentlyBorrow(item.BookID, User.Identity.GetUserId()))
+                                  {
+                                    <span class="label label-warning">Already borrowed</span>
+                                  }
+                                  else if (!BorrowLogic.CanBookBeBorrow(item.BookID))
+                                  {
+                                    <span class="label label-danger">Not available</span>
+                                  }
+                                  else
+                                  {
+                                    @Html.ActionLink("Add to basket", "AddToBasket", "Books", new { bookid = item.BookID }, new { @class = "btn btn-info" })
+                                  }
+                            }
+                            
                         </td>
                     </tr>
                 }
@@ -195,8 +213,6 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <link href="~/Content/Bootstrap.min.css" rel="stylesheet"/>
     <link href="~/Content/chosen.css" rel="stylesheet"/>
     <script src="@Url.Content("~/Scripts/chosen.jquery.js")" type="text/javascript"></script>
     <script type="text/javascript">
@@ -212,19 +228,6 @@
                 e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
             });
-
-        //$('#titlesearch')
-        //    .click(function() {
-        //        var title = $('#title').val();
-        //        var not = $('#titlecheckbox').is(':checked');
-        //        window.location.href = "/Books/TitleSearch?title=" + title + "&not="+not+"";
-        //    });
-        //$('#categorysearch')
-        //    .click(function () {
-        //        var category = $('#category').val();
-        //        var not = $('#categorycheckbox').is(':checked');
-        //        window.location.href = "/Books/CategorySearch?category=" + category + "&not=" + not + "";
-        //    });
         $('#titlesearch')
             .click(function() {
                 var title = $('#title').val();

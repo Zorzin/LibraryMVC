@@ -76,6 +76,21 @@ namespace LibraryMVC.Controllers
             basket.Books.Remove(book);
             return RedirectToAction("Index");
         }
+
+        public int NumberOfItemsInBasket()
+        {
+            Basket basket;
+            if (Session ["basket"] == null)
+            {
+                basket = new Basket();
+                Session ["basket"] = basket;
+            }
+            else
+            {
+                basket = (Basket)Session ["basket"];
+            }
+            return basket.Books.Count();
+        }
        
     }
 }
