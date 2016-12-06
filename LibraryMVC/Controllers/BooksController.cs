@@ -46,7 +46,7 @@ namespace LibraryMVC.Controllers
        
         public IEnumerable<Book> SearchTitle(string title, bool not)
         {
-            IEnumerable<Book> books = db.Books.Where(b => b.Title == title).ToList();
+            IEnumerable<Book> books = db.Books.Where(b => b.Title.Contains(title)).ToList();
             if (not)
             {
                 books = db.Books.ToList().Except(books).ToList();

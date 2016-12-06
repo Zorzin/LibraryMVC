@@ -27,7 +27,7 @@ namespace LibraryMVC.Controllers
         public ActionResult UserIndex(string userid)
         {
             var searchHistories = db.SearchHistories.Where(s=>s.ReaderID==userid);
-            return View("Index",searchHistories.ToList());
+            return View(searchHistories.ToList());
         }
 
 

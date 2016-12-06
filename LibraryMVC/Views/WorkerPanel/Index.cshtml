@@ -7,6 +7,8 @@
     @if (Roles.IsUserInRole(User.Identity.Name,"Admin"))
     {
         <a href="@Url.Action("Index","Users")" class="list-group-item">Users</a>
+        <a href="@Url.Action("AddToRole","Users")" class="list-group-item">Add User to role</a>
+        <a href="@Url.Action("CreateRole","Users")" class="list-group-item">Create new role</a>
     }
     @if (Roles.IsUserInRole(User.Identity.Name,"Worker"))
     {
@@ -18,5 +20,8 @@
     <a href="@Url.Action("Index","Labels")" class="list-group-item">Labels</a>
     <a href="@Url.Action("Index","Categories")" class="list-group-item">Categories</a>
     <a href="@Url.Action("Index","Books")" class="list-group-item">Books</a>
+    <a href="@Url.Action("Index","Borrows")" class="list-group-item">Borrows</a>
+    <a href="@Url.Action("Index","SearchHistories")" class="list-group-item">Searches</a>
+    
 </div>
 

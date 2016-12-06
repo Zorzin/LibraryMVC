@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -56,7 +57,8 @@ namespace LibraryMVC.Controllers
                     ReaderID = userid,
                     BorrowDate = DateTime.Today,
                     Deadline = DateTime.Today.AddDays(30),
-                    ReturnDate = DateTime.Today.AddDays(-1)
+                    ReturnDate = DateTime.Today.AddDays(-1),
+                    Status = "Book in store"
                 };
                 db.Borrows.Add(borrow);
                 db.SaveChanges();

@@ -4,10 +4,13 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Library.Models;
 using LibraryMVC.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace LibraryMVC.Controllers
 {
@@ -91,6 +94,8 @@ namespace LibraryMVC.Controllers
             }
             ViewBag.BookID = new SelectList(db.Books, "BookID", "Title", borrow.BookID);
             ViewBag.ReaderID = new SelectList(db.Users, "Id", "Name", borrow.ReaderID);
+            ViewBag.StatusList = new SelectList(BorrowLogic.BorrowStatus);
+            
             return View(borrow);
         }
 
@@ -100,19 +105,36 @@ namespace LibraryMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Worker")]
-        public ActionResult Edit([Bind(Include = "BorrowID,BookID,ReaderID,BorrowDate,ReturnDate,Deadline,Status")] Borrow borrow)
+        public async Task<ActionResult> Edit([Bind(Include = "BorrowID,BookID,ReaderID,BorrowDate,ReturnDate,Deadline,Status")] Borrow borrow)
         {
+            
             if (ModelState.IsValid)
             {
                 db.Entry(borrow).State = EntityState.Modified;
                 db.SaveChanges();
+                if (ViewBag.previuosstatus==null)
+                {
+                    await SendMail(borrow.ReaderID, borrow.Status);
+                }
+                else if (ViewBag.previuosstatus != borrow.Status)
+                {
+                    await SendMail(borrow.ReaderID, borrow.Status);
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.BookID = new SelectList(db.Books, "BookID", "Title", borrow.BookID);
             ViewBag.ReaderID = new SelectList(db.Users, "Id", "Name", borrow.ReaderID);
+            ViewBag.StatusList = new SelectList(BorrowLogic.BorrowStatus);
+            ViewBag.previuosstatus = borrow.Status;
             return View(borrow);
         }
 
+        private async Task SendMail(string userid, string status)
+        {
+            UserManager<User> userManager =
+                        HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            await userManager.SendEmailAsync(userid, "Status of your borrow changed", "Your borrow have now status: " + status + ". \nHave a nice day, LibraryMVC team.");
+        }
         // GET: Borrows/Delete/5
         [Authorize(Roles = "Worker")]
         public ActionResult Delete(int? id)

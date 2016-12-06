@@ -92,17 +92,25 @@
             @Html.LabelFor(model=>model.BookViewModel.Files, "Files", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div id="refreshmain">
-                        @for (var i = 0; i < Model.OldFiles.Count; i++)
-                        {
-                            var spanid = "display" + i;
-                            <div id=@spanid class="refresh">
-                                @Html.TextBoxFor(model => model.OldFiles [i], new { @readonly = "readonly", id = "oldfiles", style = "border-width: 0px" })
-                                @Html.TextBoxFor(model => model.OldFilesText [i], new { id = "oldfilestext" })
-                                <button type="button" id=@i class="removefilebutton">Remove</button>
-                            </div>
-                        }
+                    @for (var i = 0; i < Model.OldFiles.Count; i++)
+                    {
+                        var spanid = "display" + i;
+                        <div id=@spanid class="refresh">
+                            @Html.TextBoxFor(model => model.OldFiles [i], new { @readonly = "readonly", id = "oldfiles", style = "border-width: 0px" })
+                            @Html.TextBoxFor(model => model.OldFilesText [i], new { id = "oldfilestext" })
+                            <button type="button" id=@i class="removefilebutton">Remove</button>
+                        </div>
+                    }
                 </div>
-                <div id="addanotherfilediv"></div>
+                <div id="addanotherfilediv">
+                    
+                </div>
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
                 <button id="addanotherfile" type="button">Add</button>
             </div>
         </div>
@@ -148,7 +156,7 @@
 
         $('#addanotherfile').click(function () {
 
-            $('#addanotherfilediv').append("<input type=\"file\" name=\"BookViewModel.Files[" + maxid + "]\">" + "<input type =\"text\" name=\"BookViewModel.FilesNames[" + maxid + "]\"/>");
+            $('#addanotherfilediv').append("<div><div style=\"display: inline-flex\"><input type=\"file\" name=\"BookViewModel.Files[" + maxid + "]\">" + "<input type =\"text\" name=\"BookViewModel.FilesNames[" + maxid + "]\"/></div></div>");
             maxid += 1;
         });
 

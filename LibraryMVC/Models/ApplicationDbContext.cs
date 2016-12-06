@@ -58,5 +58,26 @@ namespace LibraryMVC.Models
 
             return user;
         }
+
+        public static void AddUserToRoleById(string id, string role)
+        {
+            LocalUserManager.AddToRole(id, role);
+        }
+
+        public static bool IsUserInRoleById(string id, string role)
+        {
+            return LocalUserManager.IsInRole(id, role);
+        }
+
+        public static void DeleteUserFromRoleById(string id, string role)
+        {
+            LocalUserManager.RemoveFromRole(id, role);
+        }
+
+        public static void CreateNewRoleByName(string name)
+        {
+            var role = new IdentityRole(name);
+            LocalRoleManager.Create(role);
+        }
     }
 }

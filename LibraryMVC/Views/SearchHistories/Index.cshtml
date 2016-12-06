@@ -9,48 +9,35 @@
 {
     <table class="table">
         <tr>
-            @if (User.IsInRole("Admin"))
-            {
-                <th>
-                    @Html.DisplayNameFor(model => model.Reader)
-                </th>
-            }
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
+            <th>                
+                User
             </th>
-            @if (User.IsInRole("Admin"))
-            {
-                <th></th>
-            }
+            <th>
+                Name
+            </th>
+            <th></th>
         </tr>
-
         @foreach (var item in Model)
         {
             <tr>
-                @if (User.IsInRole("Admin"))
-                {
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Reader.Name)
-                    </td>
-                }
                 <td>
-                    @Html.ActionLink(item.Name, "Load", "Books", new { id = item.SearchHistoryID }, new { @class = "btn btn-info" })
+                    @item.Reader.Name
                 </td>
-                @if (User.IsInRole("Admin"))
-                {
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.SearchHistoryID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.SearchHistoryID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.SearchHistoryID })
-                    </td>
-                }
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @Html.ActionLink("Load", "Load", "Books", new { id = item.SearchHistoryID }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.SearchHistoryID }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Details", "Details", new { id = item.SearchHistoryID }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SearchHistoryID }, new { @class = "btn btn-danger" })
+                </td>
             </tr>
         }
-
     </table>
 }
 else
 {
-    <p> You don't saved anything yet.</p>
+<p> Anything saved anything yet.</p>
 }
 

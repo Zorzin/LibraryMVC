@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Library.Models.SearchHistory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Saved Searches</h2>
+@if (Model.Any())
+{
+    <div class="list-group" style="margin-top:10px ">
+
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("Load","Books",new {id=item.SearchHistoryID},null)" class="list-group-item">
+                @item.Name
+            </a>
+        }
+    </div>
+
+}
+else
+{
+<p> You don't saved anything yet.</p>
+}
+

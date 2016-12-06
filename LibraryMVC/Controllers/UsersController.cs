@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LibraryMVC.Models;
+using Microsoft.AspNet.Identity;
 
 namespace LibraryMVC.Controllers
 {
@@ -32,11 +33,72 @@ namespace LibraryMVC.Controllers
             else if(confirm == "confirm")
             {
                 dbuser.EmailConfirmed = true;
+                IdentityManager.AddUserToRoleById(User.Identity.GetUserId(),"User");
                 db.SaveChanges();
             }
             return RedirectToAction("PendingRegistration");
         }
 
+        public ActionResult AddToRole()
+        {
+            var users = db.Users.ToList();
+            return View(users);
+        }
+        public ActionResult AddUserToRole(string id)
+        {
+
+            UserRoleViewModel urvm = new UserRoleViewModel();
+            urvm.AllRoles = db.Roles.OrderBy(r => r.Name).Select(r=>r.Name).ToList();
+            urvm.userid = id;
+            urvm.CheckedRoles =  new bool[urvm.AllRoles.Count];
+            for (int i = 0; i < urvm.AllRoles.Count; i++)
+            {
+                
+                if (IdentityManager.IsUserInRoleById(id,urvm.AllRoles[i]))
+                {
+                    urvm.CheckedRoles[i] = true;
+                }
+                else
+                {
+                    urvm.CheckedRoles [i] = false;
+                }
+            }
+            return View(urvm);
+        }
+        [HttpPost]
+        public ActionResult AddUserToRole(UserRoleViewModel urvm)
+        {
+            urvm.AllRoles = db.Roles.OrderBy(r => r.Name).Select(r => r.Name).ToList();
+            for (int i = 0; i < urvm.CheckedRoles.Length; i++)
+            {
+                if (urvm.CheckedRoles[i])
+                {
+                    IdentityManager.AddUserToRoleById(urvm.userid, urvm.AllRoles[i]);
+                }
+                else
+                {
+                    IdentityManager.DeleteUserFromRoleById(urvm.userid, urvm.AllRoles [i]);
+                }
+            }
+            return RedirectToAction("AddToRole");
+        }
+
+        public ActionResult CreateRole()
+        {
+            var roles = db.Roles.OrderBy(r => r.Name).Select(r => r.Name).ToList();
+            return View(roles);
+        }
+
+        public ActionResult CreateNewRole()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateNewRole(string name)
+        {
+            IdentityManager.CreateNewRoleByName(name);
+            return RedirectToAction("CreateRole");
+        }
         public ActionResult PendingRegistration()
         {
             ICollection<User> users = db.Users.Where(x => x.EmailConfirmed == false).ToList();
