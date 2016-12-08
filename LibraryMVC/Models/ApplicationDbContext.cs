@@ -24,6 +24,7 @@ namespace LibraryMVC.Models
         public DbSet<BookWriter> BookWriters { get; set; }
         public DbSet<SearchHistory> SearchHistories { get; set; }
         public DbSet<File> Files { get; set; }
+        public DbSet<News> News { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

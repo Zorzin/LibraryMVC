@@ -261,6 +261,10 @@
     <Compile Include="Migrations\201611241529352_searchhistory remove book.Designer.cs">
       <DependentUpon>201611241529352_searchhistory remove book.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612082305185_News.cs" />
+    <Compile Include="Migrations\201612082305185_News.Designer.cs">
+      <DependentUpon>201612082305185_News.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -274,6 +278,7 @@
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\MySelectList.cs" />
+    <Compile Include="Models\News.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\SearchViewModel.cs" />
@@ -489,6 +494,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611241529352_searchhistory remove book.resx">
       <DependentUpon>201611241529352_searchhistory remove book.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612082305185_News.resx">
+      <DependentUpon>201612082305185_News.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
