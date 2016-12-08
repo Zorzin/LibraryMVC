@@ -52,6 +52,12 @@ namespace LibraryMVC.Migrations
                 workerrole = new IdentityRole("Worker");
                 roleManager.Create(workerrole);
             }
+            var userrole = roleManager.FindByName("User");
+            if (userrole == null)
+            {
+                userrole = new IdentityRole("User");
+                roleManager.Create(userrole);
+            }
         }
 
         private void SeedAdmin(LibraryMVC.Models.ApplicationDbContext context)

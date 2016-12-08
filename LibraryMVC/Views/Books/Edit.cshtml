@@ -1,4 +1,4 @@
-﻿@model LibraryMVC.Models.BookViewModel
+﻿@model LibraryMVC.Models.BookEditViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -7,7 +7,10 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit","Books",FormMethod.Post, new
+{
+    @enctype = "multipart/form-data"
+}))
 {
     @Html.AntiForgeryToken()
     
@@ -15,82 +18,109 @@
         <h4>Book</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.BookID)
+        @Html.HiddenFor(model => model.BookViewModel.BookID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BookViewModel.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ISBN, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ISBN, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ISBN, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.BookViewModel.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BookViewModel.Title, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BookViewModel.ISBN, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.BookViewModel.ISBN, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BookViewModel.ISBN, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BookViewModel.Year, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.BookViewModel.Year, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BookViewModel.Year, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BookViewModel.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.BookViewModel.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BookViewModel.Amount, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Contents, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BookViewModel.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Contents, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Contents, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.BookViewModel.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BookViewModel.Description, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CategoryID, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BookViewModel.Contents, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10" id="contentdiv">
+                @Html.TextBoxFor(model=>model.OldContent,new {@readonly = "readonly", style = "border-width: 0px" })
+                <button type="button" id="chagecontent" >Remove</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BookViewModel.CategoryID, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "chosen-single-select", style="width:350px" })
-                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                @Html.DropDownList("BookViewModel.CategoryID", ViewBag.CategoryID as SelectList, htmlAttributes: new { @class = "chosen-single-select", style = "width:350px" })
+                @Html.ValidationMessageFor(model => model.BookViewModel.CategoryID, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.SelectedWriters, "Writers", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BookViewModel.SelectedWriters, "Writers", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.ListBoxFor(model => model.SelectedWriters, ViewBag.Writers as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:350px;" })
+                @Html.ListBoxFor(model => model.BookViewModel.SelectedWriters, ViewBag.Writers as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:350px;" })
 
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.SelectedLabels, "Labels", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BookViewModel.SelectedLabels, "Labels", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.ListBoxFor(model => model.SelectedLabels, ViewBag.Labels as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:350px;" })
+                @Html.ListBoxFor(model => model.BookViewModel.SelectedLabels, ViewBag.Labels as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:350px;" })
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            @Html.LabelFor(model=>model.BookViewModel.Files, "Files", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div id="refreshmain">
+                    @for (var i = 0; i < Model.OldFiles.Count; i++)
+                    {
+                        var spanid = "display" + i;
+                        <div id=@spanid class="refresh">
+                            @Html.TextBoxFor(model => model.OldFiles [i], new { @readonly = "readonly", id = "oldfiles", style = "border-width: 0px" })
+                            @Html.TextBoxFor(model => model.OldFilesText [i], new { id = "oldfilestext" })
+                            <button type="button" id=@i class="removefilebutton">Remove</button>
+                        </div>
+                    }
+                </div>
+                <div id="addanotherfilediv">
+                    
+                </div>
+                
             </div>
         </div>
-    </div>
+        <div class="form-group">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <button id="addanotherfile" type="button">Add</button>
+            </div>
+        </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
 }
 
 <div>
@@ -98,16 +128,44 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <link href="~/Content/Bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/chosen.css" rel="stylesheet" />
     <script src="@Url.Content("~/Scripts/chosen.jquery.js")" type="text/javascript"></script>
-    <link href="@Url.Content("~/Content/chosen.min.css")" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript">
+
+        var maxid = 0;
+
         $(document).ready(function () {
             $('.chosen-group-select').chosen();
             $('.chosen-single-select').chosen();
         });
+
+        $('#chagecontent')
+            .click(function() {
+                $('#contentdiv').empty();
+                $('#contentdiv').append("<input type=\"file\" id=\"BookViewModel_Contents\" name=\"BookViewModel.Contents\">");
+            });
+
+        $('.removefilebutton')
+            .click(function() {
+                var id = $(this).attr('id');
+                var name = "display" + id;
+                $("#" + name).remove();
+                refreshId();
+            });
+
+        $('#addanotherfile').click(function () {
+
+            $('#addanotherfilediv').append("<div><div style=\"display: inline-flex\"><input type=\"file\" name=\"BookViewModel.Files[" + maxid + "]\">" + "<input type =\"text\" name=\"BookViewModel.FilesNames[" + maxid + "]\"/></div></div>");
+            maxid += 1;
+        });
+
+        function refreshId() {
+            $('.refresh').each(function (i) {
+                console.log($(this).find('#oldfiles').attr('name'));
+                    $(this).find('#oldfiles').attr('name', "OldFiles[" + i + "]");
+                    $(this).find('#oldfilestext').attr('name', "OldFilesText[" + i + "]");
+                });
+        }
     </script>
 }

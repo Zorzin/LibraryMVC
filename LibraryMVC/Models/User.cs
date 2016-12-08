@@ -14,7 +14,6 @@ namespace LibraryMVC.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public virtual ICollection<Borrow> Borrows { get; set; }
-        public virtual ICollection<Basket> Baskets { get; set; }
         public virtual ICollection<SearchHistory> SearchHistories { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

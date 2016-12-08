@@ -11,6 +11,7 @@ using LibraryMVC.Models;
 
 namespace LibraryMVC.Controllers
 {
+    [Authorize(Roles = "Worker")]
     public class CategoriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

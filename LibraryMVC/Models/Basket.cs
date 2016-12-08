@@ -7,12 +7,12 @@ namespace LibraryMVC.Models
 {
     public class Basket
     {
+        public Basket()
+        {
+            Books = new List<Book>();
+        }
         public int BasketID { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
 
-        public int ReaderID { get; set; }
-        public int BookID { get; set; }
-
-        public virtual User Reader { get; set; }
-        public virtual Book Book { get; set; }
     }
 }

@@ -1,0 +1,35 @@
+﻿@using LibraryMVC.Models
+@model LibraryMVC.Models.UserRoleViewModel
+
+<h1>Add User to Role</h1>
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <h4>User</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.userid)
+        @for(int i=0;i<Model.AllRoles.Count;i++)
+        {
+            @Html.HiddenFor(model=>model.AllRoles[i])
+        }
+        @Html.HiddenFor(model=>model.AllRoles)
+        @for (int i = 0; i < Model.AllRoles.Count; i++)
+        {
+            <div class="form-group">
+                @Html.Label(Model.AllRoles [i], new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.CheckBoxFor(m => m.CheckedRoles [i])
+                </div>
+            </div>
+            <hr/>
+        }
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    
+}

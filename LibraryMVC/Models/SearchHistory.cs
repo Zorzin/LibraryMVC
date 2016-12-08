@@ -11,12 +11,11 @@ namespace Library.Models
     public class SearchHistory
     {
         public int SearchHistoryID { get; set; }
-        public int ReaderID { get; set; }
-        public int BookID { get; set; }
+        public string ReaderID { get; set; }
         public string Name { get; set; }
+        public string URL { get; set; }
 
         public virtual User Reader { get; set; }
-        public virtual Book Book { get; set; }
 
     }
 }

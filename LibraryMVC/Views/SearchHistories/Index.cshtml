@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Library.Models.SearchHistory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Saved Searches</h2>
+@if (Model.Any())
+{
+    <table class="table">
+        <tr>
+            <th>                
+                User
+            </th>
+            <th>
+                Name
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Reader.Name
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @Html.ActionLink("Load", "Load", "Books", new { id = item.SearchHistoryID }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.SearchHistoryID }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Details", "Details", new { id = item.SearchHistoryID }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SearchHistoryID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+<p> Anything saved anything yet.</p>
+}
+
