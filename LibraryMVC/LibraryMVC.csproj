@@ -292,6 +292,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\LibraryMVC.mdf" />
+    <Content Include="App_Data\LibraryMVC_log.ldf">
+      <DependentUpon>LibraryMVC.mdf</DependentUpon>
+    </Content>
     <Content Include="images\slide1.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -469,9 +473,7 @@
     <Content Include="Views\Users\CreateRole.cshtml" />
     <Content Include="Views\Users\CreateNewRole.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
