@@ -1,10 +1,11 @@
 ﻿@using LibraryMVC.Controllers
 @using LibraryMVC.Models
+@using LibraryMVC.Resources
 @using Microsoft.AspNet.Identity
 @model LibraryMVC.Models.Book
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Language_Books.Description;
 }
 
 <h2>@Model.Title</h2>
@@ -14,7 +15,7 @@
     <div class="col-md-8 form-horizontal">
         <div class="form-group">
             <div class="col-md-4">
-                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label(Language_Books.Title, htmlAttributes: new { @class = "control-label col-md-2" })
 
             </div>
             <div class="col-md-8">
@@ -23,7 +24,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-4">
-                @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label(Language_Books.Year, htmlAttributes: new { @class = "control-label col-md-2" })
 
             </div>
             <div class="col-md-8">
@@ -41,7 +42,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-4">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label(Language_Books.Description, htmlAttributes: new { @class = "control-label col-md-2" })
 
             </div>
             <div class="col-md-8">
@@ -50,7 +51,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-4">
-                @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label(Language_Books.Category, htmlAttributes: new { @class = "control-label col-md-2" })
 
             </div>
             <div class="col-md-8">
@@ -59,7 +60,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-4">
-                @Html.LabelFor(model => model.Writers, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label(Language_Books.Writers, htmlAttributes: new { @class = "control-label col-md-2" })
 
             </div>
             <div class="col-md-8">
@@ -72,7 +73,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-4">
-                @Html.LabelFor(model => model.Labels, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.Label(Language_Books.Labels, htmlAttributes: new { @class = "control-label col-md-2" })
 
             </div>
             <div class="col-md-8">
@@ -96,19 +97,19 @@
         }
         else
         {
-            @Html.ActionLink("Add to basket", "AddToBasket", "Books", new { bookid = Model.BookID }, new { @class = "btn btn-info" })
+            @Html.ActionLink(Language_Books.AddToBasket, "AddToBasket", "Books", new { bookid = Model.BookID }, new { @class = "btn btn-info" })
         }
         <br />
         <br />
         @if (User.IsInRole("Worker"))
         {
-            @Html.ActionLink("Edit", "Edit", "Books", new { id = Model.BookID }, new { @class = "btn btn-info" })
+            @Html.ActionLink(Language_Books.Edit, "Edit", "Books", new { id = Model.BookID }, new { @class = "btn btn-info" })
         }
 </div>
     <div class="col-md-12">
         <hr />
         <div class="col-md-2">
-            @Html.LabelFor(model => model.Contents)
+            @Html.Label(Language_Books.Contents)
         </div>
         <div class="col-md-10">
             <span style="white-space: pre-line; word-wrap: break-word;">@Html.Raw(ViewBag.Content)</span>
@@ -118,7 +119,7 @@
     <div class="col-md-12">
         <hr />
         <div class="col-md-2">
-            @Html.LabelFor(model => model.Files)
+            @Html.Label(Language_Books.Files)
         </div>
         <div class="col-md-10 form-group">
             @foreach (var file in Model.Files)
@@ -144,7 +145,7 @@
     <div class="col-md-12">
         <hr/>
         <p>
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink(Language_Books.BackToList, "Index")
         </p>
     </div>
 </div>

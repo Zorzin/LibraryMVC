@@ -290,6 +290,16 @@
     <Compile Include="Models\UserRoleViewModel.cs" />
     <Compile Include="Models\Writer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Language.Books.pl.Designer.cs">
+      <DependentUpon>Language.Books.pl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Language.Books.Designer.cs">
+      <DependentUpon>Language.Books.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Language.Account.pl.Designer.cs">
       <DependentUpon>Language.Account.pl.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -531,6 +541,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612082305185_News.resx">
       <DependentUpon>201612082305185_News.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Language.Books.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Books.pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Language.Books.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Books.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Language.Account.pl.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -1,10 +1,11 @@
-﻿@model LibraryMVC.Models.BookEditViewModel
+﻿@using LibraryMVC.Resources
+@model LibraryMVC.Models.BookEditViewModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = @Language_Books.Edit;
 }
 
-<h2>Edit</h2>
+<h2>@ViewBag.Title</h2>
 
 
 @using (Html.BeginForm("Edit","Books",FormMethod.Post, new
@@ -15,13 +16,13 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Book</h4>
+        <h4>@Language_Books.Book</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.BookViewModel.BookID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BookViewModel.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Language_Books.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BookViewModel.Title, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.BookViewModel.Title, "", new { @class = "text-danger" })
@@ -37,7 +38,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BookViewModel.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Language_Books.Year, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BookViewModel.Year, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.BookViewModel.Year, "", new { @class = "text-danger" })
@@ -45,7 +46,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BookViewModel.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Language_Books.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BookViewModel.Amount, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.BookViewModel.Amount, "", new { @class = "text-danger" })
@@ -53,7 +54,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BookViewModel.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Language_Books.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BookViewModel.Description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.BookViewModel.Description, "", new { @class = "text-danger" })
@@ -61,7 +62,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BookViewModel.Contents, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Language_Books.Contents, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" id="contentdiv">
                 @Html.TextBoxFor(model=>model.OldContent,new {@readonly = "readonly", style = "border-width: 0px" })
                 <button type="button" id="chagecontent" >Remove</button>
@@ -69,27 +70,27 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BookViewModel.CategoryID, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BookViewModel.CategoryID, Language_Books.Category, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("BookViewModel.CategoryID", ViewBag.CategoryID as SelectList, htmlAttributes: new { @class = "chosen-single-select", style = "width:350px" })
                 @Html.ValidationMessageFor(model => model.BookViewModel.CategoryID, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.BookViewModel.SelectedWriters, "Writers", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BookViewModel.SelectedWriters, Language_Books.Writers, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(model => model.BookViewModel.SelectedWriters, ViewBag.Writers as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:350px;" })
 
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.BookViewModel.SelectedLabels, "Labels", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BookViewModel.SelectedLabels, Language_Books.Labels, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(model => model.BookViewModel.SelectedLabels, ViewBag.Labels as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:350px;" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model=>model.BookViewModel.Files, "Files", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model=>model.BookViewModel.Files, Language_Books.Files, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div id="refreshmain">
                     @for (var i = 0; i < Model.OldFiles.Count; i++)
@@ -111,12 +112,12 @@
         <div class="form-group">
             <div class="col-md-2"></div>
             <div class="col-md-10">
-                <button id="addanotherfile" type="button">Add</button>
+                <button id="addanotherfile" type="button">@Language_Books.Add</button>
             </div>
         </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input type="submit" value=@Language_Books.Save class="btn btn-default" />
                 </div>
             </div>
         </div>
@@ -124,7 +125,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Language_Books.BackToList, "Index")
 </div>
 
 @section Scripts {
