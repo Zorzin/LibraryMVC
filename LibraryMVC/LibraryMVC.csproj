@@ -231,6 +231,7 @@
     <Compile Include="Controllers\BorrowLogic.cs" />
     <Compile Include="Controllers\BorrowsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\SearchHistoriesController.cs" />
     <Compile Include="Controllers\WorkerPanelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -289,6 +290,36 @@
     <Compile Include="Models\UserRoleViewModel.cs" />
     <Compile Include="Models\Writer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Language.Account.pl.Designer.cs">
+      <DependentUpon>Language.Account.pl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Language.Account.Designer.cs">
+      <DependentUpon>Language.Account.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Language.MainPage.pl.Designer.cs">
+      <DependentUpon>Language.MainPage.pl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Language.MainPage.Designer.cs">
+      <DependentUpon>Language.MainPage.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Language.Shared.pl.Designer.cs">
+      <DependentUpon>Language.Shared.pl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Language.Shared.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Language.Shared.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -472,6 +503,7 @@
     <Content Include="Views\Users\AddUserToRole.cshtml" />
     <Content Include="Views\Users\CreateRole.cshtml" />
     <Content Include="Views\Users\CreateNewRole.cshtml" />
+    <Content Include="Views\Language\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -499,6 +531,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612082305185_News.resx">
       <DependentUpon>201612082305185_News.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Language.Account.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Account.pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Language.Account.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Account.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Language.MainPage.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.MainPage.pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Language.MainPage.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.MainPage.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Language.Shared.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Shared.pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Language.Shared.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Shared.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

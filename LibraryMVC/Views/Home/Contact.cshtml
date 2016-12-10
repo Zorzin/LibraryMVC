@@ -1,19 +1,20 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@using LibraryMVC.Resources
+@{
+    ViewBag.Title = Language_MainPage.Contact;
 }
-<h3>For any contact visit or e-mail to us.</h3>
+<h3>@Language_MainPage.ForAnyContact</h3>
 
 <address>
-    Library MVC<br />
+    @Language_Shared.LibraryMVC<br />
     Białystok, 15-351<br />
     Wiejska 45a<br />
 </address>
 
 <address>
-    <strong>Mail:</strong>   <a href="mailto:librarymvcproject@gmail.com">librarymvcproject@gmail.com</a><br />
+    <strong>Email:</strong>   <a href="mailto:librarymvcproject@gmail.com">librarymvcproject@gmail.com</a><br />
 </address>
 
-<h3>Visit us!</h3>
+<h3>@Language_MainPage.VisitUs</h3>
 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAFtKKMP9tnVsRmgy3yA5oBnX9nNQBhOn0'>
 </script>
 <div style='overflow: hidden; height: 460px; width: 100%;'>

@@ -1,4 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity
+@using LibraryMVC.Resources;
+
 
 @if (Request.IsAuthenticated)
 {
@@ -7,11 +9,11 @@
     @Html.AntiForgeryToken()
     <ul class="nav nav-tabs navbar-right">
         <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink(Language_Shared.Hello + " " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">@Language_Shared.Logoff</a></li>
         <li><a href="@Url.Action("Index","Basket")">
-                Basket
+                @Language_Shared.Basket
                 <span class="badge alert-info" style="float: none">
                     @{
                         Html.RenderAction("NumberOfItemsInBasket", "Basket");
@@ -25,8 +27,8 @@
 else
 {
     <ul class="nav nav-tabs navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink(Language_Shared.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink(Language_Shared.Login, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
         
     </ul>
 }

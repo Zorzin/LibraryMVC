@@ -1,9 +1,10 @@
-﻿@model System.Web.Mvc.HandleErrorInfo
+﻿@using LibraryMVC.Resources
+@model System.Web.Mvc.HandleErrorInfo
 
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = Language_MainPage.Error;
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<h1 class="text-danger">@ViewBag.Title</h1>
+<h2 class="text-danger">@Language_Shared.ErrorLong</h2>
 

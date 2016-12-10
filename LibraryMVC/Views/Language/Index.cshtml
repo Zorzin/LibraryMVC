@@ -1,0 +1,14 @@
+﻿@using LibraryMVC.Resources
+
+@{
+    ViewBag.Title = Language_Shared.ChangeLanguage;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul>
+    <li>@Html.ActionLink("English", "Change", "Language", new { language = "en" }, null)</li>
+    <li>@Html.ActionLink("Polski", "Change", "Language", new { language = "pl" }, null)</li>
+    <li>@Html.ActionLink("český", "Change", "Language", new { language = "cz" }, null)</li>
+</ul>

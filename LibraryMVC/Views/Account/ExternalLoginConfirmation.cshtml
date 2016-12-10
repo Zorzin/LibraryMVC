@@ -1,9 +1,10 @@
-﻿@model LibraryMVC.Models.ExternalLoginConfirmationViewModel
+﻿@using LibraryMVC.Resources
+@model LibraryMVC.Models.ExternalLoginConfirmationViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = Language_Account.Register1;
 }
 <h2>@ViewBag.Title.</h2>
-<h3>Associate your @ViewBag.LoginProvider account.</h3>
+<h3>@Language_Account.AssociateYour @ViewBag.LoginProvider @Language_Account.account</h3>
 
 @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
@@ -26,7 +27,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
+            <input type="submit" class="btn btn-default" value=@Language_Account.Register1 />
         </div>
     </div>
 }

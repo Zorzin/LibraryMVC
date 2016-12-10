@@ -2,6 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 @using Library.Models
+@using LibraryMVC.Resources
 @model IEnumerable<LibraryMVC.Models.Book>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
@@ -16,7 +17,7 @@
             <img src="/images/slide1.jpg" alt="ASP.NET" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
-                    New book in our collection!
+                    @Language_MainPage.NewBookInCollection
                 </p>
             </div>
         </div>
@@ -24,7 +25,7 @@
             <img src="/images/slide2.jpg" alt="Visual Studio" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
-                    New book in our collection! From Anne Rice!
+                    @Language_MainPage.NewBookInCollection From Anne Rice!
                 </p>
             </div>
         </div>
@@ -32,7 +33,7 @@
             <img src="/images/slide3.jpg" alt="Package Management" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
-                    New book in our collection!
+                    @Language_MainPage.NewBookInCollection
                 </p>
             </div>
         </div>
@@ -40,7 +41,7 @@
             <img src="/images/slide4.jpg" alt="Microsoft Azure" class="img-responsive" />
             <div class="carousel-caption" role="option">
                 <p>
-                    New book in our collection!
+                    @Language_MainPage.NewBookInCollection
                 </p>
             </div>
         </div>
@@ -56,12 +57,12 @@
 </div>
 <hr />
 <div class="row">
-    <h4>Newest titles!</h4>
+    <h4>@Language_MainPage.NewestTitles</h4>
     <table class="table">
         <tr>
-            <th>@Html.Raw("Tytuł")</th>
-            <th>@Html.Raw("Rok wydania")</th>
-            <th>@Html.Raw("Autorzy")</th>
+            <th>@Html.Raw(Language_MainPage.Title)</th>
+            <th>@Html.Raw(Language_MainPage.Year)</th>
+            <th>@Html.Raw(Language_MainPage.Writers)</th>
         </tr>
         @foreach (var item in Model)
         {
@@ -88,8 +89,8 @@
 </div>
 <hr/>
 <div>
-    <h4>Visit us!</h4>
-    <h4>We are open every day!</h4>
+    <h4>@Language_MainPage.VisitUs</h4>
+    <h4>@Language_MainPage.WeROpenEveryDay</h4>
     <h4>9:00 - 18:00</h4>
     <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAFtKKMP9tnVsRmgy3yA5oBnX9nNQBhOn0'>
     </script>
@@ -115,7 +116,7 @@
          map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
          marker = new google.maps.Marker({
               map: map, position: new google.maps.LatLng(53.1167019, 23.14611500000001)
-         }); infowindow = new google.maps.InfoWindow({ content: '<strong>Library MVC</strong><br>Wiejska 45a<br>15-351 Białystok<br>' });
+         }); infowindow = new google.maps.InfoWindow({ content: '<strong>@Language_Shared.LibraryMVC</strong><br>Wiejska 45a<br>15-351 Białystok<br>' });
          google.maps.event.addListener(marker, 'click', function() {
               infowindow.open(map, marker);
          });

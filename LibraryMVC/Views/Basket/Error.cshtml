@@ -1,9 +1,10 @@
-﻿
+﻿@using LibraryMVC.Resources
+
 @{
-    ViewBag.Title = "Error";
+    ViewBag.Title = Language_MainPage.Error;
 }
 
-<h2>Error</h2>
-<p>Unfortunately something went wrong.</p>
-@Html.ActionLink("Home page","Index","Home", null,new { @class = "btn btn-default"})
+<h2>@ViewBag.Title</h2>
+<p>@Language_MainPage.Error</p>
+@Html.ActionLink(@Language_MainPage.Home, "Index","Home", null,new { @class = "btn btn-default"})
 
