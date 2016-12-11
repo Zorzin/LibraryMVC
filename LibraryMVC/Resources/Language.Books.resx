@@ -124,7 +124,7 @@
     <value>Add date</value>
   </data>
   <data name="AddToBasket" xml:space="preserve">
-    <value>AddToBasket</value>
+    <value>Add to basket</value>
   </data>
   <data name="AlreadyBorrowed" xml:space="preserve">
     <value>Already borrowed</value>
@@ -138,6 +138,9 @@
   <data name="Book" xml:space="preserve">
     <value>Book</value>
   </data>
+  <data name="Books" xml:space="preserve">
+    <value>Books</value>
+  </data>
   <data name="Category" xml:space="preserve">
     <value>Category</value>
   </data>
@@ -148,13 +151,16 @@
     <value>Create</value>
   </data>
   <data name="CreateNew" xml:space="preserve">
-    <value>CreateNew</value>
+    <value>Create new</value>
+  </data>
+  <data name="CreatingNew" xml:space="preserve">
+    <value>Creating new book</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
   <data name="DeleteLong" xml:space="preserve">
-    <value>Are you sure you want to delete this?</value>
+    <value>Are you sure you want to delete this book?</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
@@ -165,11 +171,17 @@
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="EditingBook" xml:space="preserve">
+    <value>Editing a book</value>
+  </data>
   <data name="Files" xml:space="preserve">
     <value>Files</value>
   </data>
   <data name="Filter" xml:space="preserve">
     <value>Filter</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Filter all</value>
   </data>
   <data name="Labels" xml:space="preserve">
     <value>Labels</value>

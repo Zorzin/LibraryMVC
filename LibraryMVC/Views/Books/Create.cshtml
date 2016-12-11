@@ -4,7 +4,7 @@
 @model LibraryMVC.Models.BookViewModel
 
 @{
-    ViewBag.Title = Language_Books.Create;
+    ViewBag.Title = Language_Books.CreatingNew;
 }
 <link href="~/Content/Bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/chosen.css" rel="stylesheet" />
@@ -22,7 +22,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>@Language_Books.Book</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -81,7 +80,7 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.SelectedWriters, Language_Books.Wirters, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SelectedWriters, Language_Books.Writers, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(model => model.SelectedWriters,ViewBag.Writers as SelectList,new { @class="chosen-group-select", multiple="multiple",style="width:350px;"})
             </div>
@@ -111,7 +110,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value=@Language_Books.Create class="btn btn-default" />
             </div>
         </div>
     </div>

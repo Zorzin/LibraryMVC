@@ -2,10 +2,10 @@
 @model LibraryMVC.Models.BookEditViewModel
 
 @{
-    ViewBag.Title = @Language_Books.Edit;
+    ViewBag.Title = @Language_Books.EditingBook;
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>@ViewBag.Title:</h2>
 
 
 @using (Html.BeginForm("Edit","Books",FormMethod.Post, new
@@ -16,7 +16,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>@Language_Books.Book</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.BookViewModel.BookID)

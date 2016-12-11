@@ -79,7 +79,7 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AddToBasket.
+        ///   Looks up a localized string similar to Add to basket.
         /// </summary>
         public static string AddToBasket {
             get {
@@ -124,6 +124,15 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Books.
+        /// </summary>
+        public static string Books {
+            get {
+                return ResourceManager.GetString("Books", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string Category {
@@ -151,11 +160,20 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CreateNew.
+        ///   Looks up a localized string similar to Create new.
         /// </summary>
         public static string CreateNew {
             get {
                 return ResourceManager.GetString("CreateNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating new book.
+        /// </summary>
+        public static string CreatingNew {
+            get {
+                return ResourceManager.GetString("CreatingNew", resourceCulture);
             }
         }
         
@@ -169,7 +187,7 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to delete this?.
+        ///   Looks up a localized string similar to Are you sure you want to delete this book?.
         /// </summary>
         public static string DeleteLong {
             get {
@@ -205,6 +223,15 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Editing a book.
+        /// </summary>
+        public static string EditingBook {
+            get {
+                return ResourceManager.GetString("EditingBook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Files.
         /// </summary>
         public static string Files {
@@ -219,6 +246,15 @@ namespace LibraryMVC.Resources {
         public static string Filter {
             get {
                 return ResourceManager.GetString("Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter all.
+        /// </summary>
+        public static string FilterAll {
+            get {
+                return ResourceManager.GetString("FilterAll", resourceCulture);
             }
         }
         

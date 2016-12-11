@@ -133,7 +133,7 @@
     <value>Kod</value>
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
-    <value>Potwierdz hasło</value>
+    <value>Potwierdź hasło</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Stwórz nowe konto</value>
@@ -178,10 +178,10 @@
     <value>Hasło</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Zarejestruj się jako nowy użytkownik</value>
+    <value>Rejestracja nowego użytkownika</value>
   </data>
   <data name="Register1" xml:space="preserve">
-    <value>Rejestracja</value>
+    <value>Zarejestruj</value>
   </data>
   <data name="RememberMe" xml:space="preserve">
     <value>Zapamiętać dane?</value>
@@ -214,10 +214,10 @@
     <value>Nazwisko</value>
   </data>
   <data name="ThankYou" xml:space="preserve">
-    <value>Dziękujemy</value>
+    <value>Dziękujemy za rejestrację.</value>
   </data>
   <data name="ThankYouLong" xml:space="preserve">
-    <value>Dziękujemy za rejestrację. Teraz administrator musi aktywować Twoje konto.</value>
+    <value>Konto zostało założone. Teraz administrator musi aktywować Twoje konto.</value>
   </data>
   <data name="UseAlocalAccountToLogin" xml:space="preserve">
     <value>Użyj swojego konta aby się zalogować.</value>

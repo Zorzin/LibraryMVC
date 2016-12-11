@@ -5,10 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title</h2>
-
-<ul>
-    <li>@Html.ActionLink("English", "Change", "Language", new { language = "en" }, null)</li>
-    <li>@Html.ActionLink("Polski", "Change", "Language", new { language = "pl" }, null)</li>
-    <li>@Html.ActionLink("český", "Change", "Language", new { language = "cz" }, null)</li>
-</ul>
+<h2>@ViewBag.Title:</h2>
+<div class="form-horizontal">
+    <hr />
+    <ul>
+        <li>@Html.ActionLink("English", "Change", "Language", new { language = "en" }, null)</li>
+        <li>@Html.ActionLink("Polski", "Change", "Language", new { language = "pl" }, null)</li>
+        <li>@Html.ActionLink("český", "Change", "Language", new { language = "cz" }, null)</li>
+    </ul>
+</div>

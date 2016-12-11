@@ -138,6 +138,9 @@
   <data name="Book" xml:space="preserve">
     <value>Książka</value>
   </data>
+  <data name="Books" xml:space="preserve">
+    <value>Books</value>
+  </data>
   <data name="Category" xml:space="preserve">
     <value>Kategoria</value>
   </data>
@@ -150,11 +153,14 @@
   <data name="CreateNew" xml:space="preserve">
     <value>Dodaj nową książkę</value>
   </data>
+  <data name="CreatingNew" xml:space="preserve">
+    <value>Dodawanie nowej książki</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Usuń</value>
   </data>
   <data name="DeleteLong" xml:space="preserve">
-    <value>Czy na pewno chcesz usunąć?</value>
+    <value>Czy na pewno chcesz usunąć tę książkę?</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Opis</value>
@@ -165,11 +171,17 @@
   <data name="Edit" xml:space="preserve">
     <value>Edytuj</value>
   </data>
+  <data name="EditingBook" xml:space="preserve">
+    <value>Edycja książki</value>
+  </data>
   <data name="Files" xml:space="preserve">
     <value>Pliki</value>
   </data>
   <data name="Filter" xml:space="preserve">
     <value>Filtruj</value>
+  </data>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Filter All</value>
   </data>
   <data name="Labels" xml:space="preserve">
     <value>Etykiety/Tagi</value>

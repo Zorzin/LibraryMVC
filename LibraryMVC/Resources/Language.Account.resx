@@ -214,10 +214,10 @@
     <value>Surname</value>
   </data>
   <data name="ThankYou" xml:space="preserve">
-    <value>Thank You.</value>
+    <value>Thank you for registration.</value>
   </data>
   <data name="ThankYouLong" xml:space="preserve">
-    <value>Thank you for registration. Administration have to confirming your account.</value>
+    <value>Account has been created correctly. Administration have to confirming your account.</value>
   </data>
   <data name="UseAlocalAccountToLogin" xml:space="preserve">
     <value>Use a local account to log in.</value>

@@ -5,20 +5,10 @@
     ViewBag.Title = Language_Books.Delete;
 }
 
-<h2>@ViewBag.Title</h2>
-
-<h3>@Language_Books.DeleteLong</h3>
+<h2>@Language_Books.DeleteLong</h2>
 <div>
-    <h4>@Language_Books.Book</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayName(@Language_Books.Category)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Category.Name)
-        </dd>
 
         <dt>
             @Html.DisplayName(@Language_Books.Title)
@@ -26,6 +16,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayName(@Language_Books.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Name)
         </dd>
 
         <dt>
