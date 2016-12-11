@@ -139,7 +139,7 @@
     <value>Książka</value>
   </data>
   <data name="Books" xml:space="preserve">
-    <value>Books</value>
+    <value>Książki</value>
   </data>
   <data name="Category" xml:space="preserve">
     <value>Kategoria</value>
@@ -181,10 +181,10 @@
     <value>Filtruj</value>
   </data>
   <data name="FilterAll" xml:space="preserve">
-    <value>Filter All</value>
+    <value>Filtruj_wszystko</value>
   </data>
   <data name="Labels" xml:space="preserve">
-    <value>Etykiety/Tagi</value>
+    <value>Etykiety</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nazwa wyszukiwania</value>

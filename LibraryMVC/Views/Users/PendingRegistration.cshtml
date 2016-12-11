@@ -1,28 +1,29 @@
-﻿@model IEnumerable<LibraryMVC.Models.User>
+﻿@using LibraryMVC.Resources
+@model IEnumerable<LibraryMVC.Models.User>
 
 @{
-    ViewBag.Title = "Pending Registrations";
+    ViewBag.Title = Language_WorkerPanel.PendingRegistrations;
 }
 
-<h2>Pending Registrations</h2>
+<h2>@ViewBag.Title:</h2>
 @if (Model.Any())
 {
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayName(Language_User.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Surname)
+                @Html.DisplayName(Language_User.Surname)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserName)
+                @Html.DisplayName(Language_User.UserName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmailConfirmed)
+                @Html.DisplayName(Language_User.EmailConfirmed)
             </th>
             <th></th>
         </tr>
@@ -46,7 +47,7 @@
                 </td>
 
                 <td>
-                    @Html.ActionLink("Consider", "Confirm", new { id = item.Id })
+                    @Html.ActionLink(Language_User.Consider, "Confirm", new { id = item.Id })
                 </td>
             </tr>
         }

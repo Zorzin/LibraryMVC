@@ -1,18 +1,19 @@
-﻿@model IEnumerable<string>
+﻿@using LibraryMVC.Resources
+@model IEnumerable<string>
 
 @{
-    ViewBag.Title = "CreateRole";
+    ViewBag.Title = Language_WorkerPanel.Roles;
 }
 
-<h2>CreateRole</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateNewRole","Users")
+    @Html.ActionLink(Language_WorkerPanel.CreateNewRole, "CreateNewRole","Users")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayName("Name")
+            @Html.DisplayName(Language_WorkerPanel.NameRole):
         </th>
     </tr>
 

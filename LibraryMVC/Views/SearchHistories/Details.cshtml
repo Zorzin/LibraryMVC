@@ -1,17 +1,17 @@
-﻿@model Library.Models.SearchHistory
+﻿@using LibraryMVC.Resources
+@model Library.Models.SearchHistory
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Language_Searches.SearchDetails;
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>SearchHistory</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Reader.Name)
+            @Html.DisplayName(Language_Searches.Reader)
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayName(Language_Searches.Name)
         </dt>
 
         <dd>
@@ -37,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SearchHistoryID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id = Model.SearchHistoryID }) |
+    @Html.ActionLink(Language_WorkerPanel.BackToList, "Index")
 </p>

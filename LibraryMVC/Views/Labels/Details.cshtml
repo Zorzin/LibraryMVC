@@ -1,17 +1,17 @@
-﻿@model Library.Models.Label
+﻿@using LibraryMVC.Resources
+@model Library.Models.Label
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Language_Labels.LabelDetails;
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>Label</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayName(Language_Labels.Name)
         </dt>
 
         <dd>
@@ -21,6 +21,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.LabelID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id = Model.LabelID }) |
+    @Html.ActionLink(Language_WorkerPanel.BackToList, "Index")
 </p>

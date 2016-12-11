@@ -1,18 +1,19 @@
-﻿@model IEnumerable<Library.Models.Label>
+﻿@using LibraryMVC.Resources
+@model IEnumerable<Library.Models.Label>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Language_Books.Labels;
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(Language_Labels.CreateNew, "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayName(Language_Labels.Name)
         </th>
         <th></th>
     </tr>
@@ -23,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LabelID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LabelID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.LabelID })
+            @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id=item.LabelID }) |
+            @Html.ActionLink(Language_WorkerPanel.Details, "Details", new { id=item.LabelID }) |
+            @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new { id=item.LabelID })
         </td>
     </tr>
 }

@@ -1,30 +1,31 @@
-﻿@model IEnumerable<Library.Models.Borrow>
+﻿@using LibraryMVC.Resources
+@model IEnumerable<Library.Models.Borrow>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Language_WorkerPanel.Borrows;
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(Language_Basket.CreateNew, "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Book.Title)
+            @Html.DisplayName(Language_Basket.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Reader.Name)
+            @Html.DisplayName(Language_Basket.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BorrowDate)
+            @Html.DisplayName(Language_Basket.BorrowDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ReturnDate)
+            @Html.DisplayName(Language_Basket.ReturnDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Deadline)
+            @Html.DisplayName(Language_Basket.Deadline)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Status)
@@ -32,32 +33,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Book.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Reader.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BorrowDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReturnDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Deadline)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BorrowID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BorrowID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BorrowID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reader.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BorrowDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReturnDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deadline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id = item.BorrowID }) |
+                @Html.ActionLink(Language_WorkerPanel.Details, "Details", new { id = item.BorrowID }) |
+                @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new { id = item.BorrowID })
+            </td>
+        </tr>
+    }
 
 </table>

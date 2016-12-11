@@ -1,11 +1,11 @@
 ﻿@using LibraryMVC.Models
+@using LibraryMVC.Resources
 @model LibraryMVC.Models.UserRoleViewModel
 
-<h1>Add User to Role</h1>
+<h1>@Language_User.AddRole:</h1>
 @using (Html.BeginForm())
 {
     <div class="form-horizontal">
-        <h4>User</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.userid)
@@ -27,7 +27,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value=@Language_WorkerPanel.Save class="btn btn-success" />
             </div>
         </div>
     </div>

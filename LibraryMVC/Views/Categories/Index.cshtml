@@ -1,21 +1,22 @@
-﻿@model IEnumerable<Library.Models.Category>
+﻿@using LibraryMVC.Resources
+@model IEnumerable<Library.Models.Category>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Language_Categories.Categories;
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(Language_Categories.CreateNew, "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayName(Language_Categories.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OverCategoryID)
+            @Html.DisplayName(Language_Categories.OverCategory)
         </th>
         <th></th>
     </tr>
@@ -29,9 +30,9 @@
             @Html.DisplayFor(modelItem => item.OverCategory.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
+            @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id=item.CategoryID }) |
+            @Html.ActionLink(Language_WorkerPanel.Details, "Details", new { id=item.CategoryID }) |
+            @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new { id=item.CategoryID })
         </td>
     </tr>
 }

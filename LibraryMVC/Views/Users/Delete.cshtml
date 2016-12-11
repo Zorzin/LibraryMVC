@@ -1,18 +1,16 @@
-﻿@model LibraryMVC.Models.User
+﻿@using LibraryMVC.Resources
+@model LibraryMVC.Models.User
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = Language_WorkerPanel.Delete;
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3>@Language_User.DeleteLong</h3>
 <div>
-    <h4>User</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayName(Language_User.Name)
         </dt>
 
         <dd>
@@ -20,7 +18,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Surname)
+            @Html.DisplayName(Language_User.Surname)
         </dt>
 
         <dd>
@@ -36,7 +34,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EmailConfirmed)
+            @Html.DisplayName(Language_User.EmailConfirmed)
         </dt>
 
         <dd>
@@ -44,7 +42,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.UserName)
+            @Html.DisplayName(Language_User.UserName)
         </dt>
 
         <dd>
@@ -57,8 +55,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value=@Language_WorkerPanel.Delete class="btn btn-danger" /> |
+            @Html.ActionLink(Language_WorkerPanel.BackToList, "Index")
         </div>
     }
 </div>
