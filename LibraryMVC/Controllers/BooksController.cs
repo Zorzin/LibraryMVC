@@ -251,11 +251,26 @@ namespace LibraryMVC.Controllers
 
         private IEnumerable<Book> AllOr(List<IEnumerable<Book>> listofbooks)
         {
-            var books = listofbooks[0];
-            for (int i = 1; i < listofbooks.Count; i++)
+            IEnumerable<Book> books = null;
+            for (int i = 0; i < listofbooks.Count; i++)
             {
-                books = books.Union(listofbooks [i]).ToList();
+                if (listofbooks[i]!=null)
+                {
+                    books = listofbooks[i];
+                    break;
+                }
             }
+            if (books!=null)
+            {
+                for (int i = 1; i < listofbooks.Count; i++)
+                {
+                    if (listofbooks[i]!=null)
+                    {
+                        books = books.Union(listofbooks [i]).ToList();
+                    }
+                }
+            }
+            
             return books;
         }
         private IEnumerable<Book> AllAnd(List<IEnumerable<Book>> listofbooks)
@@ -286,7 +301,10 @@ namespace LibraryMVC.Controllers
             IEnumerable<Book> books = db.Books.ToList();
             for (int i = 0; i < listofbooks.Count; i++)
             {
-                books = books.Except(listofbooks [i]).ToList();
+                if (listofbooks[i]!=null)
+                {
+                    books = books.Except(listofbooks [i]).ToList();
+                }
             }
             return books;
         }

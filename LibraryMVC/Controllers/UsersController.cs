@@ -22,15 +22,15 @@ namespace LibraryMVC.Controllers
             return View(user);
         }
         [HttpPost]
-        public ActionResult Confirm(User user, string confirm)
+        public ActionResult Confirm(User user)
         {
             var dbuser = db.Users.FirstOrDefault(x => x.Id == user.Id);
-            if (confirm == "delete")
+            if (Request.Form["delete"] != null)
             {
                 db.Users.Remove(dbuser);
                 db.SaveChanges();
             }
-            else if(confirm == "confirm")
+            else if(Request.Form ["confirm"] != null)
             {
                 dbuser.EmailConfirmed = true;
                 IdentityManager.AddUserToRoleById(User.Identity.GetUserId(),"User");
