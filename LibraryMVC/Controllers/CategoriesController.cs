@@ -19,7 +19,7 @@ namespace LibraryMVC.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(db.Categories.Where(c=>c.CategoryID!=-1).ToList());
         }
 
         // GET: Categories/Details/5
@@ -80,7 +80,8 @@ namespace LibraryMVC.Controllers
             categoryViewModel.CategoryID = category.CategoryID;
             categoryViewModel.Name = category.Name;
             categoryViewModel.OverCategoryID = category.OverCategoryID;
-            ViewBag.OverCategories = new SelectList(db.Categories.Where(x=> x.CategoryID!=category.CategoryID), "CategoryID", "Name");
+            ViewBag.OverCategories = new SelectList(db.Categories.Where(x => x.CategoryID != category.CategoryID),
+                "CategoryID", "Name");
             if (category == null)
             {
                 return HttpNotFound();
@@ -119,6 +120,7 @@ namespace LibraryMVC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Category category = db.Categories.Find(id);
+
             if (category == null)
             {
                 return HttpNotFound();
@@ -132,9 +134,44 @@ namespace LibraryMVC.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Category category = db.Categories.Find(id);
+            int overcategory;
+            if (category.OverCategoryID==0)
+            {
+                overcategory = -1;
+            }
+            else
+            {
+                overcategory = category.OverCategoryID;
+            }
+            category.OverCategoryID = 0;
+            category.OverCategory = null;
+
+            foreach (var book in db.Books.ToList())
+            {
+                if (book.CategoryID == category.CategoryID)
+                {
+                    book.Category = null;
+                    book.CategoryID = overcategory;
+                    var newcategory = db.Categories.FirstOrDefault(c=>c.CategoryID==overcategory);
+                    book.Category = newcategory;
+                    db.SaveChanges();
+                }
+            }
+
+            foreach (var dbcategory in db.Categories.ToList())
+            {
+                if (dbcategory.OverCategoryID == category.CategoryID)
+                {
+                    dbcategory.OverCategory = null;
+                    dbcategory.OverCategoryID = 0;
+                    db.SaveChanges();
+                }
+            }
+            db.SaveChanges();
             db.Categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");
+            
         }
 
         protected override void Dispose(bool disposing)
