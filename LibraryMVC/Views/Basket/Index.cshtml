@@ -5,7 +5,7 @@
     ViewBag.Title = Language_Basket.Basket;
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>@ViewBag.Title:</h2>
 @if (Model.Books.Any())
 {
     <table class="table">
@@ -27,10 +27,10 @@
 }
 else
 {
-    <p>Basket is empty</p>
+    <p>@Language_Basket.BasketIsEmpty.</p>
 }
 
 @if (Model.Books.Any())
 {
-    @Html.ActionLink("Borrow","Borrow","Basket",null,new {@class="btn btn-info"})
+    @Html.ActionLink(Language_Basket.Borrow,"Borrow","Basket",null, new {@class="btn btn-info"})
 }

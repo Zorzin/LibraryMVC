@@ -286,6 +286,15 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No labels yet.
+        /// </summary>
+        public static string NoLabels {
+            get {
+                return ResourceManager.GetString("NoLabels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not.
         /// </summary>
         public static string Not {
@@ -300,6 +309,15 @@ namespace LibraryMVC.Resources {
         public static string NotAvailable {
             get {
                 return ResourceManager.GetString("NotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Writers yet.
+        /// </summary>
+        public static string NoWriters {
+            get {
+                return ResourceManager.GetString("NoWriters", resourceCulture);
             }
         }
         

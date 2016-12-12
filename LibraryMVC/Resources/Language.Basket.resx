@@ -153,6 +153,9 @@
   <data name="NoBorrowHistory" xml:space="preserve">
     <value>No Borrow history</value>
   </data>
+  <data name="NoBorrows" xml:space="preserve">
+    <value>No borrows yet.</value>
+  </data>
   <data name="Remove" xml:space="preserve">
     <value>Remove</value>
   </data>

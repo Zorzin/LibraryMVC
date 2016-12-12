@@ -169,6 +169,15 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No borrows yet..
+        /// </summary>
+        public static string NoBorrows {
+            get {
+                return ResourceManager.GetString("NoBorrows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
         public static string Remove {

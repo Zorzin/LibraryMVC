@@ -150,6 +150,9 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="NoPending" xml:space="preserve">
+    <value>No pending registrations</value>
+  </data>
   <data name="PasswordHash" xml:space="preserve">
     <value>Password Hash</value>
   </data>

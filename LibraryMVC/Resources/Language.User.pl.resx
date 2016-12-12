@@ -150,6 +150,9 @@
   <data name="Name" xml:space="preserve">
     <value>Imie</value>
   </data>
+  <data name="NoPending" xml:space="preserve">
+    <value>Wszystkie konta są aktywne.</value>
+  </data>
   <data name="PasswordHash" xml:space="preserve">
     <value>Hasło hash'owane</value>
   </data>

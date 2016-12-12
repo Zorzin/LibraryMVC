@@ -129,6 +129,9 @@
   <data name="Name" xml:space="preserve">
     <value>Nazwa wyszukiwania</value>
   </data>
+  <data name="NoSearches" xml:space="preserve">
+    <value>Jeszcze nie zapisano żadnego wyszukiwania</value>
+  </data>
   <data name="Reader" xml:space="preserve">
     <value>Użytkownik</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="SearchDetails" xml:space="preserve">
     <value>Szczegóły wyszukiwania</value>
+  </data>
+  <data name="Searches" xml:space="preserve">
+    <value>Wyszukiwania</value>
   </data>
   <data name="User" xml:space="preserve">
     <value>Użytkownik</value>

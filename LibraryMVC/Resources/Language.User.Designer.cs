@@ -160,6 +160,15 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No pending registrations.
+        /// </summary>
+        public static string NoPending {
+            get {
+                return ResourceManager.GetString("NoPending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password Hash.
         /// </summary>
         public static string PasswordHash {

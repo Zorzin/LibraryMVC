@@ -97,6 +97,15 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You don&apos;t saved anything yet.
+        /// </summary>
+        public static string NoSearches {
+            get {
+                return ResourceManager.GetString("NoSearches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reader.
         /// </summary>
         public static string Reader {

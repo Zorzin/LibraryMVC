@@ -198,6 +198,9 @@
   <data name="NotAvailable" xml:space="preserve">
     <value>Nie dostępne</value>
   </data>
+  <data name="NoWriters" xml:space="preserve">
+    <value>Brak autorów w bazie danych.</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Zapisz</value>
   </data>
@@ -215,5 +218,8 @@
   </data>
   <data name="Year" xml:space="preserve">
     <value>Rok wydania</value>
+  </data>
+  <data name="NoLabels" xml:space="preserve">
+    <value>Brak etykiet w bazie danych.</value>
   </data>
 </root>

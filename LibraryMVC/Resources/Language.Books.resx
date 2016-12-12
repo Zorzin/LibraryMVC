@@ -192,11 +192,17 @@
   <data name="NoBooks" xml:space="preserve">
     <value>We have no books..</value>
   </data>
+  <data name="NoLabels" xml:space="preserve">
+    <value>No labels yet</value>
+  </data>
   <data name="Not" xml:space="preserve">
     <value>Not</value>
   </data>
   <data name="NotAvailable" xml:space="preserve">
     <value>Not available</value>
+  </data>
+  <data name="NoWriters" xml:space="preserve">
+    <value>No Writers yet</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>

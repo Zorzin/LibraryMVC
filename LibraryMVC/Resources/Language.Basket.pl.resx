@@ -127,7 +127,7 @@
     <value>Książka została wypożyczona</value>
   </data>
   <data name="Borrow" xml:space="preserve">
-    <value>Wypożyczenie</value>
+    <value>Wypożycz książkę</value>
   </data>
   <data name="BorrowDate" xml:space="preserve">
     <value>Data wypożyczenia</value>
@@ -152,6 +152,9 @@
   </data>
   <data name="NoBorrowHistory" xml:space="preserve">
     <value>Historia wypożyczeń jest pusta</value>
+  </data>
+  <data name="NoBorrows" xml:space="preserve">
+    <value>Brak wypożyczeń.</value>
   </data>
   <data name="Remove" xml:space="preserve">
     <value>Usuń</value>
