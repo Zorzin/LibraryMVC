@@ -156,6 +156,9 @@
   <data name="NameRole" xml:space="preserve">
     <value>Nazwa uprawnienia</value>
   </data>
+  <data name="News" xml:space="preserve">
+    <value>Nowości</value>
+  </data>
   <data name="PendingRegistrations" xml:space="preserve">
     <value>Oczekujące rejestracje</value>
   </data>

@@ -117,64 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="AddNewRole" xml:space="preserve">
-    <value>Add new role</value>
-  </data>
-  <data name="AddUserToRole" xml:space="preserve">
-    <value>Add User to Role</value>
-  </data>
-  <data name="BackToList" xml:space="preserve">
-    <value>Back to list</value>
-  </data>
-  <data name="Books" xml:space="preserve">
-    <value>Books</value>
-  </data>
-  <data name="Borrows" xml:space="preserve">
-    <value>Borrows</value>
-  </data>
-  <data name="Categories" xml:space="preserve">
-    <value>Categories</value>
-  </data>
-  <data name="Create" xml:space="preserve">
-    <value>Create</value>
-  </data>
-  <data name="CreateNewRole" xml:space="preserve">
-    <value>Create new Role</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="Details" xml:space="preserve">
-    <value>Details</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="NameRole" xml:space="preserve">
-    <value>Role name</value>
-  </data>
-  <data name="News" xml:space="preserve">
-    <value>News</value>
-  </data>
-  <data name="PendingRegistrations" xml:space="preserve">
-    <value>Pending registrations</value>
-  </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Roles</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="Searches" xml:space="preserve">
-    <value>Searches</value>
-  </data>
-  <data name="Users" xml:space="preserve">
-    <value>Users</value>
-  </data>
-  <data name="WorkerPanel" xml:space="preserve">
-    <value>Worker panel</value>
+  <data name="Nothingtoshow" xml:space="preserve">
+    <value>Nothing to show</value>
   </data>
 </root>

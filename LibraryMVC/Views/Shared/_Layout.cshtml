@@ -35,7 +35,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav nav-tabs navbar-left">
                     <li>@Html.ActionLink(Language_Shared.Home, "Index", "Home")</li>
-                    <li>@Html.ActionLink(Language_Shared.News, "News", "Home")</li>
+                    <li>@Html.ActionLink(Language_Shared.News, "Index", "News")</li>
                     <li>@Html.ActionLink(Language_Shared.Contact, "Contact", "Home")</li>
                     <li>@Html.ActionLink(Language_Shared.Books, "Index", "Books")</li>
                     @if (Roles.IsUserInRole(User.Identity.Name,"Worker"))
