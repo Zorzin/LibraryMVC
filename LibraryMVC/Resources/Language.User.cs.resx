@@ -117,64 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add" xml:space="preserve">
-    <value>Dodaj</value>
+  <data name="AccessFailedCount" xml:space="preserve">
+    <value>Počet neúspěšných pokusů o přístup</value>
   </data>
-  <data name="AddNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
+  <data name="AddRole" xml:space="preserve">
+    <value>Udělit oprávnění</value>
   </data>
-  <data name="AddUserToRole" xml:space="preserve">
-    <value>Nadawawanie uprawnień użytkownikom</value>
+  <data name="Consider" xml:space="preserve">
+    <value>Předložit</value>
   </data>
-  <data name="BackToList" xml:space="preserve">
-    <value>Powrót do listy</value>
+  <data name="CreateNewUser" xml:space="preserve">
+    <value>Přidat nového uživatel</value>
   </data>
-  <data name="Books" xml:space="preserve">
-    <value>Książki</value>
+  <data name="CreatingNewUser" xml:space="preserve">
+    <value>Přidání nového uživatel</value>
   </data>
-  <data name="Borrows" xml:space="preserve">
-    <value>Wypożyczenia</value>
+  <data name="DeleteLong" xml:space="preserve">
+    <value>Jste si jisti, že chcete odstranit tohoto uživatel?</value>
   </data>
-  <data name="Categories" xml:space="preserve">
-    <value>Kategorie</value>
+  <data name="EditUser" xml:space="preserve">
+    <value>Editovat uživatel</value>
   </data>
-  <data name="Create" xml:space="preserve">
-    <value>Dodaj</value>
+  <data name="EmailConfirmed" xml:space="preserve">
+    <value>Potvrzení e-mailu?</value>
   </data>
-  <data name="CreateNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
+  <data name="LockoutEnabled" xml:space="preserve">
+    <value>Lock zapnutý</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
+  <data name="LockoutEndDateUtc" xml:space="preserve">
+    <value>Datum ukončení zámku UTC</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>Szczegóły</value>
+  <data name="Name" xml:space="preserve">
+    <value>Jméno</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
+  <data name="NoPending" xml:space="preserve">
+    <value>Všechny účty jsou aktivní.</value>
   </data>
-  <data name="NameRole" xml:space="preserve">
-    <value>Nazwa uprawnienia</value>
+  <data name="PasswordHash" xml:space="preserve">
+    <value>Hash hesla</value>
   </data>
-  <data name="News" xml:space="preserve">
-    <value>Nowości</value>
+  <data name="PendingRegistration" xml:space="preserve">
+    <value>Čeká registrace</value>
   </data>
-  <data name="PendingRegistrations" xml:space="preserve">
-    <value>Oczekujące rejestracje</value>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Telefonní číslo</value>
   </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Uprawnienia</value>
+  <data name="PhoneNumberConfirmed" xml:space="preserve">
+    <value>Telefonní číslo potvrzeno</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Zapisz</value>
+  <data name="SecurityStamp" xml:space="preserve">
+    <value>Bezpečnostní plomba</value>
   </data>
-  <data name="Searches" xml:space="preserve">
-    <value>Zapisane wyszukiwania</value>
+  <data name="Surname" xml:space="preserve">
+    <value>Název</value>
   </data>
-  <data name="Users" xml:space="preserve">
-    <value>Użytkownicy</value>
+  <data name="TwoFactorEnabled" xml:space="preserve">
+    <value>Duální ověřování povoleno</value>
   </data>
-  <data name="WorkerPanel" xml:space="preserve">
-    <value>Panel pracownika</value>
+  <data name="UserDetails" xml:space="preserve">
+    <value>Podrobnosti uživatel</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Uživatelské jméno</value>
   </data>
 </root>

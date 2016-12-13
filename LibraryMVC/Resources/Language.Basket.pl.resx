@@ -145,7 +145,7 @@
     <value>Czy na pewno chcesz usunąć to wypożyczenie?</value>
   </data>
   <data name="EditBorrow" xml:space="preserve">
-    <value>Edycja wypżyczenia</value>
+    <value>Edycja wypożyczenia</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Kto wypożyczył?</value>

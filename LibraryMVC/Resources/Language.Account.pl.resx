@@ -121,10 +121,10 @@
     <value>konto.</value>
   </data>
   <data name="AssociateYour" xml:space="preserve">
-    <value>Powiąrz</value>
+    <value>Powiąż</value>
   </data>
   <data name="AssociationForm" xml:space="preserve">
-    <value>Forumlarz powiązania</value>
+    <value>Formularz powiązania</value>
   </data>
   <data name="ClickHereToLogin" xml:space="preserve">
     <value>Kliknij tutaj aby się zalogować</value>
@@ -145,7 +145,7 @@
     <value>Wprowdź kod weryfikacyjny</value>
   </data>
   <data name="EnterYourMail" xml:space="preserve">
-    <value>Wsprowadz swój email.</value>
+    <value>Wprowadz swój email.</value>
   </data>
   <data name="Forgot" xml:space="preserve">
     <value>Zapomniane hasło?</value>
@@ -187,7 +187,7 @@
     <value>Zapamiętać dane?</value>
   </data>
   <data name="Reset0" xml:space="preserve">
-    <value>Restuj hasło.</value>
+    <value>Resetuj hasło.</value>
   </data>
   <data name="Reset1" xml:space="preserve">
     <value>Reset</value>
@@ -202,7 +202,7 @@
     <value>Wybierz dwuetapowego dostawcę autentykacji.</value>
   </data>
   <data name="Send" xml:space="preserve">
-    <value>Wyśłij</value>
+    <value>Wyślij</value>
   </data>
   <data name="SendVerificationCode" xml:space="preserve">
     <value>Wyślij kod weryfikujący</value>

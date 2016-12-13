@@ -117,64 +117,115 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add" xml:space="preserve">
-    <value>Dodaj</value>
+  <data name="account" xml:space="preserve">
+    <value>účet.</value>
   </data>
-  <data name="AddNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
+  <data name="AssociateYour" xml:space="preserve">
+    <value>Lemovat</value>
   </data>
-  <data name="AddUserToRole" xml:space="preserve">
-    <value>Nadawawanie uprawnień użytkownikom</value>
+  <data name="AssociationForm" xml:space="preserve">
+    <value>Formulář vztahy</value>
   </data>
-  <data name="BackToList" xml:space="preserve">
-    <value>Powrót do listy</value>
+  <data name="ClickHereToLogin" xml:space="preserve">
+    <value>Klikněte zde pro přihlášení</value>
   </data>
-  <data name="Books" xml:space="preserve">
-    <value>Książki</value>
+  <data name="Code" xml:space="preserve">
+    <value>Kód</value>
   </data>
-  <data name="Borrows" xml:space="preserve">
-    <value>Wypożyczenia</value>
-  </data>
-  <data name="Categories" xml:space="preserve">
-    <value>Kategorie</value>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Potvrzení hesla</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Dodaj</value>
+    <value>Vytvořit nový účet</value>
   </data>
-  <data name="CreateNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
+  <data name="EmailLink" xml:space="preserve">
+    <value>Odeslání e-mailu</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
+  <data name="EnterVerificationCode" xml:space="preserve">
+    <value>Zadejte ověřovací kód</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>Szczegóły</value>
+  <data name="EnterYourMail" xml:space="preserve">
+    <value>Zadejte ověřovací kód</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
+  <data name="Forgot" xml:space="preserve">
+    <value>Zapomněli jste heslo?</value>
   </data>
-  <data name="NameRole" xml:space="preserve">
-    <value>Nazwa uprawnienia</value>
+  <data name="ForgotPC" xml:space="preserve">
+    <value>Heslo odesláno</value>
   </data>
-  <data name="News" xml:space="preserve">
-    <value>Nowości</value>
+  <data name="ForgotPCLong" xml:space="preserve">
+    <value>Zkontrolujte svůj e-mail pro resetování hesla.</value>
   </data>
-  <data name="PendingRegistrations" xml:space="preserve">
-    <value>Oczekujące rejestracje</value>
+  <data name="Invalid" xml:space="preserve">
+    <value>Neúspěšný pokus o přihlášení.</value>
   </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Uprawnienia</value>
+  <data name="Login0" xml:space="preserve">
+    <value>Přihlásit</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Zapisz</value>
+  <data name="Login1" xml:space="preserve">
+    <value>přihlášení</value>
   </data>
-  <data name="Searches" xml:space="preserve">
-    <value>Zapisane wyszukiwania</value>
+  <data name="LoginFailure" xml:space="preserve">
+    <value>Přihlášení nesprávné.</value>
   </data>
-  <data name="Users" xml:space="preserve">
-    <value>Użytkownicy</value>
+  <data name="LoginFaliureLong" xml:space="preserve">
+    <value>Nepodařilo se přihlásit k webu.</value>
   </data>
-  <data name="WorkerPanel" xml:space="preserve">
-    <value>Panel pracownika</value>
+  <data name="Name" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Heslo</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrace nového uživatele</value>
+  </data>
+  <data name="Register1" xml:space="preserve">
+    <value>Registrace</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Zapamatovat informace?</value>
+  </data>
+  <data name="Reset0" xml:space="preserve">
+    <value>Vytvořit nové heslo.</value>
+  </data>
+  <data name="Reset1" xml:space="preserve">
+    <value>Resetovat</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Resetování hesla.</value>
+  </data>
+  <data name="ResetPC" xml:space="preserve">
+    <value>Potvrzení resetování hesla</value>
+  </data>
+  <data name="SelectTwoFactorAuthProvider" xml:space="preserve">
+    <value>Vyberte zprostředkovatele ověřování ve dvou fázích.</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Odeslat</value>
+  </data>
+  <data name="SendVerificationCode" xml:space="preserve">
+    <value>Odeslat ověřovací kód</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Předložit</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="ThankYou" xml:space="preserve">
+    <value>Děkujeme za registraci.</value>
+  </data>
+  <data name="ThankYouLong" xml:space="preserve">
+    <value>Účet byl zřízen. Nyní musí správce aktivovat svůj účet.</value>
+  </data>
+  <data name="UseAlocalAccountToLogin" xml:space="preserve">
+    <value>Použijte svůj účet pro přihlášení.</value>
+  </data>
+  <data name="Verify" xml:space="preserve">
+    <value>Ověření</value>
+  </data>
+  <data name="YourPasswordHasBeenReset" xml:space="preserve">
+    <value>Vaše heslo bylo obnovit. Prosím</value>
   </data>
 </root>

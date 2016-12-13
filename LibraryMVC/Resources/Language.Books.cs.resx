@@ -118,63 +118,108 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Add" xml:space="preserve">
-    <value>Dodaj</value>
+    <value>Přidat</value>
   </data>
-  <data name="AddNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
+  <data name="AddDate" xml:space="preserve">
+    <value>Datum přidáno</value>
   </data>
-  <data name="AddUserToRole" xml:space="preserve">
-    <value>Nadawawanie uprawnień użytkownikom</value>
+  <data name="AddToBasket" xml:space="preserve">
+    <value>Vložit do košíku</value>
+  </data>
+  <data name="AlreadyBorrowed" xml:space="preserve">
+    <value>V současné době na hostování</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>číslo</value>
   </data>
   <data name="BackToList" xml:space="preserve">
-    <value>Powrót do listy</value>
+    <value>Zpět na seznam knih</value>
+  </data>
+  <data name="Book" xml:space="preserve">
+    <value>Kniha</value>
   </data>
   <data name="Books" xml:space="preserve">
-    <value>Książki</value>
+    <value>Knihy</value>
   </data>
-  <data name="Borrows" xml:space="preserve">
-    <value>Wypożyczenia</value>
-  </data>
-  <data name="Categories" xml:space="preserve">
+  <data name="Category" xml:space="preserve">
     <value>Kategorie</value>
   </data>
-  <data name="Create" xml:space="preserve">
-    <value>Dodaj</value>
+  <data name="Contents" xml:space="preserve">
+    <value>Obsah</value>
   </data>
-  <data name="CreateNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
+  <data name="Create" xml:space="preserve">
+    <value>Přidat knihu</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Přidat novou knihu</value>
+  </data>
+  <data name="CreatingNew" xml:space="preserve">
+    <value>Přidání nových knih</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
+    <value>Vymazat</value>
+  </data>
+  <data name="DeleteLong" xml:space="preserve">
+    <value>Jste si jisti, že chcete odstranit tuto knihu?</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Popis</value>
   </data>
   <data name="Details" xml:space="preserve">
-    <value>Szczegóły</value>
+    <value>Podrobnosti</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
+    <value>Editovat</value>
   </data>
-  <data name="NameRole" xml:space="preserve">
-    <value>Nazwa uprawnienia</value>
+  <data name="EditingBook" xml:space="preserve">
+    <value>Editace knihu</value>
   </data>
-  <data name="News" xml:space="preserve">
-    <value>Nowości</value>
+  <data name="Files" xml:space="preserve">
+    <value>Soubory</value>
   </data>
-  <data name="PendingRegistrations" xml:space="preserve">
-    <value>Oczekujące rejestracje</value>
+  <data name="Filter" xml:space="preserve">
+    <value>Filtr</value>
   </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Uprawnienia</value>
+  <data name="FilterAll" xml:space="preserve">
+    <value>Filtr_vše</value>
+  </data>
+  <data name="Labels" xml:space="preserve">
+    <value>Etikety</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Název vyhledávání</value>
+  </data>
+  <data name="NoBooks" xml:space="preserve">
+    <value>Žádné knihy.</value>
+  </data>
+  <data name="Not" xml:space="preserve">
+    <value>naopak</value>
+  </data>
+  <data name="NotAvailable" xml:space="preserve">
+    <value>Není k dispozici</value>
+  </data>
+  <data name="NoWriters" xml:space="preserve">
+    <value>Neexistují žádné autoři v databázi.</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Zapisz</value>
+    <value>Uložit</value>
   </data>
-  <data name="Searches" xml:space="preserve">
-    <value>Zapisane wyszukiwania</value>
+  <data name="Search" xml:space="preserve">
+    <value>Vyhledávání</value>
   </data>
-  <data name="Users" xml:space="preserve">
-    <value>Użytkownicy</value>
+  <data name="Title" xml:space="preserve">
+    <value>Nadpis</value>
   </data>
-  <data name="WorkerPanel" xml:space="preserve">
-    <value>Panel pracownika</value>
+  <data name="Writer" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="Writers" xml:space="preserve">
+    <value>Autoři</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Rok vydání</value>
+  </data>
+  <data name="NoLabels" xml:space="preserve">
+    <value>Žádné popisky v databázi.</value>
   </data>
 </root>

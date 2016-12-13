@@ -117,64 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add" xml:space="preserve">
-    <value>Dodaj</value>
+  <data name="Basket" xml:space="preserve">
+    <value>Košík</value>
   </data>
-  <data name="AddNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
+  <data name="BasketIsEmpty" xml:space="preserve">
+    <value>Košík je prázdný</value>
   </data>
-  <data name="AddUserToRole" xml:space="preserve">
-    <value>Nadawawanie uprawnień użytkownikom</value>
+  <data name="BookHasBeenBorrow" xml:space="preserve">
+    <value>Kniha byla vypůjčená</value>
   </data>
-  <data name="BackToList" xml:space="preserve">
-    <value>Powrót do listy</value>
+  <data name="Borrow" xml:space="preserve">
+    <value>Vypůjčit knihu</value>
   </data>
-  <data name="Books" xml:space="preserve">
-    <value>Książki</value>
+  <data name="BorrowDate" xml:space="preserve">
+    <value>Datum zapůjčení</value>
   </data>
-  <data name="Borrows" xml:space="preserve">
-    <value>Wypożyczenia</value>
+  <data name="BorrowDetails" xml:space="preserve">
+    <value>Podrobnosti nájemné</value>
   </data>
-  <data name="Categories" xml:space="preserve">
-    <value>Kategorie</value>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Přidat nový pronájem</value>
   </data>
-  <data name="Create" xml:space="preserve">
-    <value>Dodaj</value>
+  <data name="Deadline" xml:space="preserve">
+    <value>Uzávěrka pro návrat</value>
   </data>
-  <data name="CreateNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
+  <data name="DeleteLong" xml:space="preserve">
+    <value>Jste si jisti, že chcete smazat tento úvěr?</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
+  <data name="EditBorrow" xml:space="preserve">
+    <value>Editovat půjčovna</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>Szczegóły</value>
+  <data name="Name" xml:space="preserve">
+    <value>Kdo půjčil?</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
+  <data name="NoBorrowHistory" xml:space="preserve">
+    <value>Historie půjček je prázdný</value>
   </data>
-  <data name="NameRole" xml:space="preserve">
-    <value>Nazwa uprawnienia</value>
+  <data name="NoBorrows" xml:space="preserve">
+    <value>Žádné nájemné.</value>
   </data>
-  <data name="News" xml:space="preserve">
-    <value>Nowości</value>
+  <data name="Remove" xml:space="preserve">
+    <value>Vymazat</value>
   </data>
-  <data name="PendingRegistrations" xml:space="preserve">
-    <value>Oczekujące rejestracje</value>
+  <data name="ReturnDate" xml:space="preserve">
+    <value>Datum návratu</value>
   </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Uprawnienia</value>
+  <data name="Successfull" xml:space="preserve">
+    <value>Uspěšný</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Zapisz</value>
+  <data name="Title" xml:space="preserve">
+    <value>Nadpis</value>
   </data>
-  <data name="Searches" xml:space="preserve">
-    <value>Zapisane wyszukiwania</value>
-  </data>
-  <data name="Users" xml:space="preserve">
-    <value>Użytkownicy</value>
-  </data>
-  <data name="WorkerPanel" xml:space="preserve">
-    <value>Panel pracownika</value>
+  <data name="YourBorrows" xml:space="preserve">
+    <value>Váš úvěr</value>
   </data>
 </root>

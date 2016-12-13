@@ -118,63 +118,82 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Add" xml:space="preserve">
-    <value>Dodaj</value>
+    <value>Přidat</value>
   </data>
   <data name="AddNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
+    <value>Přidání nové právo</value>
   </data>
   <data name="AddUserToRole" xml:space="preserve">
-    <value>Nadawawanie uprawnień użytkownikom</value>
+    <value>Nadawawanie oprávnění k uživatelům</value>
   </data>
   <data name="BackToList" xml:space="preserve">
-    <value>Powrót do listy</value>
+    <value>Zpět na seznam</value>
   </data>
   <data name="Books" xml:space="preserve">
-    <value>Książki</value>
+    <value>Knihy</value>
   </data>
   <data name="Borrows" xml:space="preserve">
-    <value>Wypożyczenia</value>
+    <value>přidat
+Přidání nové právo
+Nadawawanie oprávnění k uživatelům
+Zpět na seznam
+knihy
+půjčka
+kategorie
+přidat
+Přidání nové právo
+vymazat
+podrobnosti
+editovat
+jméno práva
+zprávy
+Čeká registrací
+oprávnění
+Uložit
+uložená vyhledávání
+Členové
+Worker panel</value>
   </data>
   <data name="Categories" xml:space="preserve">
     <value>Kategorie</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Dodaj</value>
+    <value>Přidat</value>
   </data>
   <data name="CreateNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
+    <value>Přidání nové právo</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
+    <value>Vymazat</value>
   </data>
   <data name="Details" xml:space="preserve">
-    <value>Szczegóły</value>
+    <value>Podrobnosti</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
+    <value>Editovat</value>
   </data>
   <data name="NameRole" xml:space="preserve">
-    <value>Nazwa uprawnienia</value>
+    <value>Pméno práva</value>
   </data>
   <data name="News" xml:space="preserve">
-    <value>Nowości</value>
+    <value>Zprávy</value>
   </data>
   <data name="PendingRegistrations" xml:space="preserve">
-    <value>Oczekujące rejestracje</value>
+    <value>Čeká registrací</value>
   </data>
   <data name="Roles" xml:space="preserve">
-    <value>Uprawnienia</value>
+    <value>Oprávnění</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Zapisz</value>
+    <value>Uložit</value>
   </data>
   <data name="Searches" xml:space="preserve">
-    <value>Zapisane wyszukiwania</value>
+    <value>Uložená vyhledávání</value>
   </data>
   <data name="Users" xml:space="preserve">
-    <value>Użytkownicy</value>
+    <value>Členové</value>
   </data>
   <data name="WorkerPanel" xml:space="preserve">
-    <value>Panel pracownika</value>
+    <value>Panel zaměstnanec</value>
   </data>
 </root>

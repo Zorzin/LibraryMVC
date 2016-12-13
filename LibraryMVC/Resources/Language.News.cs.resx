@@ -117,64 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add" xml:space="preserve">
-    <value>Dodaj</value>
-  </data>
-  <data name="AddNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
-  </data>
-  <data name="AddUserToRole" xml:space="preserve">
-    <value>Nadawawanie uprawnień użytkownikom</value>
-  </data>
-  <data name="BackToList" xml:space="preserve">
-    <value>Powrót do listy</value>
-  </data>
-  <data name="Books" xml:space="preserve">
-    <value>Książki</value>
-  </data>
-  <data name="Borrows" xml:space="preserve">
-    <value>Wypożyczenia</value>
-  </data>
-  <data name="Categories" xml:space="preserve">
-    <value>Kategorie</value>
-  </data>
-  <data name="Create" xml:space="preserve">
-    <value>Dodaj</value>
-  </data>
-  <data name="CreateNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
-  </data>
-  <data name="Details" xml:space="preserve">
-    <value>Szczegóły</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
-  </data>
-  <data name="NameRole" xml:space="preserve">
-    <value>Nazwa uprawnienia</value>
-  </data>
-  <data name="News" xml:space="preserve">
-    <value>Nowości</value>
-  </data>
-  <data name="PendingRegistrations" xml:space="preserve">
-    <value>Oczekujące rejestracje</value>
-  </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Uprawnienia</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Zapisz</value>
-  </data>
-  <data name="Searches" xml:space="preserve">
-    <value>Zapisane wyszukiwania</value>
-  </data>
-  <data name="Users" xml:space="preserve">
-    <value>Użytkownicy</value>
-  </data>
-  <data name="WorkerPanel" xml:space="preserve">
-    <value>Panel pracownika</value>
+  <data name="Nothingtoshow" xml:space="preserve">
+    <value>Žádné zprávy</value>
   </data>
 </root>

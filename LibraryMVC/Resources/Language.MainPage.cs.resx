@@ -117,64 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Add" xml:space="preserve">
-    <value>Dodaj</value>
+  <data name="Contact" xml:space="preserve">
+    <value>Kontakt</value>
   </data>
-  <data name="AddNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
+  <data name="Error" xml:space="preserve">
+    <value>Chyba</value>
   </data>
-  <data name="AddUserToRole" xml:space="preserve">
-    <value>Nadawawanie uprawnień użytkownikom</value>
+  <data name="ErrorLong" xml:space="preserve">
+    <value>Něco se pokazilo .. Omlouvám se.</value>
   </data>
-  <data name="BackToList" xml:space="preserve">
-    <value>Powrót do listy</value>
+  <data name="ForAnyContact" xml:space="preserve">
+    <value>Chcete-li nás kontaktovat? Přijďte k nám, nebo nám napište.</value>
   </data>
-  <data name="Books" xml:space="preserve">
-    <value>Książki</value>
+  <data name="Home" xml:space="preserve">
+    <value>Domů</value>
   </data>
-  <data name="Borrows" xml:space="preserve">
-    <value>Wypożyczenia</value>
+  <data name="NewBookInCollection" xml:space="preserve">
+    <value>Nová kniha již je v naší sbírce!</value>
   </data>
-  <data name="Categories" xml:space="preserve">
-    <value>Kategorie</value>
+  <data name="NewestTitles" xml:space="preserve">
+    <value>Nedávné tituly!</value>
   </data>
-  <data name="Create" xml:space="preserve">
-    <value>Dodaj</value>
+  <data name="Title" xml:space="preserve">
+    <value>Nadpis</value>
   </data>
-  <data name="CreateNewRole" xml:space="preserve">
-    <value>Dodaj nowe uprawnienie</value>
+  <data name="VisitUs" xml:space="preserve">
+    <value>Navštivte nás!</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
+  <data name="WeROpenEveryDay" xml:space="preserve">
+    <value>Knihovna je otevřena každý den!</value>
   </data>
-  <data name="Details" xml:space="preserve">
-    <value>Szczegóły</value>
+  <data name="Writers" xml:space="preserve">
+    <value>Autoři</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edytuj</value>
-  </data>
-  <data name="NameRole" xml:space="preserve">
-    <value>Nazwa uprawnienia</value>
-  </data>
-  <data name="News" xml:space="preserve">
-    <value>Nowości</value>
-  </data>
-  <data name="PendingRegistrations" xml:space="preserve">
-    <value>Oczekujące rejestracje</value>
-  </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Uprawnienia</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Zapisz</value>
-  </data>
-  <data name="Searches" xml:space="preserve">
-    <value>Zapisane wyszukiwania</value>
-  </data>
-  <data name="Users" xml:space="preserve">
-    <value>Użytkownicy</value>
-  </data>
-  <data name="WorkerPanel" xml:space="preserve">
-    <value>Panel pracownika</value>
+  <data name="Year" xml:space="preserve">
+    <value>Rok vydání</value>
   </data>
 </root>
