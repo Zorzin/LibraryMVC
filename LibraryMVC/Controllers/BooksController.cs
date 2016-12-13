@@ -821,15 +821,7 @@ namespace LibraryMVC.Controllers
             }
 
             //Not valid
-            IEnumerable<SelectListItem> writers = from w in db.Writers
-                select new SelectListItem
-                {
-                    Value = w.WriterID.ToString(),
-                    Text = w.Name + " " + w.Surname
-                };
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name");
-            ViewBag.Writers = new SelectList(writers, "Value", "Text");
-            ViewBag.Labels = new SelectList(db.Labels, "LabelID", "Name");
+            SetViewBag();
             return View(bevm);
         }
 
@@ -900,6 +892,32 @@ namespace LibraryMVC.Controllers
                 basket.Books.Add(book);
             }
             return RedirectToAction("Index", "Basket");
+        }
+        [Authorize(Roles = "Worker")]
+        public int AddLabel(string name)
+        {
+            Label label = new Label()
+            {
+                Name = name
+            };
+            db.Labels.Add(label);
+            db.SaveChanges();
+            SetViewBag();
+            return label.LabelID;
+        }
+
+        [Authorize(Roles = "Worker")]
+        public int AddWriter(string name, string surname)
+        {
+            Writer writer = new Writer()
+            {
+                Name = name,
+                Surname = surname
+            };
+            db.Writers.Add(writer);
+            db.SaveChanges();
+            SetViewBag();
+            return writer.WriterID;
         }
     }
 }
