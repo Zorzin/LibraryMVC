@@ -1,17 +1,18 @@
-﻿@model LibraryMVC.Models.News
+﻿@using LibraryMVC.Resources
+@model LibraryMVC.Models.News
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = @Language_News.Details;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <div>
-    <h4>News</h4>
+    <h4>@Language_News.News</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayName(@Language_News.Title)
         </dt>
 
         <dd>
@@ -19,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Content)
+            @Html.DisplayName(@Language_News.Content)
         </dt>
 
         <dd>
@@ -30,7 +31,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AddDate)
+            @Html.DisplayName(@Language_News.AddDate)
         </dt>
 
         <dd>
@@ -40,7 +41,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
-    @Html.ActionLink("Edit", "Edit", new {id = Model.NewsID}, new {@class = "btn btn-info"})
+    @Html.ActionLink(@Language_News.BackToList, "Index", null, new { @class = "btn btn-info" })
+    @Html.ActionLink(@Language_News.Edit, "Edit", new {id = Model.NewsID}, new {@class = "btn btn-info"})
 
 </p>

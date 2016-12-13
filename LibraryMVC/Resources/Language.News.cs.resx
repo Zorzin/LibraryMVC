@@ -117,7 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddDate" xml:space="preserve">
+    <value>Datum přidáno</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Zpět na seznam</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Obsah</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Vytvořit</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Vytvořit nový</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Vymazat</value>
+  </data>
+  <data name="DeleteConfirm" xml:space="preserve">
+    <value>Jste si jisti, že chcete smazat?</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Podrobnosti</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editovat</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>Zprávy</value>
+  </data>
   <data name="Nothingtoshow" xml:space="preserve">
     <value>Žádné zprávy</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Uložit</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Nadpis</value>
   </data>
 </root>

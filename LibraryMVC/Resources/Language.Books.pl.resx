@@ -222,4 +222,13 @@
   <data name="NoLabels" xml:space="preserve">
     <value>Brak etykiet w bazie danych.</value>
   </data>
+  <data name="AddNewLabel" xml:space="preserve">
+    <value>Dodaj nową etykietę</value>
+  </data>
+  <data name="AddNewWriter" xml:space="preserve">
+    <value>Dodaj nowego autora</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
 </root>

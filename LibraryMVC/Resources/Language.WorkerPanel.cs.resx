@@ -133,26 +133,7 @@
     <value>Knihy</value>
   </data>
   <data name="Borrows" xml:space="preserve">
-    <value>přidat
-Přidání nové právo
-Nadawawanie oprávnění k uživatelům
-Zpět na seznam
-knihy
-půjčka
-kategorie
-přidat
-Přidání nové právo
-vymazat
-podrobnosti
-editovat
-jméno práva
-zprávy
-Čeká registrací
-oprávnění
-Uložit
-uložená vyhledávání
-Členové
-Worker panel</value>
+    <value>půjčka</value>
   </data>
   <data name="Categories" xml:space="preserve">
     <value>Kategorie</value>

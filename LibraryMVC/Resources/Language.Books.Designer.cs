@@ -79,6 +79,24 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new label.
+        /// </summary>
+        public static string AddNewLabel {
+            get {
+                return ResourceManager.GetString("AddNewLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new writer.
+        /// </summary>
+        public static string AddNewWriter {
+            get {
+                return ResourceManager.GetString("AddNewWriter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add to basket.
         /// </summary>
         public static string AddToBasket {
@@ -318,6 +336,15 @@ namespace LibraryMVC.Resources {
         public static string NoWriters {
             get {
                 return ResourceManager.GetString("NoWriters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        public static string Remove {
+            get {
+                return ResourceManager.GetString("Remove", resourceCulture);
             }
         }
         

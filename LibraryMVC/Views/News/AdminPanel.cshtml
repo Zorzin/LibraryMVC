@@ -1,24 +1,23 @@
 ﻿@model IEnumerable<LibraryMVC.Models.News>
-
+@using LibraryMVC.Resources
 @{
-    ViewBag.Title = "AdminPanel";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <p>
-    @Html.ActionLink("Create New", "Create",null, new {@class ="btn btn-success"})
+    @Html.ActionLink(@Language_News.CreateNew, "Create",null, new {@class ="btn btn-success"})
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayName(@Language_News.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Content)
+            @Html.DisplayName(@Language_News.Content)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AddDate)
+            @Html.DisplayName(@Language_News.AddDate)
         </th>
         <th></th>
     </tr>
@@ -44,8 +43,8 @@
             @Html.DisplayFor(modelItem => item.AddDate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NewsID }, new {@class="btn btn-info"})
-            @Html.ActionLink("Delete", "Delete", new { id=item.NewsID }, new { @class = "btn btn-danger" })
+            @Html.ActionLink(@Language_News.Edit, "Edit", new { id=item.NewsID }, new {@class="btn btn-info"})
+            @Html.ActionLink(@Language_News.Delete, "Delete", new { id=item.NewsID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

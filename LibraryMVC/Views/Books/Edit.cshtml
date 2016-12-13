@@ -64,7 +64,7 @@
             @Html.Label(Language_Books.Contents, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" id="contentdiv">
                 @Html.TextBoxFor(model=>model.OldContent,new {@readonly = "readonly", style = "border-width: 0px" })
-                <button type="button" id="chagecontent" >Remove</button>
+                <button type="button" id="chagecontent" >@Language_Books.Remove</button>
             </div>
         </div>
 
@@ -79,14 +79,14 @@
             @Html.LabelFor(model => model.BookViewModel.SelectedWriters, Language_Books.Writers, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(model => model.BookViewModel.SelectedWriters, ViewBag.Writers as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:350px;", id = "writerchosen" })
-                <button type="button" id="writerdialogopener">Add</button>
+                <button type="button" id="writerdialogopener">@Language_Books.Add</button>
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.BookViewModel.SelectedLabels, Language_Books.Labels, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(model => model.BookViewModel.SelectedLabels, ViewBag.Labels as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:350px;", id = "labelchosen" })
-                <button type="button" id="labeldialogopener">Add</button>
+                <button type="button" id="labeldialogopener">@Language_Books.Add</button>
             </div>
         </div>
         <div class="form-group">
@@ -99,7 +99,7 @@
                         <div id=@spanid class="refresh">
                             @Html.TextBoxFor(model => model.OldFiles [i], new { @readonly = "readonly", id = "oldfiles", style = "border-width: 0px" })
                             @Html.TextBoxFor(model => model.OldFilesText [i], new { id = "oldfilestext" })
-                            <button type="button" id=@i class="removefilebutton">Remove</button>
+                            <button type="button" id=@i class="removefilebutton">@Language_Books.Remove</button>
                         </div>
                     }
                 </div>
@@ -116,17 +116,17 @@
             </div>
         </div>
         
-        <div id="writerdialog" title="Add Writer">
-            Name: <input type="text" id="writername" />
-            Surname: <input type="text" id="writersurname" />
+        <div id="writerdialog" title="@Language_Books.AddNewWriter">
+            @Language_Writers.Name: <input type="text" id="writername" />
+            @Language_Writers.Surname: <input type="text" id="writersurname" />
             <br />
-            <button type="button" id="addwriter">Add</button>
+            <button type="button" id="addwriter">@Language_Books.Add</button>
         </div>
 
-        <div id="labeldialog" title="Add Label">
-            Name: <input type="text" id="labelname" />
+        <div id="labeldialog" title="@Language_Books.AddNewLabel">
+            @Language_Labels.Name: <input type="text" id="labelname" />
             <br />
-            <button type="button" id="addlabel">Add</button>
+            <button type="button" id="addlabel">@Language_Books.Add</button>
         </div>
 
         <div class="form-group">

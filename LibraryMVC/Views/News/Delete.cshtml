@@ -1,17 +1,17 @@
-﻿@model LibraryMVC.Models.News
+﻿@using LibraryMVC.Resources
+@model LibraryMVC.Models.News
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = @Language_News.Delete;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>@Language_News.DeleteConfirm</h3>
 <div>
-    <h4>News</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayName(@Language_News.Title)
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Content)
+            @Html.DisplayName(@Language_News.Content)
         </dt>
 
         <dd>
@@ -30,7 +30,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AddDate)
+            @Html.DisplayName(@Language_News.AddDate)
         </dt>
 
         <dd>
@@ -43,8 +43,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-info" })
-            <input type="submit" value="Delete" class="btn btn-danger"/>
+            @Html.ActionLink(@Language_News.BackToList, "Index",null, new { @class = "btn btn-info" })
+            <input type="submit" value="@Language_News.Delete" class="btn btn-danger"/>
 
         </div>
     }

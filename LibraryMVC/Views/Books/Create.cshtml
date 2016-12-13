@@ -83,7 +83,7 @@
             @Html.LabelFor(model => model.SelectedWriters, Language_Books.Writers, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(model => model.SelectedWriters,ViewBag.Writers as SelectList,new { @class="chosen-group-select", multiple="multiple",style="width:350px;",id= "writerchosen" })
-                <button type="button" id="writerdialogopener">Add</button>
+                <button type="button" id="writerdialogopener">@Language_Books.Add</button>
             </div>
             
         </div>
@@ -91,7 +91,7 @@
             @Html.LabelFor(model => model.SelectedLabels, Language_Books.Labels, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.ListBoxFor(model => model.SelectedLabels,ViewBag.Labels as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:350px;", id = "labelchosen" })
-                <button type="button" id="labeldialogopener">Add</button>
+                <button type="button" id="labeldialogopener">@Language_Books.Add</button>
             </div>
             
         </div>
@@ -118,17 +118,17 @@
             </div>
         </div>
         
-        <div id="writerdialog" title="Add Writer">
-            Name: <input type="text" id="writername" />
-            Surname: <input type="text" id="writersurname" />
-            <br/>
-            <button type="button" id="addwriter">Add</button>
-        </div>
-        
-        <div id="labeldialog" title="Add Label">
-            Name: <input type="text" id="labelname" />
+        <div id="writerdialog" title="@Language_Books.AddNewWriter">
+            @Language_Writers.Name: <input type="text" id="writername" />
+            @Language_Writers.Surname: <input type="text" id="writersurname" />
             <br />
-            <button type="button" id="addlabel">Add</button>
+            <button type="button" id="addwriter">@Language_Books.Add</button>
+        </div>
+
+        <div id="labeldialog" title="@Language_Books.AddNewLabel">
+            @Language_Labels.Name: <input type="text" id="labelname" />
+            <br />
+            <button type="button" id="addlabel">@Language_Books.Add</button>
         </div>
         
         
