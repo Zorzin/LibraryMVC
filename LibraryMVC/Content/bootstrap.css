@@ -6780,7 +6780,7 @@ button.close {
     text-decoration: none;
 }
 
-@media (max-width: 995px) {
+@media (max-width: 1200px) {
   .navbar-header {
       float: none;
   }

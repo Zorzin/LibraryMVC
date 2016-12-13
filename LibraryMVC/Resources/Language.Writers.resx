@@ -121,7 +121,7 @@
     <value>Create new writer</value>
   </data>
   <data name="CreatingNew" xml:space="preserve">
-    <value>Creating new writer:</value>
+    <value>Creating new writer</value>
   </data>
   <data name="DeleteLong" xml:space="preserve">
     <value>Are you sure you want to delete this writer?</value>

@@ -9,7 +9,7 @@
 @if (Model.Any())
 {
     <p>
-        @Html.ActionLink(Language_Labels.CreateNew, "Create")
+        @Html.ActionLink(Language_Labels.CreateNew, "Create",null, new { @class = "btn btn-success" })
     </p>
     <table class="table">
         <tr>
@@ -26,9 +26,9 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new {id = item.LabelID}) |
-                    @Html.ActionLink(Language_WorkerPanel.Details, "Details", new {id = item.LabelID}) |
-                    @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new {id = item.LabelID})
+                    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new {id = item.LabelID}, new { @class = "btn btn-info" })
+                    @Html.ActionLink(Language_WorkerPanel.Details, "Details", new {id = item.LabelID}, new { @class = "btn btn-info" })
+                    @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new {id = item.LabelID}, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }

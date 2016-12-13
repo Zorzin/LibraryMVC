@@ -8,7 +8,7 @@
 <h2>@ViewBag.Title:</h2>
 
 <p>
-    @Html.ActionLink(Language_Categories.CreateNew, "Create")
+    @Html.ActionLink(Language_Categories.CreateNew, "Create",null, new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -30,9 +30,9 @@
             @Html.DisplayFor(modelItem => item.OverCategory.Name)
         </td>
         <td>
-            @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id=item.CategoryID }) |
-            @Html.ActionLink(Language_WorkerPanel.Details, "Details", new { id=item.CategoryID }) |
-            @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new { id=item.CategoryID })
+            @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id=item.CategoryID }, new { @class = "btn btn-info" }) 
+            @Html.ActionLink(Language_WorkerPanel.Details, "Details", new { id=item.CategoryID }, new { @class = "btn btn-info" }) 
+            @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new { id=item.CategoryID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

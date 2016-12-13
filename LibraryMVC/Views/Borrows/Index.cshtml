@@ -8,7 +8,7 @@
 <h2>@ViewBag.Title:</h2>
 
 <p>
-    @Html.ActionLink(Language_Basket.CreateNew, "Create")
+    @Html.ActionLink(Language_Basket.CreateNew, "Create",null, new { @class = "btn btn-success" })
 </p>
 @if (Model.Any())
 {
@@ -57,9 +57,9 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
-                    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id = item.BorrowID }) |
-                    @Html.ActionLink(Language_WorkerPanel.Details, "Details", new { id = item.BorrowID }) |
-                    @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new { id = item.BorrowID })
+                    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id = item.BorrowID }, new { @class = "btn btn-info" }) 
+                    @Html.ActionLink(Language_WorkerPanel.Details, "Details", new { id = item.BorrowID }, new { @class = "btn btn-info" }) 
+                    @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new { id = item.BorrowID }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }

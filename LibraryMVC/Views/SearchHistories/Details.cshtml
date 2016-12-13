@@ -27,16 +27,21 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.URL)
+            
+                @Html.DisplayNameFor(model => model.URL)
+
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.URL)
+            <div style="word-wrap: break-word;">
+                @Html.DisplayFor(model => model.URL)
+            </div>
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id = Model.SearchHistoryID }) |
-    @Html.ActionLink(Language_WorkerPanel.BackToList, "Index")
+    @Html.ActionLink(Language_WorkerPanel.BackToList, "Index", null, new { @class = "btn btn-info" })
+    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id = Model.SearchHistoryID }, new { @class = "btn btn-info" })
+
 </p>

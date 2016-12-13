@@ -55,8 +55,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value=@Language_WorkerPanel.Delete class="btn btn-danger" /> |
-            @Html.ActionLink(Language_WorkerPanel.BackToList, "Index")
+            @Html.ActionLink(Language_WorkerPanel.BackToList, "Index", null, new { @class = "btn btn-info" })
+            <input type="submit" value=@Language_WorkerPanel.Delete class="btn btn-danger"/>
         </div>
     }
 </div>

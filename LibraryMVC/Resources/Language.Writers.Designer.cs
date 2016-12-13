@@ -70,7 +70,7 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Creating new writer:.
+        ///   Looks up a localized string similar to Creating new writer.
         /// </summary>
         public static string CreatingNew {
             get {

@@ -53,6 +53,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id = Model.Id }) |
-    @Html.ActionLink(Language_WorkerPanel.BackToList, "Index")
+    @Html.ActionLink(Language_WorkerPanel.BackToList, "Index", null, new {@class = "btn btn-info"})
+    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new {id = Model.Id}, new {@class = "btn btn-info"})
 </p>

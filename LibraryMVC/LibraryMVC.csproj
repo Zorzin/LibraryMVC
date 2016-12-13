@@ -422,6 +422,9 @@
     <Content Include="App_Data\LibraryMVC_log.ldf">
       <DependentUpon>LibraryMVC.mdf</DependentUpon>
     </Content>
+    <Content Include="images\cz.jpg" />
+    <Content Include="images\eng.jpg" />
+    <Content Include="images\pl.jpg" />
     <Content Include="images\slide1.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -560,7 +563,6 @@
     <Content Include="Views\Labels\Details.cshtml" />
     <Content Include="Views\Labels\Edit.cshtml" />
     <Content Include="Views\Labels\Index.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
@@ -585,7 +587,6 @@
     <Content Include="Views\Borrows\Edit.cshtml" />
     <Content Include="Views\Borrows\Index.cshtml" />
     <Content Include="Views\Borrows\UserIndex.cshtml" />
-    <Content Include="Views\SearchHistories\Create.cshtml" />
     <Content Include="Views\SearchHistories\Delete.cshtml" />
     <Content Include="Views\SearchHistories\Details.cshtml" />
     <Content Include="Views\SearchHistories\Edit.cshtml" />

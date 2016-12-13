@@ -7,9 +7,6 @@
 
 <h2>@ViewBag.Title:</h2>
 
-<p>
-    @Html.ActionLink(Language_User.CreateNewUser, "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -48,9 +45,9 @@
             @Html.DisplayFor(modelItem => item.UserName)
         </td>
         <td>
-            @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id=item.Id }) |
-            @Html.ActionLink(Language_WorkerPanel.Details, "Details", new { id=item.Id }) |
-            @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new { id=item.Id })
+            @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id=item.Id }, new {@class="btn btn-info"})
+            @Html.ActionLink(Language_WorkerPanel.Details, "Details", new { id=item.Id }, new { @class = "btn btn-info" })
+            @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new { id=item.Id }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }
