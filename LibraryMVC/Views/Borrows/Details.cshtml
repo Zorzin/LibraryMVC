@@ -1,17 +1,17 @@
-﻿@model Library.Models.Borrow
+﻿@using LibraryMVC.Resources
+@model Library.Models.Borrow
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Language_Basket.BorrowDetails;
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title:</h2>
 
 <div>
-    <h4>Borrow</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Book.Title)
+            @Html.DisplayName(Language_Basket.Title)
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Reader.Name)
+            @Html.DisplayName(Language_Basket.Name)
         </dt>
 
         <dd>
@@ -27,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BorrowDate)
+            @Html.DisplayName(Language_Basket.BorrowDate)
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ReturnDate)
+            @Html.DisplayName(Language_Basket.ReturnDate)
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Deadline)
+            @Html.DisplayName(Language_Basket.Deadline)
         </dt>
 
         <dd>
@@ -61,6 +61,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BorrowID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Language_WorkerPanel.BackToList, "Index", null, new { @class = "btn btn-info" })
+    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new {id = Model.BorrowID}, new {@class = "btn btn-info"})
+
 </p>

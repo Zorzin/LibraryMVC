@@ -1,39 +1,49 @@
-﻿@model IEnumerable<Library.Models.Writer>
+﻿@using LibraryMVC.Resources
+@model IEnumerable<Library.Models.Writer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Language_Books.Writers;
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title:</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(Language_Writers.CreateNew, "Create",null, new { @class = "btn btn-success" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Surname)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Surname)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.WriterID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.WriterID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.WriterID })
-        </td>
-    </tr>
+@if (Model.Any())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName(Language_Writers.Name)
+            </th>
+            <th>
+                @Html.DisplayName(Language_Writers.Surname)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new {id = item.WriterID}, new { @class = "btn btn-info" })
+                    @Html.ActionLink(Language_WorkerPanel.Details, "Details", new {id = item.WriterID}, new { @class = "btn btn-info" })
+                    @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new {id = item.WriterID}, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
 }
-
-</table>
+else
+{
+    <p>@Language_Books.NoWriters.</p>
+}

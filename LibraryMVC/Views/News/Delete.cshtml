@@ -1,0 +1,51 @@
+﻿@using LibraryMVC.Resources
+@model LibraryMVC.Models.News
+
+@{
+    ViewBag.Title = @Language_News.Delete;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@Language_News.DeleteConfirm</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName(@Language_News.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayName(@Language_News.Content)
+        </dt>
+
+        <dd>
+            <div style="word-wrap: break-word;">
+                @Html.DisplayFor(model => model.Content)
+            </div>
+            
+        </dd>
+
+        <dt>
+            @Html.DisplayName(@Language_News.AddDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink(@Language_News.BackToList, "Index",null, new { @class = "btn btn-info" })
+            <input type="submit" value="@Language_News.Delete" class="btn btn-danger"/>
+
+        </div>
+    }
+</div>

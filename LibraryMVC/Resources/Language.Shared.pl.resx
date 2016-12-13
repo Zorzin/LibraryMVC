@@ -126,6 +126,9 @@
   <data name="ChangeLanguage" xml:space="preserve">
     <value>Zmień język</value>
   </data>
+  <data name="ChooseLanguage" xml:space="preserve">
+    <value>Wybierz język</value>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>Kontakt</value>
   </data>
@@ -142,10 +145,10 @@
     <value>Biblioteka MVC</value>
   </data>
   <data name="LockedOut" xml:space="preserve">
-    <value>Konto jest zablokowane</value>
+    <value>Konto jest zablokowane.</value>
   </data>
   <data name="LockedOutLong" xml:space="preserve">
-    <value>To konto musi być aktywowane przez administratora, spróbuj później.</value>
+    <value>To konto musi zostać aktywowane przez administratora, spróbuj później.</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Zaloguj się</value>

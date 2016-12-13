@@ -1,18 +1,16 @@
-﻿@model Library.Models.Borrow
+﻿@using LibraryMVC.Resources
+@model Library.Models.Borrow
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = Language_WorkerPanel.Delete;
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
+<h2>@Language_Basket.DeleteLong</h2>
 <div>
-    <h4>Borrow</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Book.Title)
+            @Html.DisplayName(Language_Basket.Title)
         </dt>
 
         <dd>
@@ -20,7 +18,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Reader.Name)
+            @Html.DisplayName(Language_Basket.Name)
         </dt>
 
         <dd>
@@ -28,7 +26,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BorrowDate)
+            @Html.DisplayName(Language_Basket.BorrowDate)
         </dt>
 
         <dd>
@@ -36,7 +34,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ReturnDate)
+            @Html.DisplayName(Language_Basket.ReturnDate)
         </dt>
 
         <dd>
@@ -44,7 +42,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Deadline)
+            @Html.DisplayName(Language_Basket.Deadline)
         </dt>
 
         <dd>
@@ -65,8 +63,9 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink(Language_WorkerPanel.BackToList, "Index", null, new { @class = "btn btn-info" })
+            <input type="submit" value=@Language_WorkerPanel.Delete class="btn btn-danger"/>
+
         </div>
     }
 </div>

@@ -396,6 +396,10 @@ namespace LibraryMVC.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            if (Session["basket"]!=null)
+            {
+                Session["basket"] = null;
+            }
             return RedirectToAction("Index", "Home");
         }
 

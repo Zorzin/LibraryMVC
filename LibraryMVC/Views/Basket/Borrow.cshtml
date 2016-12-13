@@ -1,8 +1,8 @@
-﻿
+﻿@using LibraryMVC.Resources
+
 @{
-    ViewBag.Title = "Borrow";
+    ViewBag.Title = Language_Basket.Borrow;
 }
 
-<h2>Successfull</h2>
-<p>Books has been borrow successfully</p>
-@Html.ActionLink("Home page","Index","Home",null,new {@class="btn btn-default"})
+<h2>@Language_Basket.BookHasBeenBorrow.</h2>
+@Html.ActionLink(Language_MainPage.Home,"Index","Home",null,new {@class="btn btn-default"})

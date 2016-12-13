@@ -1,15 +1,16 @@
 ﻿@using Library.Models
 @using LibraryMVC.Models
+@using LibraryMVC.Resources
 @model LibraryMVC.Models.BookViewModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = Language_Books.CreatingNew;
 }
 <link href="~/Content/Bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/chosen.css" rel="stylesheet" />
 <script src="~/Scripts/jquery-3.1.1.min.js"></script>
 <script src="~/Scripts/chosen.jquery.min.js"></script>
-<h2>Create</h2>
+<h2>@ViewBag.Title</h2>
 
 
 @using (Html.BeginForm("Create","Books", FormMethod.Post,
@@ -21,11 +22,10 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Book</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Language_Books.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
@@ -41,7 +41,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Language_Books.Year, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
@@ -49,7 +49,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Language_Books.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
@@ -57,7 +57,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Language_Books.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
@@ -65,7 +65,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Contents, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Language_Books.Contents, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(m=>m.Contents, new {type="file"} )
                 @Html.ValidationMessageFor(model => model.Contents, "", new { @class = "text-danger" })
@@ -73,26 +73,30 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CategoryID, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CategoryID, Language_Books.Category, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "chosen-single-select", style = "width:350px" })
                 @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.SelectedWriters, "Writers", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SelectedWriters, Language_Books.Writers, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.ListBoxFor(model => model.SelectedWriters,ViewBag.Writers as SelectList,new { @class="chosen-group-select", multiple="multiple",style="width:350px;"})
+                @Html.ListBoxFor(model => model.SelectedWriters,ViewBag.Writers as SelectList,new { @class="chosen-group-select", multiple="multiple",style="width:350px;",id= "writerchosen" })
+                <button type="button" id="writerdialogopener">@Language_Books.Add</button>
             </div>
+            
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.SelectedLabels, "Labels", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SelectedLabels, Language_Books.Labels, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.ListBoxFor(model => model.SelectedLabels,ViewBag.Labels as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:350px;" })
+                @Html.ListBoxFor(model => model.SelectedLabels,ViewBag.Labels as SelectList, new { @class = "chosen-group-select", multiple = "multiple", style = "width:350px;", id = "labelchosen" })
+                <button type="button" id="labeldialogopener">@Language_Books.Add</button>
             </div>
+            
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Files, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Language_Books.Files, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10" id="filesdiv">
                 <div style="display: inline-flex">
                     @Html.TextBoxFor(m => m.Files [0], new { type = "file" })
@@ -104,24 +108,43 @@
         <div class="form-group">
             <div class="col-md-2"></div>
             <div class="col-md-10">
-                <button type="button" id="addfilebutton">Add</button>
+                <button type="button" id="addfilebutton">@Language_Books.Add</button>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value=@Language_Books.Create class="btn btn-success" />
             </div>
         </div>
+        
+        <div id="writerdialog" title="@Language_Books.AddNewWriter">
+            @Language_Writers.Name: <input type="text" id="writername" />
+            @Language_Writers.Surname: <input type="text" id="writersurname" />
+            <br />
+            <button type="button" id="addwriter">@Language_Books.Add</button>
+        </div>
+
+        <div id="labeldialog" title="@Language_Books.AddNewLabel">
+            @Language_Labels.Name: <input type="text" id="labelname" />
+            <br />
+            <button type="button" id="addlabel">@Language_Books.Add</button>
+        </div>
+        
+        
+
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Language_Books.BackToList, "Index", null, new { @class = "btn btn-info" })
 </div>
 
 @section Scripts {
     <link href="~/Content/chosen.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="@Url.Content("~/Scripts/chosen.jquery.js")" type="text/javascript"></script>
 
     <script type="text/javascript">
@@ -135,7 +158,6 @@
     </script>
     <script>
         var i = 1;
-
         $("#addfilebutton")
             .click(function() {
                 $("#filesdiv")
@@ -143,6 +165,74 @@
                         "<div><div style=\"display: inline-flex\"><input name=\"Files[" + i + "]\" type=\"file\">" + "<input name=\"FilesNames[" + i + "]\" type=\"text\"></div></div>");
                 i = i + 1; 
             });
-        //script for adding more files
+        
+        labeldialog = $("#labeldialog")
+                .dialog({
+                    autoOpen: false,
+                    show: {
+                        effect: "blind",
+                        duration: 10
+                    },
+                    hide: {
+                        duration: 10
+                    }
+                });
+        writerdialog = $("#writerdialog")
+            .dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 10
+                },
+                hide: {
+                    duration: 10
+                }
+            });
+
+        $("#writerdialogopener")
+                .on("click",
+                    function () {
+                        $('#writerdialog').dialog('open');
+                    });
+
+        $("#labeldialogopener")
+                .on("click",
+                    function () {
+                        $('#labeldialog').dialog('open');
+                    });
+        $("#addwriter")
+               .click(
+                   function () {
+                       addWriter();
+                   });
+        $("#addlabel")
+            .click(
+                function () {
+                        addLabel();
+                });
+        function addWriter() {
+            jQuery.get('/Books/AddWriter',
+                {
+                    name: $('#writername').val(),
+                    surname:$('#writersurname').val()
+                })
+                .done(function (key) {
+                    writerdialog.dialog('close');
+                    $('#writerchosen').append("<option value='" + key + "'>" + $('#writername').val() + " " + $('#writersurname').val()+ "</option>");
+                    $(".chosen-group-select").trigger("chosen:updated");
+                });
+        }
+
+        function addLabel() {
+            jQuery.get('/Books/AddLabel',
+                {
+                    name: $('#labelname').val()
+                })
+                .done(function (key) {
+                    labeldialog.dialog('close');
+                    $('#labelchosen').append("<option value='" + key + "'>" + $('#labelname').val() + "</option>");
+                    $(".chosen-group-select").trigger("chosen:updated");
+                });
+        }
     </script>
 }

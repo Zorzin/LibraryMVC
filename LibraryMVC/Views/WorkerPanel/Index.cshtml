@@ -1,27 +1,29 @@
-﻿@model IEnumerable<LibraryMVC.Models.User>
+﻿@using LibraryMVC.Resources
+@model IEnumerable<LibraryMVC.Models.User>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Language_WorkerPanel.WorkerPanel;
 }
 
 <div class="list-group" style="margin-top:10px ">
-    @if (Roles.IsUserInRole(User.Identity.Name,"Admin"))
+    @if (Roles.IsUserInRole(User.Identity.Name, "Admin"))
     {
-        <a href="@Url.Action("Index","Users")" class="list-group-item">Users</a>
-        <a href="@Url.Action("AddToRole","Users")" class="list-group-item">Add User to role</a>
-        <a href="@Url.Action("CreateRole","Users")" class="list-group-item">Create new role</a>
+        <a href="@Url.Action("Index","Users")" class="list-group-item">@Language_WorkerPanel.Users</a>
+        <a href="@Url.Action("AddToRole","Users")" class="list-group-item">@Language_WorkerPanel.AddUserToRole</a>
+        <a href="@Url.Action("CreateRole","Users")" class="list-group-item">@Language_WorkerPanel.CreateNewRole</a>
     }
-    @if (Roles.IsUserInRole(User.Identity.Name,"Worker"))
+    @if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
     {
         <a href="@Url.Action("PendingRegistration", "Users")" class="list-group-item">
-            Pending registrations <span class="badge alert-danger" style="float: none">@Model.Count()</span>
-</a>
+            @Language_WorkerPanel.PendingRegistrations
+            <span class="badge alert-danger" style="float: none">@Model.Count()</span>
+        </a>
     }
-    <a href="@Url.Action("Index","Writers")" class="list-group-item">Writers</a>
-    <a href="@Url.Action("Index","Labels")" class="list-group-item">Labels</a>
-    <a href="@Url.Action("Index","Categories")" class="list-group-item">Categories</a>
-    <a href="@Url.Action("Index","Books")" class="list-group-item">Books</a>
-    <a href="@Url.Action("Index","Borrows")" class="list-group-item">Borrows</a>
-    <a href="@Url.Action("Index","SearchHistories")" class="list-group-item">Searches</a>
-    
-</div>
+    <a href="@Url.Action("Index","Writers")" class="list-group-item">@Language_Books.Writers</a>
+    <a href="@Url.Action("Index","Labels")" class="list-group-item">@Language_Books.Labels</a>
+    <a href="@Url.Action("Index","Categories")" class="list-group-item">@Language_WorkerPanel.Categories</a>
+    <a href="@Url.Action("Index","Books")" class="list-group-item">@Language_Books.Books</a>
+    <a href="@Url.Action("Index","Borrows")" class="list-group-item">@Language_WorkerPanel.Borrows</a>
+    <a href="@Url.Action("Index","SearchHistories")" class="list-group-item">@Language_WorkerPanel.Searches</a>
+    <a href="@Url.Action("AdminPanel","News")" class="list-group-item">@Language_WorkerPanel.News</a>
 
+</div>

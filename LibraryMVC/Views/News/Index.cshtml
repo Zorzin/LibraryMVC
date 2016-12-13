@@ -1,0 +1,29 @@
+﻿@model IEnumerable<LibraryMVC.Models.News>
+@using LibraryMVC.Resources
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Any())
+{
+    <div class="panel-group">
+        @foreach (var item in Model)
+        {
+        <div class="panel panel-default" style="width: 100%; margin-top: 10px;">
+            <div class="panel-heading">
+                <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+                <div>
+                    @Html.DisplayFor(modelItem => item.AddDate)
+                </div>
+            </div>
+            <div class="panel-body" style= "word-wrap: break-word;">
+                @Html.DisplayFor(modelItem => item.Content)
+            </div>
+        </div>
+        }
+    </div>
+}
+else
+{
+    <p>@Language_News.Nothingtoshow</p>
+}

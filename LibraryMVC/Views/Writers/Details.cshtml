@@ -1,17 +1,17 @@
-﻿@model Library.Models.Writer
+﻿@using LibraryMVC.Resources
+@model Library.Models.Writer
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Language_Writers.Details;
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title:</h2>
 
 <div>
-    <h4>Writer</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayName(Language_Writers.Name)
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Surname)
+            @Html.DisplayName(Language_Writers.Surname)
         </dt>
 
         <dd>
@@ -29,6 +29,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.WriterID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Language_WorkerPanel.BackToList, "Index", null, new { @class = "btn btn-info" })
+    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new {id = Model.WriterID}, new {@class = "btn btn-info"})
+
 </p>

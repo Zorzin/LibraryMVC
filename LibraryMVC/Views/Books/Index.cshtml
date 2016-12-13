@@ -1,215 +1,218 @@
 ﻿@using LibraryMVC.Controllers
+@using LibraryMVC.Resources
 @using Microsoft.AspNet.Identity
 @model LibraryMVC.Models.SearchViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Language_Books.Books;
 }
 
-
 <div id="wrapper" class="toggled">
-    @using (Html.BeginForm("Index","Books"))
-    {
-        <div id="sidebar-wrapper">
 
+@using (Html.BeginForm("Index", "Books"))
+{
+    <div id="sidebar-wrapper">
+        
 
-            <ul class="sidebar-nav">
-                <li>
-                    <div>
-                        <a>Tittle:</a>
-                        @Html.TextBoxFor(m => m.SelectedTitle, new {@class = "form-control", id = "title"})
-                        <div class="search-options">
-                            <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter" name="Title"/>
-                            <p class="search-checkbox">NOT</p>@Html.CheckBoxFor(m => m.TitleOption, new {@class = "search-checkbox", id = "titlecheckbox", style = "margin-top:30px; margin-left:5px;" })
-                        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <div>
+                    <a>@Language_Books.Title:</a>
+                    @Html.TextBoxFor(m => m.SelectedTitle, new {@class = "form-control", id = "title"})
+                    <div class="search-options">
+                        <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value=@Language_Books.Filter name="Title"/>
+                        <p class="search-checkbox">@Language_Books.Not</p>@Html.CheckBoxFor(m => m.TitleOption, new {@class = "search-checkbox", id = "titlecheckbox", style = "margin-top:30px; margin-left:5px;"})
+                    </div>
 
-                    </div>
-                </li>
-                <hr/>
-                <li>
-                    <div>
-                        <a>Category:</a>
-                        @Html.DropDownListFor(m => m.SelectedCategory, ViewBag.Categories as SelectList,
-                            new {@class = "chosen-single-select form-control", id = "category", style = "width:250px"})
-                        <br/>
-                        <div class="search-options">
-                            <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter" name="Category"/>
-                            <p class="search-checkbox">NOT</p>@Html.CheckBoxFor(m => m.CategoryOption, new {@class = "search-checkbox", id = "categorycheckbox", style = "margin-top:30px; margin-left:5px;" })
-                        </div>
-                    </div>
-                </li>
-                <hr/>
-                <li>
-                    <div>
-                        <a>Labels:</a>
-                        @Html.ListBoxFor(m => m.SelectedLabels, ViewBag.Labels as SelectList,
-                            new {@class = "form-control chosen-group-select", multiple = "multiple", style = "width:250px;"})
-                        <br/>
-                        <div class="search-options">
-                            <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter" name="Labels"/>
-                            @Html.DropDownListFor(m => m.LabelsOption, ViewBag.Options as SelectList,
-                                new {@class = " form-control", style = "width:100px; margin:15px;"})
-                        </div>
-                    </div>
-                </li>
-                <hr/>
-                <li>
-                    <div>
-                        <a>Writers:</a>
-                        @Html.ListBoxFor(m => m.SelectedWriters, ViewBag.Writers as SelectList,
-                            new {@class = "chosen-group-select", multiple = "multiple", style = "width:250px;"})
-                        <br/>
-                        <div class="search-options">
-                            <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter" name="Writers"/>
-                            @Html.DropDownListFor(m => m.WritersOption, ViewBag.Options as SelectList,
-                                new {@class = " form-control", style = "width:100px;margin:15px;"})
-                        </div>
-                    </div>
-                </li>
-                <hr/>
-                <li>
-                    <div>
-                        <a>Year:</a>
-                        @Html.TextBoxFor(m => m.SelectedYear, new {@class = "form-control"})
-                        <div class="search-options">
-                            <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter" name="Year"/>
-                            <p class="search-checkbox">NOT</p>@Html.CheckBoxFor(m => m.YearOption, new {@class = "search-checkbox", style = "margin-top:30px; margin-left:5px;" })
-                        </div>
-                    </div>
-                </li>
-                <hr/>
-                <li>
-                    <div>
-                        <a>ISBN:</a>
-                        @Html.TextBoxFor(m => m.SelectedISBN, new {@class = "form-control"})
-                        <div class="search-options">
-                            <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter" name="ISBN"/>
-                            <p class="search-checkbox">NOT</p>@Html.CheckBoxFor(m => m.ISBNOption, new {@class = "search-checkbox", style = "margin-top:30px; margin-left:5px;" })
-                        </div>
-                    </div>
+                </div>
+            </li>
+            <hr/>
+            <li>
+                <div>
+                    <a>@Language_Books.Category:</a>
+                    @Html.DropDownListFor(m => m.SelectedCategory, ViewBag.Categories as SelectList,
+                        new {@class = "chosen-single-select form-control", id = "category", style = "width:250px"})
                     <br/>
-                </li>
-                <hr/>
-                <li>
-                    <div>
-                        <a></a>
-                        <div class="search-options">
-                            <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value="Filter All" name="All"/>
-                            @Html.DropDownListFor(m => m.AllOption, ViewBag.Options as SelectList,
-                                new {@class = " form-control", style = "width:100px;margin:15px;"})
-                        </div>
+                    <div class="search-options">
+                        <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value=@Language_Books.Filter name="Category"/>
+                        <p class="search-checkbox">@Language_Books.Not</p>@Html.CheckBoxFor(m => m.CategoryOption, new {@class = "search-checkbox", id = "categorycheckbox", style = "margin-top:30px; margin-left:5px;"})
                     </div>
+                </div>
+            </li>
+            <hr/>
+            <li>
+                <div>
+                    <a>@Language_Books.Labels:</a>
+                    @Html.ListBoxFor(m => m.SelectedLabels, ViewBag.Labels as SelectList,
+                        new {@class = "form-control chosen-group-select", multiple = "multiple", style = "width:250px;"})
                     <br/>
-                </li>
-                <hr/>
-                <li>
-                    <div>
-                        <a>Name:</a>
-                        @Html.TextBoxFor(m => m.SaveName, new {@class = "form-control"})
-                        <input type="submit" value="Save" class="btn btn-default form-control" name="Save"/>
-                        <br/><br/><br/><br/>
+                    <div class="search-options">
+                        <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value=@Language_Books.Filter name="Labels"/>
+                        @Html.DropDownListFor(m => m.LabelsOption, ViewBag.Options as SelectList,
+                            new {@class = " form-control", style = "width:100px; margin:15px;"})
                     </div>
-                </li>
-            </ul>
-        </div>
-    }
-    <div id="page-content-wrapper">
-        <div style="margin-bottom: 10px;">
-            <a href="#menu-toggle" class="btn btn-info" id="menu-toggle">Search</a>
-            @if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
-            {
-                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
-            }
-        </div>
-        @if (Model.Books.Any())
-        {
-            <table class="table">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Book.Title)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Book.Year)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Book.Labels)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Book.Category)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Book.Writers)
-                    </th>
-                    <th></th>
-                </tr>
-
-                @foreach (var item in Model.Books)
-                {
-                    <tr>
-                        <td style="word-wrap:break-word; max-width: 200px;">
-                            @Html.ActionLink(item.Title, "Details", "Books", new {id = item.BookID}, null)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Year)
-                        </td>
-                        <td>
-                            @{
-                                var labels = "";
-                                foreach (var itemLabel in item.Labels)
-                                {
-                                    labels += itemLabel.Label.Name + Environment.NewLine;
-                                }
-                            }
-                            <span style="white-space: pre-line"> @Html.Raw(labels)</span>
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Category.Name)
-                        </td>
-                        <td>
-                            @{
-                                var writers = "";
-                                foreach (var itemWriter in item.Writers)
-                                {
-                                    writers += itemWriter.Writer.Name.Substring(0, 1) + ". " + itemWriter.Writer.Surname + Environment.NewLine;
-                                }
-                            }
-                            <span style="white-space: pre-line">@Html.Raw(writers)</span>
-                        </td>
-
-                        <td>
-                            @if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
-                            {
-                                @Html.ActionLink("Edit", "Edit", new {id = item.BookID}, new {@class="btn btn-info"}) 
-                                @Html.ActionLink("Delete", "Delete", new {id = item.BookID}, new { @class = "btn btn-danger", style="margin-left: 5px;" })
-                            }
-                            @if (Request.IsAuthenticated)
-                            {
-                                  if (!BorrowLogic.IsCurrentlyBorrow(item.BookID, User.Identity.GetUserId()))
-                                  {
-                                    <span class="label label-warning">Already borrowed</span>
-                                  }
-                                  else if (!BorrowLogic.CanBookBeBorrow(item.BookID))
-                                  {
-                                    <span class="label label-danger">Not available</span>
-                                  }
-                                  else
-                                  {
-                                    @Html.ActionLink("Add to basket", "AddToBasket", "Books", new { bookid = item.BookID }, new { @class = "btn btn-info" })
-                                  }
-                            }
-                            
-                        </td>
-                    </tr>
-                }
-
-            </table>
-        }
-        else
-        {
-            <p>Nothing to show</p>
-        }
-
+                </div>
+            </li>
+            <hr/>
+            <li>
+                <div>
+                    <a>@Language_Books.Writers:</a>
+                    @Html.ListBoxFor(m => m.SelectedWriters, ViewBag.Writers as SelectList,
+                        new {@class = "chosen-group-select", multiple = "multiple", style = "width:250px;"})
+                    <br/>
+                    <div class="search-options">
+                        <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value=@Language_Books.Filter name="Writers"/>
+                        @Html.DropDownListFor(m => m.WritersOption, ViewBag.Options as SelectList,
+                            new {@class = " form-control", style = "width:100px;margin:15px;"})
+                    </div>
+                </div>
+            </li>
+            <hr/>
+            <li>
+                <div>
+                    <a>@Language_Books.Year:</a>
+                    @Html.TextBoxFor(m => m.SelectedYear, new {@class = "form-control"})
+                    <div class="search-options">
+                        <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value=@Language_Books.Filter name="Year"/>
+                        <p class="search-checkbox">@Language_Books.Not</p>@Html.CheckBoxFor(m => m.YearOption, new {@class = "search-checkbox", style = "margin-top:30px; margin-left:5px;"})
+                    </div>
+                </div>
+            </li>
+            <hr/>
+            <li>
+                <div>
+                    <a>ISBN:</a>
+                    @Html.TextBoxFor(m => m.SelectedISBN, new {@class = "form-control"})
+                    <div class="search-options">
+                        <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 100px;" value=@Language_Books.Filter name="ISBN"/>
+                        <p class="search-checkbox">@Language_Books.Not</p>@Html.CheckBoxFor(m => m.ISBNOption, new {@class = "search-checkbox", style = "margin-top:30px; margin-left:5px;"})
+                    </div>
+                </div>
+                <br/>
+            </li>
+            <hr/>
+            <li>
+                <div>
+                    <a></a>
+                    <div class="search-options">
+                        <input type="submit" class="btn btn-default form-control" style="margin-left: 10px; width: 120px;" value=@Language_Books.FilterAll name="All"/>
+                        @Html.DropDownListFor(m => m.AllOption, ViewBag.Options as SelectList,
+                            new {@class = " form-control", style = "width:100px;margin:15px;"})
+                    </div>
+                </div>
+                <br/>
+            </li>
+            <hr/>
+            <li>
+                <div>
+                    <a>@Language_Books.Name:</a>
+                    @Html.TextBoxFor(m => m.SaveName, new {@class = "form-control"})
+                    <input type="submit" value=@Language_Books.Save class="btn btn-default form-control" name="Save"/>
+                    <br/><br/><br/><br/>
+                </div>
+            </li>
+        </ul>
     </div>
+}
+<div id="page-content-wrapper">
+    <h2>@ViewBag.Title:</h2>
+    <br/>
+    <div style="margin-bottom: 10px;">
+        <a href="#menu-toggle" class="btn btn-info" id="menu-toggle" a>@Language_Books.Search</a>
+        @if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
+        {
+            @Html.ActionLink(Language_Books.CreateNew, "Create", null, new {@class = "btn btn-success"})
+        }
+    </div>
+    @if (Model.Books.Any())
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName(Language_Books.Title)
+                </th>
+                <th>
+                    @Html.DisplayName(Language_Books.Year)
+                </th>
+                <th>
+                    @Html.DisplayName(Language_Books.Labels)
+                </th>
+                <th>
+                    @Html.DisplayName(Language_Books.Category)
+                </th>
+                <th>
+                    @Html.DisplayName(Language_Books.Writers)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Books)
+            {
+                <tr>
+                    <td style="word-wrap: break-word; max-width: 200px;">
+                        @Html.ActionLink(item.Title, "Details", "Books", new {id = item.BookID}, null)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        @{
+                            var labels = "";
+                            foreach (var itemLabel in item.Labels)
+                            {
+                                labels += itemLabel.Label.Name + Environment.NewLine;
+                            }
+                        }
+                        <span style="white-space: pre-line"> @Html.Raw(labels)</span>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @{
+                            var writers = "";
+                            foreach (var itemWriter in item.Writers)
+                            {
+                                writers += itemWriter.Writer.Name.Substring(0, 1) + ". " + itemWriter.Writer.Surname + Environment.NewLine;
+                            }
+                        }
+                        <span style="white-space: pre-line">@Html.Raw(writers)</span>
+                    </td>
+
+                    <td>
+                        @if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
+                        {
+                            @Html.ActionLink(Language_Books.Edit, "Edit", new {id = item.BookID}, new {@class = "btn btn-info"})
+                            @Html.ActionLink(Language_Books.Delete, "Delete", new {id = item.BookID}, new {@class = "btn btn-danger", style = "margin-left: 5px;"})
+                        }
+                        @if (Request.IsAuthenticated)
+                        {
+                            if (!BorrowLogic.IsCurrentlyBorrow(item.BookID, User.Identity.GetUserId()))
+                            {
+                                <span class="label label-warning">@Language_Books.AlreadyBorrowed</span>
+                            }
+                            else if (!BorrowLogic.CanBookBeBorrow(item.BookID))
+                            {
+                                <span class="label label-danger">@Language_Books.NotAvailable</span>
+                            }
+                            else
+                            {
+                                @Html.ActionLink(Language_Books.AddToBasket, "AddToBasket", "Books", new {bookid = item.BookID}, new {@class = "btn btn-info"})
+                            }
+                        }
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+    else
+    {
+        <p>@Language_Books.NoBooks</p>
+    }
+
+</div>
 </div>
 
 @section Scripts {

@@ -1,29 +1,30 @@
-﻿@using Microsoft.AspNet.Identity
+﻿@using LibraryMVC.Resources
+@using Microsoft.AspNet.Identity
 @model LibraryMVC.Models.IndexViewModel
 @{
-    ViewBag.Title = "Manage";
+    ViewBag.Title = @Language_Manage.ManageYourAccount;
 }
 
-<h2>Manage your account</h2>
+<h2>@Language_Manage.ManageYourAccount.</h2>
     
 
 <div clas="list-group" style="margin-top:10px ">
         @if (Model.HasPassword)
         {
             <a href="@Url.Action("ChangePassword")" class="list-group-item">
-                    <p>Change Password</p>
+                    <p>@Language_Manage.ChangePassword</p>
             </a>
         }
         else
         {
             <a href="@Url.Action("SetPassword")" class="list-group-item">
-                    <p>Change Password</p>
+                    <p>@Language_Manage.ChangePassword</p>
             </a>
         }
         <a href="@Url.Action("UserIndex","Borrows", new { userid = User.Identity.GetUserId() },null)" class="list-group-item">
-                <p>Your borrows history</p>
+                <p>@Language_Manage.YourBorrowsHistory</p>
         </a>
         <a href="@Url.Action("UserIndex", "SearchHistories", new { userid = User.Identity.GetUserId() }, null)" class="list-group-item">
-                <p>Your saved search history</p> 
+                <p>@Language_Manage.YourSavedSearchHistory</p> 
         </a>
 </div>

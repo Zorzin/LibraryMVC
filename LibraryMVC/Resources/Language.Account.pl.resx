@@ -121,10 +121,10 @@
     <value>konto.</value>
   </data>
   <data name="AssociateYour" xml:space="preserve">
-    <value>Powiąrz</value>
+    <value>Powiąż</value>
   </data>
   <data name="AssociationForm" xml:space="preserve">
-    <value>Forumlarz powiązania</value>
+    <value>Formularz powiązania</value>
   </data>
   <data name="ClickHereToLogin" xml:space="preserve">
     <value>Kliknij tutaj aby się zalogować</value>
@@ -133,7 +133,7 @@
     <value>Kod</value>
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
-    <value>Potwierdz hasło</value>
+    <value>Potwierdź hasło</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Stwórz nowe konto</value>
@@ -145,7 +145,7 @@
     <value>Wprowdź kod weryfikacyjny</value>
   </data>
   <data name="EnterYourMail" xml:space="preserve">
-    <value>Wsprowadz swój email.</value>
+    <value>Wprowadz swój email.</value>
   </data>
   <data name="Forgot" xml:space="preserve">
     <value>Zapomniane hasło?</value>
@@ -178,16 +178,16 @@
     <value>Hasło</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Zarejestruj się jako nowy użytkownik</value>
+    <value>Rejestracja nowego użytkownika</value>
   </data>
   <data name="Register1" xml:space="preserve">
-    <value>Rejestracja</value>
+    <value>Zarejestruj</value>
   </data>
   <data name="RememberMe" xml:space="preserve">
     <value>Zapamiętać dane?</value>
   </data>
   <data name="Reset0" xml:space="preserve">
-    <value>Restuj hasło.</value>
+    <value>Resetuj hasło.</value>
   </data>
   <data name="Reset1" xml:space="preserve">
     <value>Reset</value>
@@ -202,7 +202,7 @@
     <value>Wybierz dwuetapowego dostawcę autentykacji.</value>
   </data>
   <data name="Send" xml:space="preserve">
-    <value>Wyśłij</value>
+    <value>Wyślij</value>
   </data>
   <data name="SendVerificationCode" xml:space="preserve">
     <value>Wyślij kod weryfikujący</value>
@@ -214,10 +214,10 @@
     <value>Nazwisko</value>
   </data>
   <data name="ThankYou" xml:space="preserve">
-    <value>Dziękujemy</value>
+    <value>Dziękujemy za rejestrację.</value>
   </data>
   <data name="ThankYouLong" xml:space="preserve">
-    <value>Dziękujemy za rejestrację. Teraz administrator musi aktywować Twoje konto.</value>
+    <value>Konto zostało założone. Teraz administrator musi aktywować Twoje konto.</value>
   </data>
   <data name="UseAlocalAccountToLogin" xml:space="preserve">
     <value>Użyj swojego konta aby się zalogować.</value>

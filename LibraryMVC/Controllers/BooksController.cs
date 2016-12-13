@@ -251,11 +251,26 @@ namespace LibraryMVC.Controllers
 
         private IEnumerable<Book> AllOr(List<IEnumerable<Book>> listofbooks)
         {
-            var books = listofbooks[0];
-            for (int i = 1; i < listofbooks.Count; i++)
+            IEnumerable<Book> books = null;
+            for (int i = 0; i < listofbooks.Count; i++)
             {
-                books = books.Union(listofbooks [i]).ToList();
+                if (listofbooks[i]!=null)
+                {
+                    books = listofbooks[i];
+                    break;
+                }
             }
+            if (books!=null)
+            {
+                for (int i = 1; i < listofbooks.Count; i++)
+                {
+                    if (listofbooks[i]!=null)
+                    {
+                        books = books.Union(listofbooks [i]).ToList();
+                    }
+                }
+            }
+            
             return books;
         }
         private IEnumerable<Book> AllAnd(List<IEnumerable<Book>> listofbooks)
@@ -286,7 +301,10 @@ namespace LibraryMVC.Controllers
             IEnumerable<Book> books = db.Books.ToList();
             for (int i = 0; i < listofbooks.Count; i++)
             {
-                books = books.Except(listofbooks [i]).ToList();
+                if (listofbooks[i]!=null)
+                {
+                    books = books.Except(listofbooks [i]).ToList();
+                }
             }
             return books;
         }
@@ -803,15 +821,7 @@ namespace LibraryMVC.Controllers
             }
 
             //Not valid
-            IEnumerable<SelectListItem> writers = from w in db.Writers
-                select new SelectListItem
-                {
-                    Value = w.WriterID.ToString(),
-                    Text = w.Name + " " + w.Surname
-                };
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name");
-            ViewBag.Writers = new SelectList(writers, "Value", "Text");
-            ViewBag.Labels = new SelectList(db.Labels, "LabelID", "Name");
+            SetViewBag();
             return View(bevm);
         }
 
@@ -882,6 +892,32 @@ namespace LibraryMVC.Controllers
                 basket.Books.Add(book);
             }
             return RedirectToAction("Index", "Basket");
+        }
+        [Authorize(Roles = "Worker")]
+        public int AddLabel(string name)
+        {
+            Label label = new Label()
+            {
+                Name = name
+            };
+            db.Labels.Add(label);
+            db.SaveChanges();
+            SetViewBag();
+            return label.LabelID;
+        }
+
+        [Authorize(Roles = "Worker")]
+        public int AddWriter(string name, string surname)
+        {
+            Writer writer = new Writer()
+            {
+                Name = name,
+                Surname = surname
+            };
+            db.Writers.Add(writer);
+            db.SaveChanges();
+            SetViewBag();
+            return writer.WriterID;
         }
     }
 }

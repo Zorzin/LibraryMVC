@@ -5,10 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title</h2>
-
-<ul>
-    <li>@Html.ActionLink("English", "Change", "Language", new { language = "en" }, null)</li>
-    <li>@Html.ActionLink("Polski", "Change", "Language", new { language = "pl" }, null)</li>
-    <li>@Html.ActionLink("český", "Change", "Language", new { language = "cz" }, null)</li>
-</ul>
+<h2>@ViewBag.Title:</h2>
+<div clas="list-group" style="margin-top: 10px">
+    <a href="@Url.Action("Change", "Language", new {language = "en"}, null)" class="list-group-item">
+        <p>English</p>
+    </a>
+    <a href="@Url.Action("Change", "Language", new {language = "pl"}, null)" class="list-group-item">
+        <p>Polski</p>
+    </a>
+    <a href="@Url.Action("Change", "Language", new {language = "cz"}, null)" class="list-group-item">
+        <p>český</p>
+    </a>
+</div>

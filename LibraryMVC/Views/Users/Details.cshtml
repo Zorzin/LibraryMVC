@@ -1,17 +1,17 @@
-﻿@model LibraryMVC.Models.User
+﻿@using LibraryMVC.Resources
+@model LibraryMVC.Models.User
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Language_User.UserDetails;
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title:</h2>
 
 <div>
-    <h4>User</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayName(Language_User.Name)
         </dt>
 
         <dd>
@@ -19,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Surname)
+            @Html.DisplayName(Language_User.Surname)
         </dt>
 
         <dd>
@@ -35,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EmailConfirmed)
+            @Html.DisplayName(Language_User.EmailConfirmed)
         </dt>
 
         <dd>
@@ -43,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.UserName)
+            @Html.DisplayName(Language_User.UserName)
         </dt>
 
         <dd>
@@ -53,6 +53,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Language_WorkerPanel.BackToList, "Index", null, new {@class = "btn btn-info"})
+    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new {id = Model.Id}, new {@class = "btn btn-info"})
 </p>

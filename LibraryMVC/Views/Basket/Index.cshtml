@@ -1,15 +1,16 @@
-﻿@model LibraryMVC.Models.Basket
+﻿@using LibraryMVC.Resources
+@model LibraryMVC.Models.Basket
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Language_Basket.Basket;
 }
 
-<h2>Basket</h2>
+<h2>@ViewBag.Title:</h2>
 @if (Model.Books.Any())
 {
     <table class="table">
         <tr>
-            <th>Title</th>
+            <th>@Language_Basket.Title</th>
             <th>ISBN</th>
             <th></th>
         </tr>
@@ -19,17 +20,17 @@
             <tr>
                 <td>@Html.DisplayName(item.Title)</td>
                 <td>@Html.DisplayName(item.ISBN)</td>
-                <td>@Html.ActionLink("Remove", "DeleteFromBasket", "Basket", new { bookid = item.BookID }, new { @class = "btn btn-danger" })</td> @*remove*@
+                <td>@Html.ActionLink(Language_Basket.Remove, "DeleteFromBasket", "Basket", new { bookid = item.BookID }, new { @class = "btn btn-danger" })</td> @*remove*@
             </tr>
         }
     </table>
 }
 else
 {
-    <p>Basket is empty</p>
+    <p>@Language_Basket.BasketIsEmpty.</p>
 }
 
 @if (Model.Books.Any())
 {
-    @Html.ActionLink("Borrow","Borrow","Basket",null,new {@class="btn btn-info"})
+    @Html.ActionLink(Language_Basket.Borrow,"Borrow","Basket",null, new {@class="btn btn-info"})
 }

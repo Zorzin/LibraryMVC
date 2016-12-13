@@ -5457,8 +5457,6 @@ button.list-group-item-danger.active:focus {
 }
 .panel-body {
   padding: 15px;
-    height: 200px;
-    width: 200px;
 }
 .panel-heading {
   padding: 10px 15px;
@@ -6782,7 +6780,7 @@ button.close {
     text-decoration: none;
 }
 
-@media (max-width: 995px) {
+@media (max-width: 1200px) {
   .navbar-header {
       float: none;
   }

@@ -349,7 +349,7 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thank You..
+        ///   Looks up a localized string similar to Thank you for registration..
         /// </summary>
         public static string ThankYou {
             get {
@@ -358,7 +358,7 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thank you for registration. Administration have to confirming your account..
+        ///   Looks up a localized string similar to Account has been created correctly. Administration have to confirming your account..
         /// </summary>
         public static string ThankYouLong {
             get {

@@ -133,7 +133,7 @@
     <value>Strona główna</value>
   </data>
   <data name="NewBookInCollection" xml:space="preserve">
-    <value>Nowa książka w naszej kolekcji!</value>
+    <value>Nowa książka już w naszej kolekcji!</value>
   </data>
   <data name="NewestTitles" xml:space="preserve">
     <value>Najnowsze tytuły!</value>

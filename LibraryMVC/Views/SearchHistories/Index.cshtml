@@ -1,19 +1,20 @@
-﻿@model IEnumerable<Library.Models.SearchHistory>
+﻿@using LibraryMVC.Resources
+@model IEnumerable<Library.Models.SearchHistory>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Language_Searches.SavedSearches;
 }
 
-<h2>Saved Searches</h2>
+<h2>@ViewBag.Title:</h2>
 @if (Model.Any())
 {
     <table class="table">
         <tr>
             <th>                
-                User
+                @Language_Searches.User
             </th>
             <th>
-                Name
+                @Language_Searches.Name
             </th>
             <th></th>
         </tr>
@@ -27,10 +28,10 @@
                     @item.Name
                 </td>
                 <td>
-                    @Html.ActionLink("Load", "Load", "Books", new { id = item.SearchHistoryID }, new { @class = "btn btn-success" })
-                    @Html.ActionLink("Edit", "Edit", new { id = item.SearchHistoryID }, new { @class = "btn btn-info" })
-                    @Html.ActionLink("Details", "Details", new { id = item.SearchHistoryID }, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.SearchHistoryID }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink(Language_Searches.Load, "Load", "Books", new { id = item.SearchHistoryID }, new { @class = "btn btn-success" })
+                    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new { id = item.SearchHistoryID }, new { @class = "btn btn-info" })
+                    @Html.ActionLink(Language_WorkerPanel.Details, "Details", new { id = item.SearchHistoryID }, new { @class = "btn btn-default" })
+                    @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new { id = item.SearchHistoryID }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }
@@ -38,6 +39,6 @@
 }
 else
 {
-<p> Anything saved anything yet.</p>
+<p>@Language_Searches.AnythingSavedYet</p>
 }
 

@@ -1,0 +1,47 @@
+﻿@using LibraryMVC.Resources
+@model LibraryMVC.Models.News
+
+@{
+    ViewBag.Title = @Language_News.Details;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h4>@Language_News.News</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName(@Language_News.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayName(@Language_News.Content)
+        </dt>
+
+        <dd>
+            <div style="word-wrap: break-word;">
+                @Html.DisplayFor(model => model.Content)
+            </div>
+            
+        </dd>
+
+        <dt>
+            @Html.DisplayName(@Language_News.AddDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink(@Language_News.BackToList, "Index", null, new { @class = "btn btn-info" })
+    @Html.ActionLink(@Language_News.Edit, "Edit", new {id = Model.NewsID}, new {@class = "btn btn-info"})
+
+</p>

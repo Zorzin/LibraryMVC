@@ -1,33 +1,41 @@
-﻿@model IEnumerable<Library.Models.Label>
+﻿@using LibraryMVC.Resources
+@model IEnumerable<Library.Models.Label>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Language_Books.Labels;
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title:</h2>
+@if (Model.Any())
+{
+    <p>
+        @Html.ActionLink(Language_Labels.CreateNew, "Create",null, new { @class = "btn btn-success" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName(Language_Labels.Name)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink(Language_WorkerPanel.Edit, "Edit", new {id = item.LabelID}, new { @class = "btn btn-info" })
+                    @Html.ActionLink(Language_WorkerPanel.Details, "Details", new {id = item.LabelID}, new { @class = "btn btn-info" })
+                    @Html.ActionLink(Language_WorkerPanel.Delete, "Delete", new {id = item.LabelID}, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LabelID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LabelID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.LabelID })
-        </td>
-    </tr>
+    </table>
 }
-
-</table>
+else
+{
+    <p>@Language_Books.NoLabels</p>
+}

@@ -1,17 +1,18 @@
-﻿@model IEnumerable<Library.Models.SearchHistory>
+﻿@using LibraryMVC.Resources
+@model IEnumerable<Library.Models.SearchHistory>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Language_Searches.SavedSearches;
 }
 
-<h2>Saved Searches</h2>
+<h2>@ViewBag.Title:</h2>
 @if (Model.Any())
 {
     <div class="list-group" style="margin-top:10px ">
 
         @foreach (var item in Model)
         {
-            <a href="@Url.Action("Load","Books",new {id=item.SearchHistoryID},null)" class="list-group-item">
+            <a href="@Url.Action(Language_Searches.Load,"Books",new {id=item.SearchHistoryID},null)" class="list-group-item">
                 @item.Name
             </a>
         }
@@ -20,6 +21,6 @@
 }
 else
 {
-<p> You don't saved anything yet.</p>
+<p>@Language_Searches.NoSearches.</p>
 }
 

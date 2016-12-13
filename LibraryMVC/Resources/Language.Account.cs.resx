@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="account" xml:space="preserve">
+    <value>účet.</value>
+  </data>
+  <data name="AssociateYour" xml:space="preserve">
+    <value>Lemovat</value>
+  </data>
+  <data name="AssociationForm" xml:space="preserve">
+    <value>Formulář vztahy</value>
+  </data>
+  <data name="ClickHereToLogin" xml:space="preserve">
+    <value>Klikněte zde pro přihlášení</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kód</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Potvrzení hesla</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Vytvořit nový účet</value>
+  </data>
+  <data name="EmailLink" xml:space="preserve">
+    <value>Odeslání e-mailu</value>
+  </data>
+  <data name="EnterVerificationCode" xml:space="preserve">
+    <value>Zadejte ověřovací kód</value>
+  </data>
+  <data name="EnterYourMail" xml:space="preserve">
+    <value>Zadejte ověřovací kód</value>
+  </data>
+  <data name="Forgot" xml:space="preserve">
+    <value>Zapomněli jste heslo?</value>
+  </data>
+  <data name="ForgotPC" xml:space="preserve">
+    <value>Heslo odesláno</value>
+  </data>
+  <data name="ForgotPCLong" xml:space="preserve">
+    <value>Zkontrolujte svůj e-mail pro resetování hesla.</value>
+  </data>
+  <data name="Invalid" xml:space="preserve">
+    <value>Neúspěšný pokus o přihlášení.</value>
+  </data>
+  <data name="Login0" xml:space="preserve">
+    <value>Přihlásit</value>
+  </data>
+  <data name="Login1" xml:space="preserve">
+    <value>přihlášení</value>
+  </data>
+  <data name="LoginFailure" xml:space="preserve">
+    <value>Přihlášení nesprávné.</value>
+  </data>
+  <data name="LoginFaliureLong" xml:space="preserve">
+    <value>Nepodařilo se přihlásit k webu.</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Heslo</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrace nového uživatele</value>
+  </data>
+  <data name="Register1" xml:space="preserve">
+    <value>Registrace</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Zapamatovat informace?</value>
+  </data>
+  <data name="Reset0" xml:space="preserve">
+    <value>Vytvořit nové heslo.</value>
+  </data>
+  <data name="Reset1" xml:space="preserve">
+    <value>Resetovat</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Resetování hesla.</value>
+  </data>
+  <data name="ResetPC" xml:space="preserve">
+    <value>Potvrzení resetování hesla</value>
+  </data>
+  <data name="SelectTwoFactorAuthProvider" xml:space="preserve">
+    <value>Vyberte zprostředkovatele ověřování ve dvou fázích.</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Odeslat</value>
+  </data>
+  <data name="SendVerificationCode" xml:space="preserve">
+    <value>Odeslat ověřovací kód</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Předložit</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="ThankYou" xml:space="preserve">
+    <value>Děkujeme za registraci.</value>
+  </data>
+  <data name="ThankYouLong" xml:space="preserve">
+    <value>Účet byl zřízen. Nyní musí správce aktivovat svůj účet.</value>
+  </data>
+  <data name="UseAlocalAccountToLogin" xml:space="preserve">
+    <value>Použijte svůj účet pro přihlášení.</value>
+  </data>
+  <data name="Verify" xml:space="preserve">
+    <value>Ověření</value>
+  </data>
+  <data name="YourPasswordHasBeenReset" xml:space="preserve">
+    <value>Vaše heslo bylo obnovit. Prosím</value>
+  </data>
+</root>

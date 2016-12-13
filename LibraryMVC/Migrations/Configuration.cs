@@ -1,3 +1,4 @@
+using Library.Models;
 using LibraryMVC.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
