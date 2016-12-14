@@ -19,7 +19,7 @@
             <div class="form-group">
                 @Html.Label(Model.AllRoles [i], new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.CheckBoxFor(m => m.CheckedRoles [i])
+                    @Html.CheckBoxFor(m => m.CheckedRoles [i], new {@data_toggle="toggle"})
                 </div>
             </div>
             <hr/>

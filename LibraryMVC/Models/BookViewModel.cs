@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using Library.Models;
+using LibraryMVC.Resources;
 using Label = Library.Models.Label;
 
 namespace LibraryMVC.Models
