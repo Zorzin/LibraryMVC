@@ -267,6 +267,10 @@
     <Compile Include="Migrations\201612082305185_News.Designer.cs">
       <DependentUpon>201612082305185_News.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612141748459_FinalSBD.cs" />
+    <Compile Include="Migrations\201612141748459_FinalSBD.Designer.cs">
+      <DependentUpon>201612141748459_FinalSBD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -703,6 +707,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612082305185_News.resx">
       <DependentUpon>201612082305185_News.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612141748459_FinalSBD.resx">
+      <DependentUpon>201612141748459_FinalSBD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Language.Account.cs.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
