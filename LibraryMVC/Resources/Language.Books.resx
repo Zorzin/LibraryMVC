@@ -231,4 +231,13 @@
   <data name="Remove" xml:space="preserve">
     <value>Remove</value>
   </data>
+  <data name="FileName" xml:space="preserve">
+    <value>File description</value>
+  </data>
+  <data name="FileValid" xml:space="preserve">
+    <value>Invalid extension, please select txt file</value>
+  </data>
+  <data name="FileSize" xml:space="preserve">
+    <value>Please select file smaller than 4MB</value>
+  </data>
 </root>

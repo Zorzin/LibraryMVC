@@ -9,6 +9,7 @@ namespace Library.Models
     public class Label
     {
         public int LabelID { get; set; }
+        [Required]
         public string Name { get; set; }
 
         public virtual ICollection<BookLabel> BookLabels { get; set; }

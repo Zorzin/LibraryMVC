@@ -131,7 +131,7 @@
 
         <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value=@Language_Books.Save class="btn btn-success" />
+                    <input id="upload" type="submit" value=@Language_Books.Save class="btn btn-success" />
                 </div>
             </div>
         </div>
@@ -152,7 +152,7 @@
     <script type="text/javascript">
 
         var maxid = 0;
-
+        var placeholder ="@Language_Books.FileName";
         $(document).ready(function () {
             $('.chosen-group-select').chosen();
             $('.chosen-single-select').chosen();
@@ -161,7 +161,7 @@
         $('#chagecontent')
             .click(function() {
                 $('#contentdiv').empty();
-                $('#contentdiv').append("<input type=\"file\" id=\"BookViewModel_Contents\" name=\"BookViewModel.Contents\">");
+                $('#contentdiv').append("<input type=\"file\" id=\"BookViewModel_Contents\" name=\"BookViewModel.Contents\" onchange = \" check_extension(this.value, \'upload\' );\">");
             });
 
         $('.removefilebutton')
@@ -174,7 +174,7 @@
 
         $('#addanotherfile').click(function () {
 
-            $('#addanotherfilediv').append("<div><div style=\"display: inline-flex\"><input type=\"file\" name=\"BookViewModel.Files[" + maxid + "]\">" + "<input type =\"text\" name=\"BookViewModel.FilesNames[" + maxid + "]\"/></div></div>");
+            $('#addanotherfilediv').append("<div><div style=\"display: inline-flex\"><input class=\"filevalid\" type=\"file\" name=\"BookViewModel.Files[" + maxid + "]\">" + "<input placeholder=\" " + placeholder + " \" type =\"text\" name=\"BookViewModel.FilesNames[" + maxid + "]\"/></div></div>");
             maxid += 1;
         });
 
@@ -254,7 +254,61 @@
                     $(".chosen-group-select").trigger("chosen:updated");
                 });
         }
+        var hash = {
+            '.txt': 1
+        };
 
+        function check_extension(filename, submitId) {
+            var re = /\..+$/;
+            var ext = filename.match(re);
+            var submitEl = document.getElementById(submitId);
+            if (hash[ext]) {
+                submitEl.disabled = false;
+                return true;
+            } else {
+                alert(" @Language_Books.FileValid ");
+                submitEl.disabled = true;
+
+                return false;
+            }
+        }
+
+        $(document)
+    .on('change',
+        '.filevalid',
+        function () {
+            var submitEl = document.getElementById('upload');
+            if (this.files.length == 1) {
+                var img = this.files[0].size;
+                var imgsize = img / 1024;
+                if (imgsize > 4096) {
+                    submitEl.disabled = true;
+                    alert(" @Language_Books.FileSize ");
+                } else {
+                    checkall();
+                }
+            } else {
+                checkall();
+            }
+        });
+
+
+        checkall = function () {
+            var all = true;
+            var submitEl = document.getElementById('upload');
+            $('.filevalid')
+                .each(function () {
+                    if (this.files.length == 1) {
+                        if ((this.files[0].size / 1024) > 4096) {
+                            all = false;
+                        }
+                    }
+                });
+
+            if (all == true) {
+                submitEl.disabled = false;
+            }
+        }
 
     </script>
 }

@@ -231,4 +231,13 @@
   <data name="Remove" xml:space="preserve">
     <value>Usuń</value>
   </data>
+  <data name="FileName" xml:space="preserve">
+    <value>Opis pliku</value>
+  </data>
+  <data name="FileValid" xml:space="preserve">
+    <value>Zły format, proszę wybrać plik txt</value>
+  </data>
+  <data name="FileSize" xml:space="preserve">
+    <value>Proszę wybrać plik mniejszy niż 4MB</value>
+  </data>
 </root>
