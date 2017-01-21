@@ -138,6 +138,9 @@
   <data name="Categories" xml:space="preserve">
     <value>Categories</value>
   </data>
+  <data name="ChangeValues" xml:space="preserve">
+    <value>Set borrows times</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
   </data>
@@ -152,6 +155,15 @@
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
+  </data>
+  <data name="MaxBooksToCollect" xml:space="preserve">
+    <value>Max books to collect in the same time[0 = infinity]</value>
+  </data>
+  <data name="MaxBorrows" xml:space="preserve">
+    <value>Max amount of borrowed books in the same time[0 = infinity]</value>
+  </data>
+  <data name="MaxBorrowTime" xml:space="preserve">
+    <value>Max time to borrow book[0 = infinity]</value>
   </data>
   <data name="NameRole" xml:space="preserve">
     <value>Role name</value>
@@ -170,6 +182,9 @@
   </data>
   <data name="Searches" xml:space="preserve">
     <value>Searches</value>
+  </data>
+  <data name="TimeToCollectBook" xml:space="preserve">
+    <value>Max time to collect book[0 = infinity]</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Users</value>

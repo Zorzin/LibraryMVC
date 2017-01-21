@@ -232,6 +232,7 @@
     <Compile Include="Controllers\BorrowsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
+    <Compile Include="Controllers\LibraryValuesController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\SearchHistoriesController.cs" />
     <Compile Include="Controllers\WorkerPanelController.cs" />
@@ -271,6 +272,10 @@
     <Compile Include="Migrations\201612141748459_FinalSBD.Designer.cs">
       <DependentUpon>201612141748459_FinalSBD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701212149066_Library Values.cs" />
+    <Compile Include="Migrations\201701212149066_Library Values.Designer.cs">
+      <DependentUpon>201701212149066_Library Values.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -283,6 +288,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\File.cs" />
+    <Compile Include="Models\LibraryValue.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
@@ -486,6 +492,47 @@
     <Content Include="App_Data\LibraryMVC_log.ldf">
       <DependentUpon>LibraryMVC.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\uploads\19\19_contents.jpg" />
+    <Content Include="App_Data\uploads\19\19_contents.txt" />
+    <Content Include="App_Data\uploads\19\Bez tytułu.jpg" />
+    <Content Include="App_Data\uploads\20\0_contents.txt" />
+    <Content Include="App_Data\uploads\20\format.jpg" />
+    <Content Include="App_Data\uploads\21\0_contents.txt" />
+    <Content Include="App_Data\uploads\22\0_contents.txt" />
+    <Content Include="App_Data\uploads\23\0_contents.txt" />
+    <Content Include="App_Data\uploads\24\0_contents.txt" />
+    <Content Include="App_Data\uploads\25\0_contents.txt" />
+    <Content Include="App_Data\uploads\26\26_contents.txt" />
+    <Content Include="App_Data\uploads\27\27_contents.txt" />
+    <Content Include="App_Data\uploads\28\28_contents.txt" />
+    <Content Include="App_Data\uploads\29\29_contents.txt" />
+    <Content Include="App_Data\uploads\29\slide2.jpg" />
+    <Content Include="App_Data\uploads\29\slide4.jpg" />
+    <Content Include="App_Data\uploads\30\30_contents.txt" />
+    <Content Include="App_Data\uploads\30\google.jpg" />
+    <Content Include="App_Data\uploads\30\slide2.jpg" />
+    <Content Include="App_Data\uploads\31\31_contents.txt" />
+    <Content Include="App_Data\uploads\32\32_contents.txt" />
+    <Content Include="App_Data\uploads\33\33_contents.txt" />
+    <Content Include="App_Data\uploads\34\34_contents.txt" />
+    <Content Include="App_Data\uploads\35\35_contents.txt" />
+    <Content Include="App_Data\uploads\36\36_contents.txt" />
+    <Content Include="App_Data\uploads\37\37_contents.txt" />
+    <Content Include="App_Data\uploads\37\metrookladka.jpg" />
+    <Content Include="App_Data\uploads\38\38_contents.txt" />
+    <Content Include="App_Data\uploads\39\39_contents.txt" />
+    <Content Include="App_Data\uploads\40\40_contents.txt" />
+    <Content Include="App_Data\uploads\41\41_contents.txt" />
+    <Content Include="App_Data\uploads\41\Manuscript_of_Pan_Tadeusz_8pl.jpg" />
+    <Content Include="App_Data\uploads\42\42_contents.txt" />
+    <Content Include="App_Data\uploads\43\43_contents.txt" />
+    <Content Include="App_Data\uploads\44\44_contents.txt" />
+    <Content Include="App_Data\uploads\44\jobs1.jpg" />
+    <Content Include="App_Data\uploads\44\jobs2.jpg" />
+    <Content Include="App_Data\uploads\44\jobs3.jpg" />
+    <Content Include="App_Data\uploads\45\45_contents.txt" />
+    <Content Include="App_Data\uploads\45\jobs1.jpg" />
+    <Content Include="App_Data\uploads\45\spisfuture.txt" />
     <Content Include="Content\bootstrap-toggle.css" />
     <Content Include="Content\bootstrap-toggle.min.css" />
     <Content Include="Content\bootstrap2-toggle.css" />
@@ -680,6 +727,7 @@
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\AdminPanel.cshtml" />
+    <Content Include="Views\LibraryValues\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -710,6 +758,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612141748459_FinalSBD.resx">
       <DependentUpon>201612141748459_FinalSBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701212149066_Library Values.resx">
+      <DependentUpon>201701212149066_Library Values.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Language.Account.cs.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

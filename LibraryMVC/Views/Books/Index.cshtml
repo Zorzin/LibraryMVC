@@ -195,6 +195,10 @@
                             {
                                 <span class="label label-danger">@Language_Books.NotAvailable</span>
                             }
+                            else if (!BorrowLogic.CanUserBorrow(User.Identity.GetUserId()))
+                            {
+                                <span class="label label-danger">@Language_Books.TooMuchBorrows</span>
+                            }
                             else
                             {
                                 @Html.ActionLink(Language_Books.AddToBasket, "AddToBasket", "Books", new {bookid = item.BookID}, new {@class = "btn btn-info"})

@@ -240,4 +240,7 @@
   <data name="FileSize" xml:space="preserve">
     <value>Proszę wybrać plik mniejszy niż 4MB</value>
   </data>
+  <data name="TooMuchBorrows" xml:space="preserve">
+    <value>Zbyt dużo wypożyczeń</value>
+  </data>
 </root>

@@ -240,4 +240,7 @@
   <data name="FileSize" xml:space="preserve">
     <value>Vyberte prosím soubor menší než 4MB</value>
   </data>
+  <data name="TooMuchBorrows" xml:space="preserve">
+    <value>Příliš mnoho úvěrů</value>
+  </data>
 </root>

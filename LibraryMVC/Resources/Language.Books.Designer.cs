@@ -403,6 +403,15 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Too much borrows.
+        /// </summary>
+        public static string TooMuchBorrows {
+            get {
+                return ResourceManager.GetString("TooMuchBorrows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Writer.
         /// </summary>
         public static string Writer {

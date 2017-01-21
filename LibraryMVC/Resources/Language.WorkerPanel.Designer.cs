@@ -124,6 +124,15 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set borrows times.
+        /// </summary>
+        public static string ChangeValues {
+            get {
+                return ResourceManager.GetString("ChangeValues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
         public static string Create {
@@ -165,6 +174,33 @@ namespace LibraryMVC.Resources {
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max books to collect in the same time[0 = infinity].
+        /// </summary>
+        public static string MaxBooksToCollect {
+            get {
+                return ResourceManager.GetString("MaxBooksToCollect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max amount of borrowed books in the same time[0 = infinity].
+        /// </summary>
+        public static string MaxBorrows {
+            get {
+                return ResourceManager.GetString("MaxBorrows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max time to borrow book[0 = infinity].
+        /// </summary>
+        public static string MaxBorrowTime {
+            get {
+                return ResourceManager.GetString("MaxBorrowTime", resourceCulture);
             }
         }
         
@@ -219,6 +255,15 @@ namespace LibraryMVC.Resources {
         public static string Searches {
             get {
                 return ResourceManager.GetString("Searches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max time to collect book[0 = infinity].
+        /// </summary>
+        public static string TimeToCollectBook {
+            get {
+                return ResourceManager.GetString("TimeToCollectBook", resourceCulture);
             }
         }
         

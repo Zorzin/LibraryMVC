@@ -138,6 +138,9 @@
   <data name="Categories" xml:space="preserve">
     <value>Kategorie</value>
   </data>
+  <data name="ChangeValues" xml:space="preserve">
+    <value>Ustaw czasy wypożyczeń</value>
+  </data>
   <data name="Create" xml:space="preserve">
     <value>Dodaj</value>
   </data>
@@ -152,6 +155,15 @@
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edytuj</value>
+  </data>
+  <data name="MaxBooksToCollect" xml:space="preserve">
+    <value>Maksymalny czas zapisanych książek w kolejce[0=nieskończoność]</value>
+  </data>
+  <data name="MaxBorrows" xml:space="preserve">
+    <value>Maksymalna ilość wypożyczonych książek[0=nieskończoność]</value>
+  </data>
+  <data name="MaxBorrowTime" xml:space="preserve">
+    <value>Maksymalny czas wypożyczenia książki[0=nieskończoność]</value>
   </data>
   <data name="NameRole" xml:space="preserve">
     <value>Nazwa uprawnienia</value>
@@ -170,6 +182,9 @@
   </data>
   <data name="Searches" xml:space="preserve">
     <value>Zapisane wyszukiwania</value>
+  </data>
+  <data name="TimeToCollectBook" xml:space="preserve">
+    <value>Maksymalny czas na odebranie książki[0=nieskończoność]</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Użytkownicy</value>

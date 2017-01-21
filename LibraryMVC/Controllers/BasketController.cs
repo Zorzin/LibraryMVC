@@ -49,6 +49,11 @@ namespace LibraryMVC.Controllers
                 {
                     return View("Error");
                 }
+                //is user can borrow more books
+                if (!BorrowLogic.CanUserBorrow(userid))
+                {
+                    return View("Error");
+                }
                 //Adding borrows to table
                 
                 var borrow = new Borrow()

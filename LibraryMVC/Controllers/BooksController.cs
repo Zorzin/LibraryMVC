@@ -73,13 +73,17 @@ namespace LibraryMVC.Controllers
                 ICollection<Book> orBooks = new List<Book>();
                 foreach (var searchwriter in writers)
                 {
-                    int writeritem = db.Writers.FirstOrDefault(w => w.WriterID == searchwriter).WriterID;
-                    var correctbooks = db.Books.Where(b => b.Writers.Any(bw => bw.WriterID == writeritem));
-                    foreach (var correctbook in correctbooks)
+                    var writer = db.Writers.FirstOrDefault(w => w.WriterID == searchwriter);
+                    if (writer != null)
                     {
-                        if (!books.Contains(correctbook))
+                        int writeritem = writer.WriterID;
+                        var correctbooks = db.Books.Where(b => b.Writers.Any(bw => bw.WriterID == writeritem));
+                        foreach (var correctbook in correctbooks)
                         {
-                            orBooks.Add(correctbook);
+                            if (!books.Contains(correctbook))
+                            {
+                                orBooks.Add(correctbook);
+                            }
                         }
                     }
                 }
@@ -90,13 +94,17 @@ namespace LibraryMVC.Controllers
                 foreach (var searchwriter in writers)
                 {
                     List<Book> localbooks = new List<Book>();
-                    int writeritem = db.Writers.FirstOrDefault(w => w.WriterID == searchwriter).WriterID;
-                    var correctbooks = db.Books.Where(b => b.Writers.Any(bw => bw.WriterID == writeritem));
-                    foreach (var correctbook in correctbooks)
+                    var writer = db.Writers.FirstOrDefault(w => w.WriterID == searchwriter);
+                    if (writer != null)
                     {
-                        if (!books.Contains(correctbook))
+                        int writeritem = writer.WriterID;
+                        var correctbooks = db.Books.Where(b => b.Writers.Any(bw => bw.WriterID == writeritem));
+                        foreach (var correctbook in correctbooks)
                         {
-                            localbooks.Add(correctbook);
+                            if (!books.Contains(correctbook))
+                            {
+                                localbooks.Add(correctbook);
+                            }
                         }
                     }
                     listofbooks.Add(localbooks);
@@ -113,13 +121,17 @@ namespace LibraryMVC.Controllers
                 ICollection<Book> notBooks = new List<Book>();
                 foreach (var searchwriter in writers)
                 {
-                    int writeritem = db.Writers.FirstOrDefault(w => w.WriterID == searchwriter).WriterID;
-                    var correctbooks = db.Books.Where(b => b.Writers.Any(bw => bw.WriterID == writeritem));
-                    foreach (var correctbook in correctbooks)
+                    var writer = db.Writers.FirstOrDefault(w => w.WriterID == searchwriter);
+                    if (writer != null)
                     {
-                        if (!books.Contains(correctbook))
+                        int writeritem = writer.WriterID;
+                        var correctbooks = db.Books.Where(b => b.Writers.Any(bw => bw.WriterID == writeritem));
+                        foreach (var correctbook in correctbooks)
                         {
-                            notBooks.Add(correctbook);
+                            if (!books.Contains(correctbook))
+                            {
+                                notBooks.Add(correctbook);
+                            }
                         }
                     }
                 }
@@ -137,13 +149,17 @@ namespace LibraryMVC.Controllers
                 ICollection<Book> orBooks = new List<Book>();
                 foreach (var searchlabel in labels)
                 {
-                    int labelitem = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel).LabelID;
-                    var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
-                    foreach (var correctbook in correctbooks)
+                    var label = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel);
+                    if (label != null)
                     {
-                        if (!books.Contains(correctbook))
+                        int labelitem = label.LabelID;
+                        var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
+                        foreach (var correctbook in correctbooks)
                         {
-                            orBooks.Add(correctbook);
+                            if (!books.Contains(correctbook))
+                            {
+                                orBooks.Add(correctbook);
+                            }
                         }
                     }
                 }
@@ -154,13 +170,17 @@ namespace LibraryMVC.Controllers
                 foreach (var searchlabel in labels)
                 {
                     List<Book> localbooks = new List<Book>();
-                    int labelitem = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel).LabelID;
-                    var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
-                    foreach (var correctbook in correctbooks)
+                    var label = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel);
+                    if (label != null)
                     {
-                        if (!localbooks.Contains(correctbook))
+                        int labelitem = label.LabelID;
+                        var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
+                        foreach (var correctbook in correctbooks)
                         {
-                            localbooks.Add(correctbook);
+                            if (!localbooks.Contains(correctbook))
+                            {
+                                localbooks.Add(correctbook);
+                            }
                         }
                     }
                     listofbooks.Add(localbooks);
@@ -176,13 +196,17 @@ namespace LibraryMVC.Controllers
                 ICollection<Book> notBooks = new List<Book>();
                 foreach (var searchlabel in labels)
                 {
-                    int labelitem = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel).LabelID;
-                    var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
-                    foreach (var correctbook in correctbooks)
+                    var label = db.Labels.FirstOrDefault(l => l.LabelID == searchlabel);
+                    if (label != null)
                     {
-                        if (!books.Contains(correctbook))
+                        int labelitem = label.LabelID;
+                        var correctbooks = db.Books.Where(b => b.Labels.Any(bw => bw.Label.LabelID == labelitem));
+                        foreach (var correctbook in correctbooks)
                         {
-                            notBooks.Add(correctbook);
+                            if (!books.Contains(correctbook))
+                            {
+                                notBooks.Add(correctbook);
+                            }
                         }
                     }
                 }

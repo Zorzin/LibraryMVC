@@ -12,7 +12,7 @@
 
         @foreach (var item in Model)
         {
-            <a href="@Url.Action(Language_Searches.Load,"Books",new {id=item.SearchHistoryID},null)" class="list-group-item">
+            <a href="@Url.Action("Load","Books",new {id=item.SearchHistoryID},null)" class="list-group-item">
                 @item.Name
             </a>
         }

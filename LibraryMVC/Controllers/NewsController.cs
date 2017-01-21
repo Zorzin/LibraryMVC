@@ -17,7 +17,7 @@ namespace LibraryMVC.Controllers
         // GET: News
         public ActionResult Index()
         {
-            return View(db.News.ToList());
+            return View(db.News.ToList().OrderByDescending(b=>b.AddDate));
         }
 
         [Authorize(Roles = "Worker")]
@@ -30,7 +30,7 @@ namespace LibraryMVC.Controllers
         [Authorize(Roles = "Worker")]
         public ActionResult AdminPanel()
         {
-            return View(db.News.ToList());
+            return View(db.News.ToList().OrderByDescending(b => b.AddDate));
         }
         // POST: News/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

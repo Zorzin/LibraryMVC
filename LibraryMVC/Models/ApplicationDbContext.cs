@@ -25,6 +25,7 @@ namespace LibraryMVC.Models
         public DbSet<SearchHistory> SearchHistories { get; set; }
         public DbSet<File> Files { get; set; }
         public DbSet<News> News { get; set; }
+        public DbSet<LibraryValue> LibraryValues { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

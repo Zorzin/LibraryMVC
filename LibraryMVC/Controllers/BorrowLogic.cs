@@ -30,5 +30,16 @@ namespace LibraryMVC.Controllers
             }
             return false;
         }
+
+        public static bool CanUserBorrow(string userId)
+        {
+            var maxborrows = db.LibraryValues.Find(1).MaxBorrows;
+            var userborrows = db.Borrows.Where(b=>b.ReturnDate<b.BorrowDate && b.ReaderID == userId).ToList();
+            if (userborrows.Count < maxborrows || maxborrows == 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
