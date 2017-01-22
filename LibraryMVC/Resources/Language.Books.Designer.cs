@@ -151,6 +151,24 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Books in stock.
+        /// </summary>
+        public static string BooksStock {
+            get {
+                return ResourceManager.GetString("BooksStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Borrowed.
+        /// </summary>
+        public static string Borrowed {
+            get {
+                return ResourceManager.GetString("Borrowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string Category {

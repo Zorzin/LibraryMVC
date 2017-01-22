@@ -243,4 +243,10 @@
   <data name="TooMuchBorrows" xml:space="preserve">
     <value>Zbyt dużo wypożyczeń</value>
   </data>
+  <data name="Borrowed" xml:space="preserve">
+    <value>Wypożyczone</value>
+  </data>
+  <data name="BooksStock" xml:space="preserve">
+    <value>Książki na stanie</value>
+  </data>
 </root>

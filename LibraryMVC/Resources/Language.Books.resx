@@ -243,4 +243,10 @@
   <data name="TooMuchBorrows" xml:space="preserve">
     <value>Too much borrows</value>
   </data>
+  <data name="Borrowed" xml:space="preserve">
+    <value>Borrowed</value>
+  </data>
+  <data name="BooksStock" xml:space="preserve">
+    <value>Books in stock</value>
+  </data>
 </root>

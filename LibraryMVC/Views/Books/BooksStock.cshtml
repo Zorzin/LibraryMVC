@@ -1,0 +1,45 @@
+﻿@using LibraryMVC.Resources
+@model IEnumerable<LibraryMVC.Models.BooksStockViewModel>
+
+@{
+    ViewBag.Title = "BooksStock";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </th>
+        <th>
+            @Html.DisplayName(Language_Books.Title)
+        </th>
+        <th>
+            @Html.DisplayName(Language_Books.Amount)
+        </th>
+        <th>
+            @Html.DisplayName(Language_Books.Borrowed)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISBN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Borrowed)
+        </td>
+        <td>
+            @Html.ActionLink(@Language_Books.Edit, "Edit","Books", new { id=item.Id },null)
+        </td>
+    </tr>
+}
+
+</table>

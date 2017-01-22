@@ -282,6 +282,7 @@
     <Compile Include="Models\Basket.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookLabel.cs" />
+    <Compile Include="Models\BooksStockViewModel.cs" />
     <Compile Include="Models\BookViewModel.cs" />
     <Compile Include="Models\BookWriter.cs" />
     <Compile Include="Models\Borrow.cs" />
@@ -728,6 +729,7 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\AdminPanel.cshtml" />
     <Content Include="Views\LibraryValues\Edit.cshtml" />
+    <Content Include="Views\Books\BooksStock.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

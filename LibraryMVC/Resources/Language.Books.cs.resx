@@ -243,4 +243,10 @@
   <data name="TooMuchBorrows" xml:space="preserve">
     <value>Příliš mnoho úvěrů</value>
   </data>
+  <data name="Borrowed" xml:space="preserve">
+    <value>Půjčka</value>
+  </data>
+  <data name="BooksStock" xml:space="preserve">
+    <value>Knihy skladem</value>
+  </data>
 </root>

@@ -849,6 +849,26 @@ namespace LibraryMVC.Controllers
             return View(bevm);
         }
 
+        [HttpGet]
+        public ActionResult BooksStock()
+        {
+            var stocklist = new List<BooksStockViewModel>();
+            var books = db.Books.ToList();
+            foreach (var book in books)
+            {
+                var borrowed = db.Borrows.Where(b => b.BookID == book.BookID && b.ReturnDate < b.BorrowDate).ToList().Count;
+                var bookstock = new BooksStockViewModel()
+                {
+                    Amount = book.Amount,
+                    Id = book.BookID,
+                    ISBN = book.ISBN,
+                    Title = book.Title,
+                    Borrowed = borrowed
+                };
+                stocklist.Add(bookstock);
+            }
+            return View(stocklist);
+        }
         // GET: Books/Delete/5
 
         [Authorize(Roles = "Worker")]

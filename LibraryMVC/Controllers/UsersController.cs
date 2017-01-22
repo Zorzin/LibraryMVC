@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using LibraryMVC.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LibraryMVC.Controllers
 {
@@ -106,9 +107,30 @@ namespace LibraryMVC.Controllers
         }
 
         // GET: Users
+        [Authorize(Roles = "Worker")]   
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            var users = db.Users.ToList();
+            if (!User.IsInRole("Admin"))
+            {
+                users.Clear();
+                var userRole = db.Roles.FirstOrDefault(r => r.Name == "User");
+                var adminRole = db.Roles.FirstOrDefault(r => r.Name == "Admin");
+                var workerRole = db.Roles.FirstOrDefault(r => r.Name == "Worker");
+
+                foreach (var user in userRole.Users.ToList())
+                {
+                    if (adminRole.Users.All(u => u.UserId != user.UserId))
+                    {
+                        if (workerRole.Users.All(u=>u.UserId !=user.UserId))
+                        {
+                            users.Add(db.Users.FirstOrDefault(u=>u.Id == user.UserId));
+                        }
+                    }
+                }
+            }
+
+            return View(users);
         }
 
         // GET: Users/Details/5

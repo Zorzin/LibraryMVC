@@ -7,13 +7,14 @@
 <div class="list-group" style="margin-top:10px ">
     @if (Roles.IsUserInRole(User.Identity.Name, "Admin"))
     {
-        <a href="@Url.Action("Index","Users")" class="list-group-item">@Language_WorkerPanel.Users</a>
         <a href="@Url.Action("AddToRole","Users")" class="list-group-item">@Language_WorkerPanel.AddUserToRole</a>
         <a href="@Url.Action("CreateRole","Users")" class="list-group-item">@Language_WorkerPanel.CreateNewRole</a>
         <a href="@Url.Action("Edit","LibraryValues")" class="list-group-item">@Language_WorkerPanel.ChangeValues</a>
+        <a href="@Url.Action("BooksStock","Books")" class="list-group-item">@Language_Books.BooksStock</a>
     }
     @if (Roles.IsUserInRole(User.Identity.Name, "Worker"))
     {
+        <a href="@Url.Action("Index","Users")" class="list-group-item">@Language_WorkerPanel.Users</a>
         <a href="@Url.Action("PendingRegistration", "Users")" class="list-group-item">
             @Language_WorkerPanel.PendingRegistrations
             <span class="badge alert-danger" style="float: none">@Model.Count()</span>
