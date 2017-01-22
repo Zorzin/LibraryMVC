@@ -123,6 +123,9 @@
   <data name="BasketIsEmpty" xml:space="preserve">
     <value>Košík je prázdný</value>
   </data>
+  <data name="BookCurrentlyBorrowed" xml:space="preserve">
+    <value>Kniha je v současné době vypůjčené vy</value>
+  </data>
   <data name="BookHasBeenBorrow" xml:space="preserve">
     <value>Kniha byla vypůjčená</value>
   </data>
@@ -147,8 +150,14 @@
   <data name="EditBorrow" xml:space="preserve">
     <value>Editovat půjčovna</value>
   </data>
+  <data name="ErrorWhileBorrowing" xml:space="preserve">
+    <value>Zatímco pronájem došlo k chybě:</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Kdo půjčil?</value>
+  </data>
+  <data name="NoBooksLeft" xml:space="preserve">
+    <value>Nedostatek knih na skladě</value>
   </data>
   <data name="NoBorrowHistory" xml:space="preserve">
     <value>Historie půjček je prázdný</value>
@@ -167,6 +176,9 @@
   </data>
   <data name="Title" xml:space="preserve">
     <value>Nadpis</value>
+  </data>
+  <data name="TooMuchBooks" xml:space="preserve">
+    <value>Dosaženo limitu vypůjčených knih</value>
   </data>
   <data name="YourBorrows" xml:space="preserve">
     <value>Váš úvěr</value>

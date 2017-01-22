@@ -123,6 +123,9 @@
   <data name="BasketIsEmpty" xml:space="preserve">
     <value>Koszyk jest pusty</value>
   </data>
+  <data name="BookCurrentlyBorrowed" xml:space="preserve">
+    <value>Książka jest już aktualnie wypożyczona przez Ciebie</value>
+  </data>
   <data name="BookHasBeenBorrow" xml:space="preserve">
     <value>Książka została wypożyczona</value>
   </data>
@@ -147,8 +150,14 @@
   <data name="EditBorrow" xml:space="preserve">
     <value>Edycja wypożyczenia</value>
   </data>
+  <data name="ErrorWhileBorrowing" xml:space="preserve">
+    <value>Wystąpił błąd podczas wypożyczania:</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Kto wypożyczył?</value>
+  </data>
+  <data name="NoBooksLeft" xml:space="preserve">
+    <value>Brak książek na stanie.</value>
   </data>
   <data name="NoBorrowHistory" xml:space="preserve">
     <value>Historia wypożyczeń jest pusta</value>
@@ -167,6 +176,9 @@
   </data>
   <data name="Title" xml:space="preserve">
     <value>Tytuł</value>
+  </data>
+  <data name="TooMuchBooks" xml:space="preserve">
+    <value>Osiągnięty limit książek wypożyczonych.</value>
   </data>
   <data name="YourBorrows" xml:space="preserve">
     <value>Twoje wypożyczenia</value>

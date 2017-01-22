@@ -79,6 +79,15 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Book is currently borrowed by you..
+        /// </summary>
+        public static string BookCurrentlyBorrowed {
+            get {
+                return ResourceManager.GetString("BookCurrentlyBorrowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Book has been borrow successfully.
         /// </summary>
         public static string BookHasBeenBorrow {
@@ -151,11 +160,29 @@ namespace LibraryMVC.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An error occurred while renting:.
+        /// </summary>
+        public static string ErrorWhileBorrowing {
+            get {
+                return ResourceManager.GetString("ErrorWhileBorrowing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Who borrow?.
         /// </summary>
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There&apos;s no books left already..
+        /// </summary>
+        public static string NoBooksLeft {
+            get {
+                return ResourceManager.GetString("NoBooksLeft", resourceCulture);
             }
         }
         
@@ -210,6 +237,15 @@ namespace LibraryMVC.Resources {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You borrowed already too much books..
+        /// </summary>
+        public static string TooMuchBooks {
+            get {
+                return ResourceManager.GetString("TooMuchBooks", resourceCulture);
             }
         }
         

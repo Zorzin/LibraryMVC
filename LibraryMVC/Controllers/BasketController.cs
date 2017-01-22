@@ -42,17 +42,20 @@ namespace LibraryMVC.Controllers
                 //is there any book left to borrow
                 if (!BorrowLogic.CanBookBeBorrow(book.BookID))
                 {
-                    return View("Error");
+                    Session ["basket"] = null;
+                    return RedirectToAction("ErrorNoBookLeft","Basket",new {bookid=book.BookID});
                 }
                 //is user currently borrow this book
                 if (!BorrowLogic.IsCurrentlyBorrow(book.BookID,userid))
                 {
-                    return View("Error");
+                    Session ["basket"] = null;
+                    return RedirectToAction("ErrorBookCurrentBorrowed", "Basket", new { bookid = book.BookID });
                 }
                 //is user can borrow more books
                 if (!BorrowLogic.CanUserBorrow(userid))
                 {
-                    return View("Error");
+                    Session ["basket"] = null;
+                    return RedirectToAction("ErrorTooMuchBooks", "Basket", new { bookid = book.BookID });
                 }
                 //Adding borrows to table
                 
@@ -73,7 +76,23 @@ namespace LibraryMVC.Controllers
             return View();
         }
 
+        public ActionResult ErrorNoBookLeft(int bookid)
+        {
+            var book = db.Books.FirstOrDefault(b => b.BookID == bookid);
+            return View(book);
+        }
 
+        public ActionResult ErrorBookCurrentBorrowed(int bookid)
+        {
+            var book = db.Books.FirstOrDefault(b => b.BookID == bookid);
+            return View(book);
+        }
+
+        public ActionResult ErrorTooMuchBooks(int bookid)
+        {
+            var book = db.Books.FirstOrDefault(b => b.BookID == bookid);
+            return View(book);
+        }
 
         public ActionResult DeleteFromBasket(string bookid)
         {

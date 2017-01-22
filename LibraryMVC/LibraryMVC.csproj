@@ -730,6 +730,9 @@
     <Content Include="Views\News\AdminPanel.cshtml" />
     <Content Include="Views\LibraryValues\Edit.cshtml" />
     <Content Include="Views\Books\BooksStock.cshtml" />
+    <Content Include="Views\Basket\ErrorNoBookLeft.cshtml" />
+    <Content Include="Views\Basket\ErrorBookCurrentBorrowed.cshtml" />
+    <Content Include="Views\Basket\ErrorTooMuchBooks.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
