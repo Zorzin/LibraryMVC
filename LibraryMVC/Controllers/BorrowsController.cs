@@ -74,8 +74,14 @@ namespace LibraryMVC.Controllers
                 return RedirectToAction("Index");
             }
 
+            IEnumerable<SelectListItem> readers = from w in db.Users
+                                                  select new SelectListItem
+                                                  {
+                                                      Value = w.Id,
+                                                      Text = w.Name + " " + w.Surname + "("+w.Email+")"
+                                                  };
             ViewBag.BookID = new SelectList(db.Books, "BookID", "Title", borrow.BookID);
-            ViewBag.ReaderID = new SelectList(db.Users, "Id", "Name", borrow.ReaderID);
+            ViewBag.ReaderID = new SelectList(readers, "Value", "Text", borrow.ReaderID);
             return View(borrow);
         }
 
@@ -92,8 +98,14 @@ namespace LibraryMVC.Controllers
             {
                 return HttpNotFound();
             }
+            IEnumerable<SelectListItem> readers = from w in db.Users
+                                                  select new SelectListItem
+                                                  {
+                                                      Value = w.Id,
+                                                      Text = w.Name + " " + w.Surname + "("+w.Email+")"
+                                                  };
             ViewBag.BookID = new SelectList(db.Books, "BookID", "Title", borrow.BookID);
-            ViewBag.ReaderID = new SelectList(db.Users, "Id", "Name", borrow.ReaderID);
+            ViewBag.ReaderID = new SelectList(readers, "Value", "Text", borrow.ReaderID);
             ViewBag.StatusList = new SelectList(BorrowLogic.BorrowStatus);
             
             return View(borrow);
@@ -122,8 +134,14 @@ namespace LibraryMVC.Controllers
                 }
                 return RedirectToAction("Index");
             }
+            IEnumerable<SelectListItem> readers = from w in db.Users
+                                                  select new SelectListItem
+                                                  {
+                                                      Value = w.Id,
+                                                      Text = w.Name + " " + w.Surname + "("+w.Email+")"
+                                                  };
             ViewBag.BookID = new SelectList(db.Books, "BookID", "Title", borrow.BookID);
-            ViewBag.ReaderID = new SelectList(db.Users, "Id", "Name", borrow.ReaderID);
+            ViewBag.ReaderID = new SelectList(readers, "Value", "Text", borrow.ReaderID);
             ViewBag.StatusList = new SelectList(BorrowLogic.BorrowStatus);
             ViewBag.previuosstatus = borrow.Status;
             return View(borrow);

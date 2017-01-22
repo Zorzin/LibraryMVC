@@ -9,7 +9,7 @@ namespace LibraryMVC.Controllers
     public static class BorrowLogic
     {
         private static readonly ApplicationDbContext db = new ApplicationDbContext();
-        public static ICollection<string> BorrowStatus = new List<string>() {"Book in store","Book ready to receive","Borrowed"};
+        public static ICollection<string> BorrowStatus = new List<string>() {"Book in store","Book ready to receive","Borrowed","Returned"};
         public static bool IsCurrentlyBorrow(int bookid, string userid)
         {
             var borrow = db.Borrows.Where(b => b.ReaderID == userid && b.BookID == bookid).ToList();
