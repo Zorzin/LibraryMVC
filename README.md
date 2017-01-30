@@ -3,17 +3,17 @@ Online library project in ASP.NET MVC made for university classes.
 Application have admin and worker panel.
 Appliaction support 3 languages: Polish, English and Czech.
 Functionalities:
- - Adding books to cart
- - Books search after all the attributes with logical operators
- - Download additional files delivered to books
- - Reading the table of contents of books (loaded to page from txt file)
- - Saving specific searches
- - Add, edit, delete books
- - Management of borrows, users
- - Full crud of category, labels, writers
- - Adding news by admin
- - Change the status of borrow
- - Lock on the maximum number of books borrowed
+- Adding books to cart
+- Books search after all the attributes with logical operators
+- Download additional files delivered to books
+- Reading the table of contents of books (loaded to page from txt file)
+- Saving specific searches
+- Add, edit, delete books
+- Management of borrows, users
+- Full crud of category, labels, writers
+- Adding news by admin
+- Change the status of borrow
+- Lock on the maximum number of books borrowed
 
 # LibraryMVC
 Internetowa biblioteka.
